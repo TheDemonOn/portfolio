@@ -1,0 +1,11 @@
+@font-face {
+  font-family: 'AdobeCleanUX-SemiLight';
+  src: url('AdobeCleanUX-SemiLight.eot');
+  src: url('AdobeCleanUX-SemiLight.eot?#iefix') format('embedded-opentype'),
+       url('AdobeCleanUX-SemiLight.svg#AdobeCleanUX-SemiLight') format('svg'),
+       url('AdobeCleanUX-SemiLight.ttf') format('truetype'),
+       url('AdobeCleanUX-SemiLight.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+

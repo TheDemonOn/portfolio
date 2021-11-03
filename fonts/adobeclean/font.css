@@ -1,0 +1,11 @@
+@font-face {
+  font-family: 'AdobeClean-Regular';
+  src: url('AdobeClean-Regular.eot');
+  src: url('AdobeClean-Regular.eot?#iefix') format('embedded-opentype'),
+       url('AdobeClean-Regular.svg#AdobeClean-Regular') format('svg'),
+       url('AdobeClean-Regular.ttf') format('truetype'),
+       url('AdobeClean-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
