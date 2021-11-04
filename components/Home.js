@@ -14,6 +14,7 @@ export default function Home() {
 			<SectionContent content="I have experience taking web designs and turning them into reality." />
 			<SectionContent content="I love video games and DnD!" />
 			<SectionsTitle content="projects" id="projects" />
+			<SectionContent content="Lorem ipsum." />
 			<SectionsTitle content="contact" id="contact" />
 			<SectionContent content="My email is: zamora88875@gmail.com" />
 		</div>

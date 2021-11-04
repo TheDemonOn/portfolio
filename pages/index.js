@@ -6,6 +6,7 @@ import WordGenerator from '../components/WordGenerator'
 import Autojack from '../components/Autojack'
 import RandomTest from '../components/RandomTest'
 import Portfolio from '../components/Portfolio'
+import Tab from '../components/Tab'
 
 export default function Index() {
 	// The index will contain elements that are always there
@@ -16,6 +17,17 @@ export default function Index() {
 	const [selectedTab, setSelectedTab] = useState(['home', 0])
 	const [displayedTab, setDisplayedTab] = useState(0)
 	const [title, setTitle] = useState()
+
+	const [activeTab, setActiveTab] = useState('yellow')
+	const [inactiveTab, setInactiveTab] = useState('grey')
+
+	const [homeClass, setHomeClass] = useState(activeTab)
+	const [wordGeneratorClass, setWordGeneratorClass] = useState(inactiveTab)
+	const [autojackClass, setAutojackClass] = useState(inactiveTab)
+	const [randomTestClass, setRandomTestClass] = useState(inactiveTab)
+	const [portfolioClass, setPortfolioClass] = useState(inactiveTab)
+
+	const [headerTabs, setHeaderTabs] = useState([])
 
 	const switchTabCheck = (e) => {
 		let tab = e.target.className
@@ -94,7 +106,7 @@ export default function Index() {
 	let randomSection
 	const [navRandomSection, setNavRandomSection] = useState(emptySection)
 	let portfolioSection
-	const [navPortfolio, setNavPortfolio] = useState(emptySection)
+	const [navPortfolioSection, setNavPortfolioSection] = useState(emptySection)
 
 	useEffect(() => {
 		if (typeof selectedTab[1].target !== 'undefined') {
@@ -111,47 +123,118 @@ export default function Index() {
 		element.scrollIntoView({ behavior: 'smooth', block: 'center' })
 	}
 
+	const tabFocusCheck = (id) => {
+		console.log(id)
+		if (
+			typeof document.getElementById(id) !== 'undefined' &&
+			document.getElementById(id) !== null
+		) {
+			let e = document.getElementById(id)
+
+			let prevClass = e.className
+			if (prevClass === 'tab') {
+				e.className = 'focusedTab'
+			}
+		}
+	}
+
+	const inactiveTabfunc = (active) => {
+		if (active !== 'home') {
+			setHomeClass(inactiveTab)
+			tabFocusCheck('homeTab')
+			console.log('home focus check')
+		}
+		if (active !== 'wordGenerator') {
+			setWordGeneratorClass(inactiveTab)
+			tabFocusCheck('wordGeneratorTab')
+		}
+		if (active !== 'autojack') {
+			setAutojackClass(inactiveTab)
+			tabFocusCheck('autojackTab')
+		}
+		if (active !== 'randomTest') {
+			setRandomTestClass(inactiveTab)
+			tabFocusCheck('randomTestTab')
+		}
+		if (active !== 'portfolio') {
+			setPortfolioClass(inactiveTab)
+			tabFocusCheck('portfolioTab')
+		}
+	}
+
 	useEffect(() => {
 		switch (selectedTab[0]) {
 			case 'home':
+				setHomeClass(activeTab)
 				setDisplayedTab(<Home />)
+				// Do a check to see if the tab already exists or not, if so switch to it rather than making a new one
+				setHeaderTabs([
+					...headerTabs,
+					<Tab content="home.tab" id="homeTab" headerTabs={headerTabs} />,
+				])
 				setTitle(
 					<Head>
 						<title>Home</title>
 					</Head>
 				)
+				inactiveTabfunc(selectedTab[0])
 				break
 			case 'wordGenerator':
+				setWordGeneratorClass(activeTab)
 				setDisplayedTab(<WordGenerator />)
+				setHeaderTabs([
+					...headerTabs,
+					<Tab content="proj1.tab" id="wordGeneratorTab" headerTabs={headerTabs} />,
+				])
 				setTitle(
 					<Head>
 						<title>Rhyming Word Generator</title>
 					</Head>
 				)
+				inactiveTabfunc(selectedTab[0])
 				break
 			case 'autojack':
+				setAutojackClass(activeTab)
 				setDisplayedTab(<Autojack />)
+				console.log(headerTabs)
+				setHeaderTabs([
+					...headerTabs,
+					<Tab content="proj2.tab" id="autojackTab" headerTabs={headerTabs} />,
+				])
 				setTitle(
 					<Head>
 						<title>Autojack</title>
 					</Head>
 				)
+				inactiveTabfunc(selectedTab[0])
 				break
 			case 'randomTest':
+				setRandomTestClass(activeTab)
 				setDisplayedTab(<RandomTest />)
+				setHeaderTabs([
+					...headerTabs,
+					<Tab content="proj3.tab" id="randomTestTab" headerTabs={headerTabs} />,
+				])
 				setTitle(
 					<Head>
 						<title>Random Test</title>
 					</Head>
 				)
+				inactiveTabfunc(selectedTab[0])
 				break
 			case 'portfolio':
+				setPortfolioClass(activeTab)
 				setDisplayedTab(<Portfolio />)
+				setHeaderTabs([
+					...headerTabs,
+					<Tab content="proj4.tab" id="portfolioTab" headerTabs={headerTabs} />,
+				])
 				setTitle(
 					<Head>
 						<title>This Site!</title>
 					</Head>
 				)
+				inactiveTabfunc(selectedTab[0])
 				break
 			default:
 				// Easter Egg
@@ -221,15 +304,13 @@ export default function Index() {
 				<div className="sideNav navText">
 					<ul>
 						<li>
-							<div className="yellow" onClick={navToggle}>
-								<a className="home" id="section">
-									home
-								</a>
+							<div className={homeClass} id="sectionHome" onClick={navToggle}>
+								<a className="home">home</a>
 							</div>
 						</li>
 						{navHomeSection}
 						<li>
-							<div className="grey" onClick={navToggle}>
+							<div className={wordGeneratorClass} id="sectionWordGenerator" onClick={navToggle}>
 								<a className="wordGenerator" id="section">
 									proj1_word_generator
 								</a>
@@ -237,26 +318,29 @@ export default function Index() {
 						</li>
 						{navWordGeneratorSection}
 						<li>
-							<div className="grey" onClick={switchTabCheck}>
+							<div className={autojackClass} id="sectionAutojack" onClick={switchTabCheck}>
 								<a className="autojack" id="section">
 									proj2_autojack
 								</a>
 							</div>
 						</li>
+						{navAutojackSection}
 						<li>
-							<div className="grey" onClick={switchTabCheck}>
+							<div className={randomTestClass} id="sectionRandomTest" onClick={switchTabCheck}>
 								<a className="randomTest" id="section">
 									proj3_random_test
 								</a>
 							</div>
 						</li>
+						{navRandomSection}
 						<li>
-							<div className="grey" onClick={switchTabCheck}>
+							<div className={portfolioClass} id="sectionPortfolio" onClick={switchTabCheck}>
 								<a className="portfolio" id="section">
 									proj4_portfolio
 								</a>
 							</div>
 						</li>
+						{navPortfolioSection}
 					</ul>
 				</div>
 			</nav>
@@ -264,6 +348,7 @@ export default function Index() {
 			<body>
 				<div className="nav inline"></div>
 				<>
+					{headerTabs}
 					{displayedTab}
 					{title}
 				</>

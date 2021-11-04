@@ -142,9 +142,41 @@ a {
 	/* This will be used with media queries to resize content */
 }
 
+.tab {
+	position: fixed;
+	top: 0;
+	width: 10em;
+	height: 2.95em;
+	font-family: AdobeClean-Light, AdobeClean-Regular, sans-serif;
+	font-size: 19px;
+	letter-spacing: 0.8px;
+	font-weight: lighter;
+	color: #fff;
+	cursor: pointer;
+	z-index: 2;
+	background: #262538;
+}
+
+.focusedTab {
+	position: fixed;
+	top: 0;
+	width: 10em;
+	height: 2.95em;
+	font-family: AdobeClean-Light, AdobeClean-Regular, sans-serif;
+	font-size: 19px;
+	letter-spacing: 0.8px;
+	font-weight: lighter;
+	color: #fff;
+	cursor: pointer;
+	z-index: 2;
+	background: #61607c;
+}
+
 /* ID's */
 
 #codeAntonio {
 	margin-left: 2em;
 	color: #fff;
 }
+
+/* The magic number is 191.9px increments */
