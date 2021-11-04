@@ -130,7 +130,6 @@ export default function Index() {
 			document.getElementById(id) !== null
 		) {
 			let e = document.getElementById(id)
-
 			let prevClass = e.className
 			if (prevClass === 'tab') {
 				e.className = 'focusedTab'
@@ -162,16 +161,38 @@ export default function Index() {
 		}
 	}
 
+	const focusTab = (id) => {
+		if (
+			typeof document.getElementById(id) !== 'undefined' &&
+			document.getElementById(id) !== null
+		) {
+			document.getElementById(id).className = 'tab'
+		}
+	}
+
+	const headerLogic = (content, ID) => {
+		// Do a check to see if the tab already exists or not, if so switch to it rather than making a new one
+		if (typeof headerTabs[0] !== 'undefined') {
+			// If a tab exists
+			let index = headerTabs.findIndex((x) => x.props.id === ID)
+			if (index > -1) {
+				// switch to that index without creating one
+				focusTab(ID)
+			} else {
+				// it does not exist, create a new one
+				setHeaderTabs([...headerTabs, <Tab content={content} id={ID} headerTabs={headerTabs} />])
+			}
+		} else {
+			setHeaderTabs([...headerTabs, <Tab content={content} id={ID} headerTabs={headerTabs} />])
+		}
+	}
+
 	useEffect(() => {
 		switch (selectedTab[0]) {
 			case 'home':
 				setHomeClass(activeTab)
 				setDisplayedTab(<Home />)
-				// Do a check to see if the tab already exists or not, if so switch to it rather than making a new one
-				setHeaderTabs([
-					...headerTabs,
-					<Tab content="home.tab" id="homeTab" headerTabs={headerTabs} />,
-				])
+				headerLogic('home.tab', 'homeTab')
 				setTitle(
 					<Head>
 						<title>Home</title>
@@ -182,10 +203,7 @@ export default function Index() {
 			case 'wordGenerator':
 				setWordGeneratorClass(activeTab)
 				setDisplayedTab(<WordGenerator />)
-				setHeaderTabs([
-					...headerTabs,
-					<Tab content="proj1.tab" id="wordGeneratorTab" headerTabs={headerTabs} />,
-				])
+				headerLogic('proj1.tab', 'wordGeneratorTab')
 				setTitle(
 					<Head>
 						<title>Rhyming Word Generator</title>
@@ -196,11 +214,7 @@ export default function Index() {
 			case 'autojack':
 				setAutojackClass(activeTab)
 				setDisplayedTab(<Autojack />)
-				console.log(headerTabs)
-				setHeaderTabs([
-					...headerTabs,
-					<Tab content="proj2.tab" id="autojackTab" headerTabs={headerTabs} />,
-				])
+				headerLogic('proj2.tab', 'autojackTab')
 				setTitle(
 					<Head>
 						<title>Autojack</title>
@@ -211,10 +225,7 @@ export default function Index() {
 			case 'randomTest':
 				setRandomTestClass(activeTab)
 				setDisplayedTab(<RandomTest />)
-				setHeaderTabs([
-					...headerTabs,
-					<Tab content="proj3.tab" id="randomTestTab" headerTabs={headerTabs} />,
-				])
+				headerLogic('proj3.tab', 'randomTestTab')
 				setTitle(
 					<Head>
 						<title>Random Test</title>
@@ -225,10 +236,7 @@ export default function Index() {
 			case 'portfolio':
 				setPortfolioClass(activeTab)
 				setDisplayedTab(<Portfolio />)
-				setHeaderTabs([
-					...headerTabs,
-					<Tab content="proj4.tab" id="portfolioTab" headerTabs={headerTabs} />,
-				])
+				headerLogic('proj4.tab', 'portfolioTab')
 				setTitle(
 					<Head>
 						<title>This Site!</title>
