@@ -16,6 +16,7 @@ body {
 	font-family: sans-serif;
 	/* border: solid; */
 	background: #262538;
+	scroll-behavior: smooth;
 }
 
 a {
@@ -46,6 +47,14 @@ h3 {
 	font-family: AdobeClean-Regular;
 	font-size: 18px;
 	letter-spacing: 0.8px;
+}
+
+a {
+	cursor: pointer;
+}
+
+.test {
+	/* border: solid; */
 }
 
 /* Classes */

@@ -13,13 +13,42 @@ export default function Index() {
 	// Because these things will communicate top to bottom and are not repeated elsewhere, it is not necessary to turn
 	// these elements into components.
 
-	let selectedTab = 'home'
-
-	const [displayedTab, setDisplayedTab] = useState()
+	const [selectedTab, setSelectedTab] = useState(['home', 0])
+	const [displayedTab, setDisplayedTab] = useState(0)
 	const [title, setTitle] = useState()
 
+	const switchTabCheck = (e) => {
+		let tab = e.target.className
+		if (tab === selectedTab[0]) {
+			// See if it can be scrolled to
+			if (e.target.id !== 'section') {
+				scrollTo(e)
+			}
+		} else {
+			// Switch to tab
+			setSelectedTab([tab, e])
+			console.log('Tab switched')
+		}
+	}
+
 	useEffect(() => {
-		switch (selectedTab) {
+		if (typeof selectedTab[1].target !== 'undefined') {
+			if (selectedTab[1].target.id !== 'section') {
+				scrollTo(selectedTab[1])
+			}
+		}
+	}, [displayedTab])
+
+	const scrollTo = (e) => {
+		// This takes advantage of the fact that the id's of the titles IS its own text to find it with one function
+		let id = e.target.innerText
+		console.log(id)
+		let element = document.getElementById(id)
+		element.scrollIntoView({ behavior: 'smooth', block: 'center' })
+	}
+
+	useEffect(() => {
+		switch (selectedTab[0]) {
 			case 'home':
 				setDisplayedTab(<Home />)
 				setTitle(
@@ -60,7 +89,7 @@ export default function Index() {
 			default:
 				break
 		}
-	}, [])
+	}, [selectedTab])
 
 	return (
 		<>
@@ -95,46 +124,76 @@ export default function Index() {
 				<div className="sideNav navText">
 					<ul>
 						<li>
-							<div className="yellow">home</div>
+							<div onClick={switchTabCheck}>
+								<a className="home" id="section">
+									home
+								</a>
+							</div>
 						</li>
 						<ul>
 							<li>
-								<div>welcome</div>
+								<div onClick={switchTabCheck}>
+									<a className="home">welcome</a>
+								</div>
 							</li>
 							<li>
-								<div>about me</div>
+								<div onClick={switchTabCheck}>
+									<a className="home">about me</a>
+								</div>
 							</li>
 							<li>
-								<div>projects</div>
+								<div onClick={switchTabCheck}>
+									<a className="home">projects</a>
+								</div>
 							</li>
 							<li>
-								<div>contact</div>
+								<div onClick={switchTabCheck}>
+									<a className="home">contact</a>
+								</div>
 							</li>
 						</ul>
 						<li>
-							<div className="grey">proj1_word_generator</div>
+							<div className="grey" onClick={switchTabCheck}>
+								<a className="wordGenerator" id="section">
+									proj1_word_generator
+								</a>
+							</div>
 						</li>
 						<ul>
 							<li>
-								<div className="grey">overview</div>
+								<div className="grey" onClick={switchTabCheck}>
+									<a className="wordGenerator">overview</a>
+								</div>
 							</li>
 							<li>
-								<div className="grey">step1</div>
+								<div className="grey" onClick={switchTabCheck}>
+									<a className="wordGenerator">step1</a>
+								</div>
 							</li>
 							<li>
-								<div className="grey">step2</div>
+								<div className="grey" onClick={switchTabCheck}>
+									<a className="wordGenerator">step2</a>
+								</div>
 							</li>
 							<li>
-								<div className="grey">step3</div>
+								<div className="grey" onClick={switchTabCheck}>
+									<a className="wordGenerator">step3</a>
+								</div>
 							</li>
 							<li>
-								<div className="grey">challenges</div>
+								<div className="grey" onClick={switchTabCheck}>
+									<a className="wordGenerator">challenges</a>
+								</div>
 							</li>
 							<li>
-								<div className="grey">successes</div>
+								<div className="grey" onClick={switchTabCheck}>
+									<a className="wordGenerator">successes</a>
+								</div>
 							</li>
 							<li>
-								<div className="grey">screenshots</div>
+								<div className="grey" onClick={switchTabCheck}>
+									<a className="wordGenerator">screenshots</a>
+								</div>
 							</li>
 						</ul>
 						<li>
