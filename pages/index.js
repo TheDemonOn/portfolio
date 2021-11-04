@@ -19,17 +19,82 @@ export default function Index() {
 
 	const switchTabCheck = (e) => {
 		let tab = e.target.className
-		if (tab === selectedTab[0]) {
-			// See if it can be scrolled to
-			if (e.target.id !== 'section') {
-				scrollTo(e)
-			}
-		} else {
-			// Switch to tab
-			setSelectedTab([tab, e])
-			console.log('Tab switched')
-		}
+		// Switch to tab with a useEffect trigger
+		setSelectedTab([tab, e])
 	}
+
+	let emptySection
+	const [homeSection, setHomeSection] = useState(
+		<ul>
+			<li>
+				<div onClick={switchTabCheck}>
+					<a className="home">welcome</a>
+				</div>
+			</li>
+			<li>
+				<div onClick={switchTabCheck}>
+					<a className="home">about me</a>
+				</div>
+			</li>
+			<li>
+				<div onClick={switchTabCheck}>
+					<a className="home">projects</a>
+				</div>
+			</li>
+			<li>
+				<div onClick={switchTabCheck}>
+					<a className="home">contact</a>
+				</div>
+			</li>
+		</ul>
+	)
+	const [navHomeSection, setNavHomeSection] = useState(homeSection)
+	const wordGeneratorSection = (
+		<ul>
+			<li>
+				<div className="grey" onClick={switchTabCheck}>
+					<a className="wordGenerator">overview</a>
+				</div>
+			</li>
+			<li>
+				<div className="grey" onClick={switchTabCheck}>
+					<a className="wordGenerator">step1</a>
+				</div>
+			</li>
+			<li>
+				<div className="grey" onClick={switchTabCheck}>
+					<a className="wordGenerator">step2</a>
+				</div>
+			</li>
+			<li>
+				<div className="grey" onClick={switchTabCheck}>
+					<a className="wordGenerator">step3</a>
+				</div>
+			</li>
+			<li>
+				<div className="grey" onClick={switchTabCheck}>
+					<a className="wordGenerator">challenges</a>
+				</div>
+			</li>
+			<li>
+				<div className="grey" onClick={switchTabCheck}>
+					<a className="wordGenerator">successes</a>
+				</div>
+			</li>
+			<li>
+				<div className="grey" onClick={switchTabCheck}>
+					<a className="wordGenerator">screenshots</a>
+				</div>
+			</li>
+		</ul>
+	)
+	const [navWordGeneratorSection, setNavWordGeneratorSection] = useState(wordGeneratorSection)
+	let autojackSection
+	const [navAutojackSection, setNavAutojackSection] = useState(emptySection)
+	let randomSection
+	const [navRandomSection, setNavRandomSection] = useState(emptySection)
+	let portfolioSection
+	const [navPortfolio, setNavPortfolio] = useState(emptySection)
 
 	useEffect(() => {
 		if (typeof selectedTab[1].target !== 'undefined') {
@@ -42,7 +107,6 @@ export default function Index() {
 	const scrollTo = (e) => {
 		// This takes advantage of the fact that the id's of the titles IS its own text to find it with one function
 		let id = e.target.innerText
-		console.log(id)
 		let element = document.getElementById(id)
 		element.scrollIntoView({ behavior: 'smooth', block: 'center' })
 	}
@@ -72,6 +136,7 @@ export default function Index() {
 						<title>Autojack</title>
 					</Head>
 				)
+				break
 			case 'randomTest':
 				setDisplayedTab(<RandomTest />)
 				setTitle(
@@ -79,6 +144,7 @@ export default function Index() {
 						<title>Random Test</title>
 					</Head>
 				)
+				break
 			case 'portfolio':
 				setDisplayedTab(<Portfolio />)
 				setTitle(
@@ -86,10 +152,41 @@ export default function Index() {
 						<title>This Site!</title>
 					</Head>
 				)
+				break
 			default:
+				// Easter Egg
 				break
 		}
 	}, [selectedTab])
+
+	const navToggle = (e) => {
+		let tab = e.target.className
+		switch (tab) {
+			case 'home':
+				// Toggle visivility of home
+				if (typeof navHomeSection !== 'undefined') {
+					setNavHomeSection(emptySection)
+				} else {
+					console.log('Set to')
+					setNavHomeSection(homeSection)
+				}
+				break
+			case 'wordGenerator':
+				if (typeof navWordGeneratorSection !== 'undefined') {
+					setNavWordGeneratorSection(emptySection)
+				} else {
+					console.log('Set to')
+					setNavWordGeneratorSection(wordGeneratorSection)
+				}
+				break
+			case 'autojack':
+				break
+			case 'randomTest':
+				break
+			case 'portfolio':
+				break
+		}
+	}
 
 	return (
 		<>
@@ -124,86 +221,41 @@ export default function Index() {
 				<div className="sideNav navText">
 					<ul>
 						<li>
-							<div onClick={switchTabCheck}>
+							<div className="yellow" onClick={navToggle}>
 								<a className="home" id="section">
 									home
 								</a>
 							</div>
 						</li>
-						<ul>
-							<li>
-								<div onClick={switchTabCheck}>
-									<a className="home">welcome</a>
-								</div>
-							</li>
-							<li>
-								<div onClick={switchTabCheck}>
-									<a className="home">about me</a>
-								</div>
-							</li>
-							<li>
-								<div onClick={switchTabCheck}>
-									<a className="home">projects</a>
-								</div>
-							</li>
-							<li>
-								<div onClick={switchTabCheck}>
-									<a className="home">contact</a>
-								</div>
-							</li>
-						</ul>
+						{navHomeSection}
 						<li>
-							<div className="grey" onClick={switchTabCheck}>
+							<div className="grey" onClick={navToggle}>
 								<a className="wordGenerator" id="section">
 									proj1_word_generator
 								</a>
 							</div>
 						</li>
-						<ul>
-							<li>
-								<div className="grey" onClick={switchTabCheck}>
-									<a className="wordGenerator">overview</a>
-								</div>
-							</li>
-							<li>
-								<div className="grey" onClick={switchTabCheck}>
-									<a className="wordGenerator">step1</a>
-								</div>
-							</li>
-							<li>
-								<div className="grey" onClick={switchTabCheck}>
-									<a className="wordGenerator">step2</a>
-								</div>
-							</li>
-							<li>
-								<div className="grey" onClick={switchTabCheck}>
-									<a className="wordGenerator">step3</a>
-								</div>
-							</li>
-							<li>
-								<div className="grey" onClick={switchTabCheck}>
-									<a className="wordGenerator">challenges</a>
-								</div>
-							</li>
-							<li>
-								<div className="grey" onClick={switchTabCheck}>
-									<a className="wordGenerator">successes</a>
-								</div>
-							</li>
-							<li>
-								<div className="grey" onClick={switchTabCheck}>
-									<a className="wordGenerator">screenshots</a>
-								</div>
-							</li>
-						</ul>
+						{navWordGeneratorSection}
 						<li>
-							<div className="grey">proj2_autojack</div>
+							<div className="grey" onClick={switchTabCheck}>
+								<a className="autojack" id="section">
+									proj2_autojack
+								</a>
+							</div>
 						</li>
 						<li>
-							<div className="grey">proj3_random_test</div>
+							<div className="grey" onClick={switchTabCheck}>
+								<a className="randomTest" id="section">
+									proj3_random_test
+								</a>
+							</div>
 						</li>
 						<li>
-							<div className="grey">proj4_portfolio</div>
+							<div className="grey" onClick={switchTabCheck}>
+								<a className="portfolio" id="section">
+									proj4_portfolio
+								</a>
+							</div>
 						</li>
 					</ul>
 				</div>

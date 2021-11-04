@@ -12,6 +12,7 @@ export default function Home() {
 			<SectionContent content="I found my love for programming when I decided to take a closer look at software and found that solving problems was extremely fun." />
 			<SectionContent content="I primarily focus on heavy use of Javascript using React and more recently Next.js" />
 			<SectionContent content="I have experience taking web designs and turning them into reality." />
+			<SectionContent content="I love video games and DnD!" />
 			<SectionsTitle content="projects" id="projects" />
 			<SectionsTitle content="contact" id="contact" />
 			<SectionContent content="My email is: zamora88875@gmail.com" />
