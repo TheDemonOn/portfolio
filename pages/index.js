@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useLayoutEffect } from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
 import Home from '../components/Home'
@@ -27,7 +27,11 @@ export default function Index() {
 	const [randomTestClass, setRandomTestClass] = useState(inactiveTab)
 	const [portfolioClass, setPortfolioClass] = useState(inactiveTab)
 
-	const [headerTabs, setHeaderTabs] = useState([])
+	// Use Header Tabs to determine the position of the actual tabs
+	// Example: ["homeTab", "autojackTab"]
+	// Therefore homeTab will be position 0, autojackTab will be position 1,
+	// and all other tabs will have position -1
+	const [headerTabs, setHeaderTabs] = useState(['homeTab'])
 
 	const switchTabCheck = (e) => {
 		let tab = e.target.className
@@ -119,8 +123,15 @@ export default function Index() {
 	const scrollTo = (e) => {
 		// This takes advantage of the fact that the id's of the titles IS its own text to find it with one function
 		let id = e.target.innerText
-		let element = document.getElementById(id)
-		element.scrollIntoView({ behavior: 'smooth', block: 'center' })
+		console.log(id)
+		if (
+			typeof document.getElementById(id) !== 'undefined' &&
+			document.getElementById(id) !== null
+		) {
+			console.log(document.getElementById(id), typeof document.getElementById(id) !== 'undefined')
+			let element = document.getElementById(id)
+			element.scrollIntoView({ behavior: 'smooth', block: 'center' })
+		}
 	}
 
 	const tabFocusCheck = (id) => {
@@ -131,8 +142,8 @@ export default function Index() {
 		) {
 			let e = document.getElementById(id)
 			let prevClass = e.className
-			if (prevClass === 'tab') {
-				e.className = 'focusedTab'
+			if (prevClass === 'focusedTab') {
+				e.className = 'tab'
 			}
 		}
 	}
@@ -166,24 +177,97 @@ export default function Index() {
 			typeof document.getElementById(id) !== 'undefined' &&
 			document.getElementById(id) !== null
 		) {
-			document.getElementById(id).className = 'tab'
+			document.getElementById(id).className = 'focusedTab'
 		}
 	}
 
-	const headerLogic = (content, ID) => {
-		// Do a check to see if the tab already exists or not, if so switch to it rather than making a new one
-		if (typeof headerTabs[0] !== 'undefined') {
-			// If a tab exists
-			let index = headerTabs.findIndex((x) => x.props.id === ID)
-			if (index > -1) {
-				// switch to that index without creating one
-				focusTab(ID)
-			} else {
-				// it does not exist, create a new one
-				setHeaderTabs([...headerTabs, <Tab content={content} id={ID} headerTabs={headerTabs} />])
+	const tabClick = (e) => {
+		let id = e.target.id
+		inactiveTabfunc(id)
+		focusTab(id)
+		let regex = /Tab/
+		let tab = id.replace(regex, '')
+		setSelectedTab([tab, e])
+	}
+
+	const destroyTab = (e) => {
+		let ID = e.target.previousElementSibling.id
+		console.log(ID)
+		// setTabToBeKilled(ID)
+		let index = headerTabs.indexOf(ID)
+		console.log(index)
+		console.log(headerTabs)
+		headerTabs.splice(index, 1)
+		console.log(headerTabs)
+		setHeaderTabs([...headerTabs])
+	}
+
+	const [numberPosition, setNumberPosition] = useState([0, -1, -1, -1, -1])
+
+	useEffect(() => {
+		console.log('Setting tab positions based on headerTabs.')
+		console.log(headerTabs)
+		console.log(numberPosition)
+		let seenTabs = []
+		for (let i = 0; i < headerTabs.length; i++) {
+			console.log(i, headerTabs[i])
+			switch (headerTabs[i]) {
+				case 'homeTab':
+					numberPosition[0] = i
+					setNumberPosition([...numberPosition])
+					break
+				case 'wordGeneratorTab':
+					numberPosition[1] = i
+					setNumberPosition([...numberPosition])
+					break
+				case 'autojackTab':
+					numberPosition[2] = i
+					setNumberPosition([...numberPosition])
+					break
+				case 'randomTestTab':
+					numberPosition[3] = i
+					setNumberPosition([...numberPosition])
+					break
+				case 'portfolioTab':
+					numberPosition[4] = i
+					setNumberPosition([...numberPosition])
+					break
 			}
+		}
+		if (numberPosition[0] > -1 && headerTabs.indexOf('homeTab') === -1) {
+			numberPosition[0] = -1
+			setNumberPosition([...numberPosition])
+		} else if (numberPosition[1] > -1 && headerTabs.indexOf('wordGeneratorTab') === -1) {
+			numberPosition[1] = -1
+			setNumberPosition([...numberPosition])
+		} else if (numberPosition[2] > -1 && headerTabs.indexOf('autojackTab') === -1) {
+			numberPosition[2] = -1
+			setNumberPosition([...numberPosition])
+		} else if (numberPosition[3] > -1 && headerTabs.indexOf('randomTestTab') === -1) {
+			numberPosition[3] = -1
+			setNumberPosition([...numberPosition])
+		} else if (numberPosition[4] > -1 && headerTabs.indexOf('portfolioTab') === -1) {
+			numberPosition[4] = -1
+			setNumberPosition([...numberPosition])
+		}
+		console.log(numberPosition)
+	}, [headerTabs])
+
+	useEffect(() => {
+		console.log(numberPosition)
+	})
+
+	const [customPosition, setCustomPosition] = useState()
+
+	const headerLogic = (ID) => {
+		let index = headerTabs.findIndex((x) => x === ID)
+		// Find if the tab exists or not
+		if (index > -1) {
+			// switch to that index without creating one
+			focusTab(ID)
 		} else {
-			setHeaderTabs([...headerTabs, <Tab content={content} id={ID} headerTabs={headerTabs} />])
+			// it does not exist, create a new one
+			setHeaderTabs([...headerTabs, ID])
 		}
 	}
 
@@ -192,7 +276,7 @@ export default function Index() {
 			case 'home':
 				setHomeClass(activeTab)
 				setDisplayedTab(<Home />)
-				headerLogic('home.tab', 'homeTab')
+				headerLogic('homeTab')
 				setTitle(
 					<Head>
 						<title>Home</title>
@@ -203,7 +287,7 @@ export default function Index() {
 			case 'wordGenerator':
 				setWordGeneratorClass(activeTab)
 				setDisplayedTab(<WordGenerator />)
-				headerLogic('proj1.tab', 'wordGeneratorTab')
+				headerLogic('wordGeneratorTab')
 				setTitle(
 					<Head>
 						<title>Rhyming Word Generator</title>
@@ -214,7 +298,7 @@ export default function Index() {
 			case 'autojack':
 				setAutojackClass(activeTab)
 				setDisplayedTab(<Autojack />)
-				headerLogic('proj2.tab', 'autojackTab')
+				headerLogic('autojackTab')
 				setTitle(
 					<Head>
 						<title>Autojack</title>
@@ -225,7 +309,7 @@ export default function Index() {
 			case 'randomTest':
 				setRandomTestClass(activeTab)
 				setDisplayedTab(<RandomTest />)
-				headerLogic('proj3.tab', 'randomTestTab')
+				headerLogic('randomTestTab')
 				setTitle(
 					<Head>
 						<title>Random Test</title>
@@ -236,7 +320,7 @@ export default function Index() {
 			case 'portfolio':
 				setPortfolioClass(activeTab)
 				setDisplayedTab(<Portfolio />)
-				headerLogic('proj4.tab', 'portfolioTab')
+				headerLogic('portfolioTab')
 				setTitle(
 					<Head>
 						<title>This Site!</title>
@@ -356,7 +440,42 @@ export default function Index() {
 			<body>
 				<div className="nav inline"></div>
 				<>
-					{headerTabs}
+					{/* {headerTabs} */}
+					<Tab
+						content="home.tab"
+						id="homeTab"
+						focus={tabClick}
+						destroy={destroyTab}
+						position={numberPosition[0]}
+					/>
+					<Tab
+						content="proj1.tab"
+						id="wordGeneratorTab"
+						focus={tabClick}
+						destroy={destroyTab}
+						position={numberPosition[1]}
+					/>
+					<Tab
+						content="proj2.tab"
+						id="autojackTab"
+						focus={tabClick}
+						destroy={destroyTab}
+						position={numberPosition[2]}
+					/>
+					<Tab
+						content="proj3.tab"
+						id="randomTestTab"
+						focus={tabClick}
+						destroy={destroyTab}
+						position={numberPosition[3]}
+					/>
+					<Tab
+						content="proj4.tab"
+						id="portfolioTab"
+						focus={tabClick}
+						destroy={destroyTab}
+						position={numberPosition[4]}
+					/>
 					{displayedTab}
 					{title}
 				</>

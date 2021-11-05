@@ -53,6 +53,13 @@ a {
 	cursor: pointer;
 }
 
+button {
+	/* border: #fff; */
+	z-index: 3;
+	width: 1.5em;
+	height: 1.5em;
+}
+
 .test {
 	/* border: solid; */
 }
@@ -142,7 +149,17 @@ a {
 	/* This will be used with media queries to resize content */
 }
 
-.tab {
+.tabCloseButton {
+	position: fixed;
+	top: 1em;
+	border: solid;
+	margin-left: 12em;
+	font-family: AdobeClean-Light, AdobeClean-Regular, sans-serif;
+	z-index: 2;
+}
+
+/* tab */
+.focusedTab {
 	position: fixed;
 	top: 0;
 	width: 10em;
@@ -157,7 +174,8 @@ a {
 	background: #262538;
 }
 
-.focusedTab {
+/* focusedTab */
+.tab {
 	position: fixed;
 	top: 0;
 	width: 10em;
