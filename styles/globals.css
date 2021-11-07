@@ -149,6 +149,14 @@ button {
 	/* This will be used with media queries to resize content */
 }
 
+.tabContent {
+	/* border: solid; */
+	position: absolute;
+	bottom: 0em;
+	left: 2.5em;
+	/* padding-bottom: 10em; */
+}
+
 .tabCloseButton {
 	position: fixed;
 	top: 1em;
@@ -188,6 +196,12 @@ button {
 	cursor: pointer;
 	z-index: 2;
 	background: #61607c;
+}
+
+.bodyPosition {
+	/* border: solid; */
+	/* display: inline-block; */
+	margin-left: 22em;
 }
 
 /* ID's */

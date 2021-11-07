@@ -123,19 +123,16 @@ export default function Index() {
 	const scrollTo = (e) => {
 		// This takes advantage of the fact that the id's of the titles IS its own text to find it with one function
 		let id = e.target.innerText
-		console.log(id)
 		if (
 			typeof document.getElementById(id) !== 'undefined' &&
 			document.getElementById(id) !== null
 		) {
-			console.log(document.getElementById(id), typeof document.getElementById(id) !== 'undefined')
 			let element = document.getElementById(id)
 			element.scrollIntoView({ behavior: 'smooth', block: 'center' })
 		}
 	}
 
 	const tabFocusCheck = (id) => {
-		console.log(id)
 		if (
 			typeof document.getElementById(id) !== 'undefined' &&
 			document.getElementById(id) !== null
@@ -152,7 +149,6 @@ export default function Index() {
 		if (active !== 'home') {
 			setHomeClass(inactiveTab)
 			tabFocusCheck('homeTab')
-			console.log('home focus check')
 		}
 		if (active !== 'wordGenerator') {
 			setWordGeneratorClass(inactiveTab)
@@ -182,7 +178,12 @@ export default function Index() {
 	}
 
 	const tabClick = (e) => {
-		let id = e.target.id
+		let id
+		if (e.target.id === '') {
+			id = e.target.offsetParent.id
+		} else {
+			id = e.target.id
+		}
 		inactiveTabfunc(id)
 		focusTab(id)
 		let regex = /Tab/
@@ -192,13 +193,9 @@ export default function Index() {
 
 	const destroyTab = (e) => {
 		let ID = e.target.previousElementSibling.id
-		console.log(ID)
 		// setTabToBeKilled(ID)
 		let index = headerTabs.indexOf(ID)
-		console.log(index)
-		console.log(headerTabs)
 		headerTabs.splice(index, 1)
-		console.log(headerTabs)
 		setHeaderTabs([...headerTabs])
 	}
 
@@ -272,6 +269,7 @@ export default function Index() {
 	}
 
 	useEffect(() => {
+		console.log(selectedTab)
 		switch (selectedTab[0]) {
 			case 'home':
 				setHomeClass(activeTab)
@@ -342,7 +340,6 @@ export default function Index() {
 				if (typeof navHomeSection !== 'undefined') {
 					setNavHomeSection(emptySection)
 				} else {
-					console.log('Set to')
 					setNavHomeSection(homeSection)
 				}
 				break
@@ -350,7 +347,6 @@ export default function Index() {
 				if (typeof navWordGeneratorSection !== 'undefined') {
 					setNavWordGeneratorSection(emptySection)
 				} else {
-					console.log('Set to')
 					setNavWordGeneratorSection(wordGeneratorSection)
 				}
 				break
@@ -438,8 +434,8 @@ export default function Index() {
 			</nav>
 
 			<body>
-				<div className="nav inline"></div>
-				<>
+				{/* <div className="nav inline"></div> */}
+				<div className="bodyPosition">
 					{/* {headerTabs} */}
 					<Tab
 						content="home.tab"
@@ -478,7 +474,7 @@ export default function Index() {
 					/>
 					{displayedTab}
 					{title}
-				</>
+				</div>
 				{/* <WordGenerator></WordGenerator> */}
 			</body>
 		</>

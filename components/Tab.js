@@ -15,7 +15,7 @@ export default function Tab({ content, id, headerTabs, focus, destroy, position 
 	return (
 		<div>
 			<div className="focusedTab" style={positioning} id={id} onClick={focus}>
-				{content}
+				<p className="tabContent">{content}</p>
 			</div>
 			<button className="tabCloseButton" style={positioning} onClick={destroy}></button>
 		</div>
