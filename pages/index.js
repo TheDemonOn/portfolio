@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useLayoutEffect } from 'react'
+import React, { useState, useEffect, useLayoutEffect, useCallback } from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
 import Home from '../components/Home'
@@ -191,11 +191,35 @@ export default function Index() {
 		setSelectedTab([tab, e])
 	}
 
+	// const [destroyCheck, setDestroyCheck] = useState()
+
 	const destroyTab = (e) => {
 		let ID = e.target.previousElementSibling.id
-		// setTabToBeKilled(ID)
 		let index = headerTabs.indexOf(ID)
 		headerTabs.splice(index, 1)
+
+		console.log(ID, selectedTab[0] + 'Tab')
+		if (ID === selectedTab[0] + 'Tab' && headerTabs[0]) {
+			let e
+			if (
+				typeof document.getElementById(headerTabs[index]) !== 'undefined' &&
+				document.getElementById(headerTabs[index]) !== null
+			) {
+				console.log('first', index, headerTabs[index], document.getElementById(headerTabs[index]))
+				e = document.getElementById(headerTabs[index])
+			} else {
+				console.log('second')
+				e = document.getElementById(headerTabs[index - 1])
+			}
+			console.log(e)
+			let newId = e.id
+			console.log(newId)
+			focusTab(newId)
+			inactiveTabfunc(newId)
+			let regex = /Tab/
+			let tab = newId.replace(regex, '')
+			setSelectedTab([tab, e])
+		}
 		setHeaderTabs([...headerTabs])
 	}
 
@@ -205,7 +229,6 @@ export default function Index() {
 		console.log('Setting tab positions based on headerTabs.')
 		console.log(headerTabs)
 		console.log(numberPosition)
-		let seenTabs = []
 		for (let i = 0; i < headerTabs.length; i++) {
 			console.log(i, headerTabs[i])
 			switch (headerTabs[i]) {
@@ -434,9 +457,7 @@ export default function Index() {
 			</nav>
 
 			<body>
-				{/* <div className="nav inline"></div> */}
 				<div className="bodyPosition">
-					{/* {headerTabs} */}
 					<Tab
 						content="home.tab"
 						id="homeTab"
