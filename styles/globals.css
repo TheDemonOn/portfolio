@@ -17,6 +17,12 @@ body {
 	/* border: solid; */
 	background: #262538;
 	scroll-behavior: smooth;
+	user-select: none;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
 }
 
 a {
@@ -166,7 +172,16 @@ button {
 	z-index: 2;
 }
 
-/* tab */
+.grabbedTabCloseButton {
+	position: absolute;
+	margin-top: 1em;
+	border: solid;
+	margin-left: 12em;
+	font-family: AdobeClean-Light, AdobeClean-Regular, sans-serif;
+	z-index: 5;
+	opacity: 80%;
+}
+
 .focusedTab {
 	position: fixed;
 	top: 0;
@@ -182,7 +197,22 @@ button {
 	background: #262538;
 }
 
-/* focusedTab */
+.grabbedFocusedTab {
+	position: absolute;
+	top: 0;
+	width: 10em;
+	height: 2.95em;
+	font-family: AdobeClean-Light, AdobeClean-Regular, sans-serif;
+	font-size: 19px;
+	letter-spacing: 0.8px;
+	font-weight: lighter;
+	color: #fff;
+	cursor: pointer;
+	z-index: 5;
+	background: #262538;
+	opacity: 80%;
+}
+
 .tab {
 	position: fixed;
 	top: 0;
@@ -209,6 +239,11 @@ button {
 #codeAntonio {
 	margin-left: 2em;
 	color: #fff;
+}
+
+#offScreen {
+	border: solid;
+	z-index: -1;
 }
 
 /* The magic number is 191.9px increments */

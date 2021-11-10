@@ -7,6 +7,7 @@ import Autojack from '../components/Autojack'
 import RandomTest from '../components/RandomTest'
 import Portfolio from '../components/Portfolio'
 import Tab from '../components/Tab'
+import DragTab from '../components/DragTab'
 
 export default function Index() {
 	// The index will contain elements that are always there
@@ -273,10 +274,6 @@ export default function Index() {
 		console.log(numberPosition)
 	}, [headerTabs])
 
-	useEffect(() => {
-		console.log(numberPosition)
-	})
-
 	const [customPosition, setCustomPosition] = useState()
 
 	const headerLogic = (ID) => {
@@ -382,6 +379,108 @@ export default function Index() {
 		}
 	}
 
+	const [dragTabContent, setDragTabContent] = useState('Nothing')
+	const [tab, setTab] = useState(0)
+	const [button, setButton] = useState(0)
+
+	let initialPosition = [0, 0]
+
+	const moveFunction = (e) => {
+		if (typeof tab.style !== 'undefined') {
+			grabTabAppear()
+			tab.style.left = e.pageX - initialPosition[0] + 'px'
+			tab.style.top = e.pageY - initialPosition[1] + 'px'
+			button.style.left = e.pageX - initialPosition[0] + 'px'
+			button.style.top = e.pageY - initialPosition[1] + 'px'
+		}
+	}
+	let mouseDownFunction = (e) => {
+		console.log(e)
+		let leftString
+		if (e.target.style.left) {
+			leftString = e.target.style.left
+		} else {
+			leftString = e.explicitOriginalTarget.parentNode.parentNode.style.left
+		}
+		console.log(leftString)
+		let regex = /px/
+		let leftValueString = leftString.replace(regex, '')
+		initialPosition = [e.pageX - leftValueString, e.pageY]
+		document.addEventListener('mousemove', moveFunction)
+	}
+
+	const removeMouseMove = () => {
+		// When mouse is released stop moving the grabTab
+		grabTabDisappear()
+		document.removeEventListener('mousemove', moveFunction)
+	}
+
+	const [grabTabExistence, setGrabTabExistence] = useState(0)
+
+	const grabTabAppear = () => {
+		setGrabTabExistence(1)
+	}
+	const grabTabDisappear = () => {
+		setGrabTabExistence(0)
+	}
+
+	useEffect(() => {
+		setTab(document.getElementsByClassName('grabbedFocusedTab')[0])
+		setButton(document.getElementsByClassName('grabbedTabCloseButton')[0])
+		// This will add and remove event listeners for the dragging and dropping of tabs to reposition
+		// When numberPosition mutates to > -1 this will add the listener and when === -1 removes the listener
+		if (numberPosition[0] > -1 && selectedTab[0] === 'home') {
+			console.log('Got here')
+			let parent = document.getElementsByClassName('homeTab')[0]
+			let element = parent.getElementsByTagName('div')[0]
+
+			setDragTabContent(element.innerText)
+			// activateGrabTab()
+
+			// element.removeEventListener('mousedown', mouseDownFunction)
+			element.addEventListener('mousedown', mouseDownFunction)
+			window.addEventListener('mouseup', removeMouseMove)
+		}
+		if (numberPosition[1] > -1 && selectedTab[0] === 'wordGenerator') {
+			// add
+			let parent = document.getElementsByClassName('wordGeneratorTab')[0]
+			let element = parent.getElementsByTagName('div')[0]
+			setDragTabContent(element.innerText)
+			element.addEventListener('mousedown', mouseDownFunction)
+			window.addEventListener('mouseup', removeMouseMove)
+		}
+		if (numberPosition[2] > -1 && selectedTab[0] === 'autojack') {
+			// add
+			let parent = document.getElementsByClassName('autojackTab')[0]
+			let element = parent.getElementsByTagName('div')[0]
+			setDragTabContent(element.innerText)
+			element.addEventListener('mousedown', mouseDownFunction)
+			window.addEventListener('mouseup', removeMouseMove)
+		} else {
+			// remove
+		}
+		if (numberPosition[3] > -1 && selectedTab[0] === 'randomTest') {
+			// add
+			let parent = document.getElementsByClassName('randomTestTab')[0]
+			let element = parent.getElementsByTagName('div')[0]
+			setDragTabContent(element.innerText)
+			element.addEventListener('mousedown', mouseDownFunction)
+			window.addEventListener('mouseup', removeMouseMove)
+		} else {
+			// remove
+		}
+		if (numberPosition[4] > -1 && selectedTab[0] === 'portfolio') {
+			// add
+			let parent = document.getElementsByClassName('portfolioTab')[0]
+			let element = parent.getElementsByTagName('div')[0]
+			setDragTabContent(element.innerText)
+			element.addEventListener('mousedown', mouseDownFunction)
+			window.addEventListener('mouseup', removeMouseMove)
+		} else {
+			// remove
+		}
+	}, [numberPosition, selectedTab])
+
 	return (
 		<>
 			<Head>
@@ -455,7 +554,7 @@ export default function Index() {
 					</ul>
 				</div>
 			</nav>
-
+			<DragTab content={dragTabContent} exist={grabTabExistence} />
 			<body>
 				<div className="bodyPosition">
 					<Tab
