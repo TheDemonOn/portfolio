@@ -198,7 +198,7 @@ button {
 }
 
 .grabbedFocusedTab {
-	position: absolute;
+	position: fixed;
 	top: 0;
 	width: 10em;
 	height: 2.95em;
@@ -244,6 +244,7 @@ button {
 #offScreen {
 	border: solid;
 	z-index: -1;
+	display: none;
 }
 
 /* The magic number is 191.9px increments */
