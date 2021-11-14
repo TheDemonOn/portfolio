@@ -247,4 +247,8 @@ button {
 	display: none;
 }
 
+#grabbedTab {
+	pointer-events: none;
+}
+
 /* The magic number is 191.9px increments */

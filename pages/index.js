@@ -405,32 +405,14 @@ export default function Index() {
 		let regex = /px/
 		let leftValueString = leftString.replace(regex, '')
 		initialPosition = [e.clientX - leftValueString, e.clientY]
-		document.addEventListener('mousemove', moveFunction)
+		document.onmousemove = moveFunction
 	}
 
-	const removeMouseMove = (e) => {
+	const removeMouseMove = () => {
 		// When mouse is released stop moving the grabTab
-
-		// console.log(e)
-
-		// if mouseup occurs over another tab or to the right of the last one, changes will be made to the order of headerTabs
-		// clientY 0 to about 55 is in the header section
-		// headerTabs[0] is about ~270 clientX to about 460~ clientY
-
-		// Math could be used to determine which tab position to place in, but another way would be to
-		// have a mouseup on the other tabs to resolve where it was released, this could also be where the mouseover
-		// is used to have an animation to show that it can be dropped there
 		grabTabDisappear()
 		existenceRef.current = 0
-
-		headerTabs.map((tabName) => {
-			let tabElement = document.getElementById(tabName)
-			// console.log(tabElement)
-			// tabElement.addEventListener("mouseover") animation
-			tabElement.removeEventListener('mouseup', tabRelocate)
-		})
-
-		document.removeEventListener('mousemove', moveFunction)
+		document.onmousemove = ''
 	}
 
 	const existenceRef = useRef(0)
@@ -458,11 +440,8 @@ export default function Index() {
 			headerTabs.map((tabName) => {
 				let tabElement = document.getElementsByClassName(tabName)[0]
 				console.log(tabElement)
-				tabElement.addEventListener('mouseup', tabRelocate)
+				tabElement.onmouseup = tabRelocate
 			})
-			// let draggedTab = document.getElementsByClassName('grabbedFocusedTab')[0]
-			// draggedTab.addEventListener('mouseup', tabRelocate)
-			// console.log(draggedTab)
 		}
 	}, [grabTabExistence])
 
@@ -478,47 +457,45 @@ export default function Index() {
 		setButton(document.getElementsByClassName('grabbedTabCloseButton')[0])
 		// This will add and remove event listeners for the dragging and dropping of tabs to reposition
 		// When numberPosition mutates to > -1 this will add the listener and when === -1 removes the listener
-
-		// for some reason attempting x.removeEventListener does not seem to work as I would like it to in this useEffect
 		if (numberPosition[0] > -1 && selectedTab[0] === 'home') {
 			console.log('Got here')
 			let parent = document.getElementsByClassName('homeTab')[0]
 			let element = parent.getElementsByTagName('div')[0]
 			setDragTabContent(element.innerText)
-			element.addEventListener('mousedown', mouseDownFunction)
-			window.addEventListener('mouseup', removeMouseMove)
+			element.onmousedown = mouseDownFunction
+			window.onmouseup = removeMouseMove
 		}
 		if (numberPosition[1] > -1 && selectedTab[0] === 'wordGenerator') {
 			// add
 			let parent = document.getElementsByClassName('wordGeneratorTab')[0]
 			let element = parent.getElementsByTagName('div')[0]
 			setDragTabContent(element.innerText)
-			element.addEventListener('mousedown', mouseDownFunction)
-			window.addEventListener('mouseup', removeMouseMove)
+			element.onmousedown = mouseDownFunction
+			window.onmouseup = removeMouseMove
 		}
 		if (numberPosition[2] > -1 && selectedTab[0] === 'autojack') {
 			// add
 			let parent = document.getElementsByClassName('autojackTab')[0]
 			let element = parent.getElementsByTagName('div')[0]
 			setDragTabContent(element.innerText)
-			element.addEventListener('mousedown', mouseDownFunction)
-			window.addEventListener('mouseup', removeMouseMove)
+			element.onmousedown = mouseDownFunction
+			window.onmouseup = removeMouseMove
 		}
 		if (numberPosition[3] > -1 && selectedTab[0] === 'randomTest') {
 			// add
 			let parent = document.getElementsByClassName('randomTestTab')[0]
 			let element = parent.getElementsByTagName('div')[0]
 			setDragTabContent(element.innerText)
-			element.addEventListener('mousedown', mouseDownFunction)
-			window.addEventListener('mouseup', removeMouseMove)
+			element.onmousedown = mouseDownFunction
+			window.onmouseup = removeMouseMove
 		}
 		if (numberPosition[4] > -1 && selectedTab[0] === 'portfolio') {
 			// add
 			let parent = document.getElementsByClassName('portfolioTab')[0]
 			let element = parent.getElementsByTagName('div')[0]
 			setDragTabContent(element.innerText)
-			element.addEventListener('mousedown', mouseDownFunction)
-			window.addEventListener('mouseup', removeMouseMove)
+			element.onmousedown = mouseDownFunction
+			window.onmouseup = removeMouseMove
 		}
 	}, [numberPosition, selectedTab])
 
