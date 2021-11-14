@@ -380,6 +380,7 @@ export default function Index() {
 	const [dragTabContent, setDragTabContent] = useState('Nothing')
 	const [tab, setTab] = useState(0)
 	const [button, setButton] = useState(0)
+	const [tabToBeMoved, setTabToBeMoved] = useState(0)
 
 	let initialPosition = [0, 0]
 
@@ -394,16 +395,22 @@ export default function Index() {
 		}
 	}
 	let mouseDownFunction = (e) => {
-		console.log(e)
+		// console.log(e)
+		// This function takes in information about where you clicked on the page, as well
+		// as using the left stlye of the element that was clicked to position the grabbed tab
 		let leftString
+		let element
 		if (e.target.style.left) {
 			leftString = e.target.style.left
+			element = e.target
 		} else {
 			leftString = e.explicitOriginalTarget.parentNode.parentNode.style.left
+			element = e.explicitOriginalTarget.parentNode.parentNode
 		}
-		console.log(leftString)
+		setTabToBeMoved(element)
 		let regex = /px/
 		let leftValueString = leftString.replace(regex, '')
+		// This leaves the string value only having numbers so it can be coerced from string to num for the positioning
 		initialPosition = [e.clientX - leftValueString, e.clientY]
 		document.onmousemove = moveFunction
 	}
@@ -420,8 +427,6 @@ export default function Index() {
 	const [grabTabExistence, setGrabTabExistence] = useState(0)
 
 	const tabRelocate = (e) => {
-		console.log(e)
-		console.log(existenceRef.current, grabTabExistence)
 		if (existenceRef.current === 1) {
 			let id
 			if (typeof e.explicitOriginalTarget.id !== 'undefined') {
@@ -429,7 +434,15 @@ export default function Index() {
 			} else {
 				id = e.explicitOriginalTarget.parentNode.parentNode.id
 			}
-			console.log(id, grabTabExistence)
+			// do the swapping
+			console.log(headerTabs, id, tabToBeMoved)
+			let movingIndex = headerTabs.indexOf(tabToBeMoved.id)
+			let destinationIndex = headerTabs.indexOf(id)
+			let storedValue = headerTabs[movingIndex]
+			// should be able to just splice out the element that is moving, then place it in the new position it wants to be in
+			headerTabs.splice(movingIndex, 1)
+			headerTabs.splice(destinationIndex, 0, storedValue)
+			setHeaderTabs([...headerTabs])
 		}
 	}
 
@@ -458,7 +471,6 @@ export default function Index() {
 		// This will add and remove event listeners for the dragging and dropping of tabs to reposition
 		// When numberPosition mutates to > -1 this will add the listener and when === -1 removes the listener
 		if (numberPosition[0] > -1 && selectedTab[0] === 'home') {
-			console.log('Got here')
 			let parent = document.getElementsByClassName('homeTab')[0]
 			let element = parent.getElementsByTagName('div')[0]
 			setDragTabContent(element.innerText)
