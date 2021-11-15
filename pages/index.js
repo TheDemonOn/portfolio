@@ -21,13 +21,19 @@ export default function Index() {
 	const [title, setTitle] = useState()
 
 	const [activeTab, setActiveTab] = useState('yellow')
-	const [inactiveTab, setInactiveTab] = useState('grey')
+	const [inactiveTab, setInactiveTab] = useState('darkGrey')
+	const [activeSubClass, setActiveSubClass] = useState('white')
 
 	const [homeClass, setHomeClass] = useState(activeTab)
+	const [homeSubClass, setHomeSubClass] = useState(activeSubClass)
 	const [wordGeneratorClass, setWordGeneratorClass] = useState(inactiveTab)
+	const [wordGeneratorSubClass, setWordGeneratorSubClass] = useState(inactiveTab)
 	const [autojackClass, setAutojackClass] = useState(inactiveTab)
+	const [autojackSubClass, setAutojackSubClass] = useState(inactiveTab)
 	const [randomTestClass, setRandomTestClass] = useState(inactiveTab)
+	const [randomTestSubClass, setRandomTestSubClass] = useState(inactiveTab)
 	const [portfolioClass, setPortfolioClass] = useState(inactiveTab)
+	const [portfolioSubClass, setPortfolioSubClass] = useState(inactiveTab)
 
 	// Use Header Tabs to determine the position of the actual tabs
 	// Example: ["homeTab", "autojackTab"]
@@ -42,25 +48,25 @@ export default function Index() {
 	}
 
 	let emptySection
-	const [homeSection, setHomeSection] = useState(
-		<ul>
+	const homeSection = (
+		<ul className="sideNavBorder">
 			<li>
-				<div onClick={switchTabCheck}>
+				<div className={homeSubClass} onClick={switchTabCheck}>
 					<a className="home">welcome</a>
 				</div>
 			</li>
 			<li>
-				<div onClick={switchTabCheck}>
+				<div className={homeSubClass} onClick={switchTabCheck}>
 					<a className="home">about me</a>
 				</div>
 			</li>
 			<li>
-				<div onClick={switchTabCheck}>
+				<div className={homeSubClass} onClick={switchTabCheck}>
 					<a className="home">projects</a>
 				</div>
 			</li>
 			<li>
-				<div onClick={switchTabCheck}>
+				<div className={homeSubClass} onClick={switchTabCheck}>
 					<a className="home">contact</a>
 				</div>
 			</li>
@@ -68,39 +74,39 @@ export default function Index() {
 	)
 	const [navHomeSection, setNavHomeSection] = useState(homeSection)
 	const wordGeneratorSection = (
-		<ul>
+		<ul className="sideNavBorder">
 			<li>
-				<div className="grey" onClick={switchTabCheck}>
+				<div className={wordGeneratorSubClass} onClick={switchTabCheck}>
 					<a className="wordGenerator">overview</a>
 				</div>
 			</li>
 			<li>
-				<div className="grey" onClick={switchTabCheck}>
+				<div className={wordGeneratorSubClass} onClick={switchTabCheck}>
 					<a className="wordGenerator">step 1</a>
 				</div>
 			</li>
 			<li>
-				<div className="grey" onClick={switchTabCheck}>
+				<div className={wordGeneratorSubClass} onClick={switchTabCheck}>
 					<a className="wordGenerator">step 2</a>
 				</div>
 			</li>
 			<li>
-				<div className="grey" onClick={switchTabCheck}>
+				<div className={wordGeneratorSubClass} onClick={switchTabCheck}>
 					<a className="wordGenerator">step 3</a>
 				</div>
 			</li>
 			<li>
-				<div className="grey" onClick={switchTabCheck}>
+				<div className={wordGeneratorSubClass} onClick={switchTabCheck}>
 					<a className="wordGenerator">challenges</a>
 				</div>
 			</li>
 			<li>
-				<div className="grey" onClick={switchTabCheck}>
+				<div className={wordGeneratorSubClass} onClick={switchTabCheck}>
 					<a className="wordGenerator">successes</a>
 				</div>
 			</li>
 			<li>
-				<div className="grey" onClick={switchTabCheck}>
+				<div className={wordGeneratorSubClass} onClick={switchTabCheck}>
 					<a className="wordGenerator">screenshots</a>
 				</div>
 			</li>
@@ -113,6 +119,11 @@ export default function Index() {
 	const [navRandomSection, setNavRandomSection] = useState(emptySection)
 	let portfolioSection
 	const [navPortfolioSection, setNavPortfolioSection] = useState(emptySection)
+	useEffect(() => {
+		console.log('I hope something changes')
+		setNavHomeSection(homeSection)
+		setNavWordGeneratorSection(wordGeneratorSection)
+	}, [homeSubClass, wordGeneratorSubClass])
 
 	useEffect(() => {
 		if (typeof selectedTab[1] !== 'undefined') {
@@ -152,22 +163,29 @@ export default function Index() {
 	const inactiveTabfunc = (active) => {
 		if (active !== 'home') {
 			setHomeClass(inactiveTab)
+			// console.log(homeSubClass)
+			setHomeSubClass(inactiveTab)
+			// console.log(homeSubClass)
 			tabFocusCheck('homeTab')
 		}
 		if (active !== 'wordGenerator') {
 			setWordGeneratorClass(inactiveTab)
+			setWordGeneratorSubClass(inactiveTab)
 			tabFocusCheck('wordGeneratorTab')
 		}
 		if (active !== 'autojack') {
 			setAutojackClass(inactiveTab)
+			setAutojackSubClass(inactiveTab)
 			tabFocusCheck('autojackTab')
 		}
 		if (active !== 'randomTest') {
 			setRandomTestClass(inactiveTab)
+			setRandomTestSubClass(inactiveTab)
 			tabFocusCheck('randomTestTab')
 		}
 		if (active !== 'portfolio') {
 			setPortfolioClass(inactiveTab)
+			setPortfolioSubClass(inactiveTab)
 			tabFocusCheck('portfolioTab')
 		}
 	}
@@ -297,6 +315,7 @@ export default function Index() {
 		switch (selectedTab[0]) {
 			case 'home':
 				setHomeClass(activeTab)
+				setHomeSubClass(activeSubClass)
 				setDisplayedTab(<Home />)
 				headerLogic('homeTab')
 				setTitle(
@@ -308,6 +327,7 @@ export default function Index() {
 				break
 			case 'wordGenerator':
 				setWordGeneratorClass(activeTab)
+				setWordGeneratorSubClass(activeSubClass)
 				setDisplayedTab(<WordGenerator />)
 				headerLogic('wordGeneratorTab')
 				setTitle(
@@ -437,7 +457,7 @@ export default function Index() {
 	}
 
 	const existenceRef = useRef(0)
-
+	// This useRef is used to guarantee that the functions use data that is not stale for this time sensitive operation
 	const [grabTabExistence, setGrabTabExistence] = useState(0)
 
 	const tabRelocate = (e) => {

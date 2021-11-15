@@ -110,6 +110,10 @@ li {
 	color: #d5d5d9;
 }
 
+.darkGrey {
+	color: #bfbfc5;
+}
+
 .pad {
 	padding-left: 0.6em;
 	padding-right: 0.6em;
@@ -245,9 +249,15 @@ li {
 
 .contentDiv {
 	border-left: solid;
-	border-color: #61607c;
+	border-color: #504f6e;
 	border-width: 3.5px;
 	padding-left: 1em;
+}
+
+.sideNavBorder {
+	border-left: solid;
+	border-color: #babac9;
+	border-width: 2px;
 }
 
 /* ID's */
