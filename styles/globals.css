@@ -8,6 +8,11 @@
 	src: url(../fonts/adobecleanlight/AdobeCleanUX-SemiLight.ttf);
 }
 
+@font-face {
+	font-family: 'AdobeClean-Lighter';
+	src: url(../fonts/adobecleanreallight/AdobeClean-Light.ttf);
+}
+
 html,
 body {
 	/* display: inline-block; */
@@ -64,6 +69,11 @@ button {
 	z-index: 3;
 	width: 1.5em;
 	height: 1.5em;
+}
+
+li {
+	/* border: solid; */
+	margin-bottom: 0.58em;
 }
 
 .test {
@@ -134,10 +144,9 @@ button {
 }
 
 .navText {
-	font-family: AdobeClean-Light, AdobeClean-Regular, sans-serif;
-	font-size: 19px;
+	font-family: AdobeClean-Regular, sans-serif;
+	font-size: 18px;
 	letter-spacing: 0.8px;
-	font-weight: lighter;
 }
 
 .headerAntonio {

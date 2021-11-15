@@ -76,17 +76,17 @@ export default function Index() {
 			</li>
 			<li>
 				<div className="grey" onClick={switchTabCheck}>
-					<a className="wordGenerator">step1</a>
+					<a className="wordGenerator">step 1</a>
 				</div>
 			</li>
 			<li>
 				<div className="grey" onClick={switchTabCheck}>
-					<a className="wordGenerator">step2</a>
+					<a className="wordGenerator">step 2</a>
 				</div>
 			</li>
 			<li>
 				<div className="grey" onClick={switchTabCheck}>
-					<a className="wordGenerator">step3</a>
+					<a className="wordGenerator">step 3</a>
 				</div>
 			</li>
 			<li>
