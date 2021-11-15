@@ -6,8 +6,8 @@ export default function SectionContent({ content, size }) {
 		customSize = 'biggerContent'
 	}
 	return (
-		<>
+		<div className="contentDiv">
 			<h2 className={'grey ' + ` ${customSize}`}>{content}</h2>
-		</>
+		</div>
 	)
 }

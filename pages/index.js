@@ -6,6 +6,7 @@ import WordGenerator from '../components/WordGenerator'
 import Autojack from '../components/Autojack'
 import RandomTest from '../components/RandomTest'
 import Portfolio from '../components/Portfolio'
+import EasterEgg from '../components/EasterEgg'
 import Tab from '../components/Tab'
 import DragTab from '../components/DragTab'
 
@@ -114,9 +115,11 @@ export default function Index() {
 	const [navPortfolioSection, setNavPortfolioSection] = useState(emptySection)
 
 	useEffect(() => {
-		if (typeof selectedTab[1].target !== 'undefined') {
-			if (selectedTab[1].target.id !== 'section') {
-				scrollTo(selectedTab[1])
+		if (typeof selectedTab[1] !== 'undefined') {
+			if (typeof selectedTab[1].target !== 'undefined') {
+				if (selectedTab[1].target.id !== 'section') {
+					scrollTo(selectedTab[1])
+				}
 			}
 		}
 	}, [displayedTab])
@@ -195,32 +198,35 @@ export default function Index() {
 	// const [destroyCheck, setDestroyCheck] = useState()
 
 	const destroyTab = (e) => {
+		// This function removes a tab and changes the displayedTab if necessary
 		let ID = e.target.previousElementSibling.id
 		let index = headerTabs.indexOf(ID)
 		headerTabs.splice(index, 1)
-
-		console.log(ID, selectedTab[0] + 'Tab')
+		console.log(headerTabs[0])
 		if (ID === selectedTab[0] + 'Tab' && headerTabs[0]) {
+			// If the deleted tab is currently being displayed, move to the next available tab
 			let e
 			if (
 				typeof document.getElementById(headerTabs[index]) !== 'undefined' &&
 				document.getElementById(headerTabs[index]) !== null
 			) {
-				console.log('first', index, headerTabs[index], document.getElementById(headerTabs[index]))
+				// If the index that was deleted is now available we will switch to that
 				e = document.getElementById(headerTabs[index])
 			} else {
-				console.log('second')
+				// If that index is not available switch to the previous one
 				e = document.getElementById(headerTabs[index - 1])
 			}
-			console.log(e)
 			let newId = e.id
-			console.log(newId)
 			focusTab(newId)
 			inactiveTabfunc(newId)
 			let regex = /Tab/
 			let tab = newId.replace(regex, '')
 			setSelectedTab([tab, e])
+		} else if (typeof headerTabs[0] === 'undefined') {
+			// If there are no tabs
+			setSelectedTab([])
 		}
+		// The deleted tab is not currently being displayed
 		setHeaderTabs([...headerTabs])
 	}
 
@@ -346,6 +352,14 @@ export default function Index() {
 				break
 			default:
 				// Easter Egg
+				if (!headerTabs[0]) {
+					setDisplayedTab(<EasterEgg />)
+					setTitle(
+						<Head>
+							<title>Easter Egg!</title>
+						</Head>
+					)
+				}
 				break
 		}
 	}, [selectedTab])

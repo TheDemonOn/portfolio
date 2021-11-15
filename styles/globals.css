@@ -234,6 +234,13 @@ button {
 	margin-left: 22em;
 }
 
+.contentDiv {
+	border-left: solid;
+	border-color: #61607c;
+	border-width: 3.5px;
+	padding-left: 1em;
+}
+
 /* ID's */
 
 #codeAntonio {
