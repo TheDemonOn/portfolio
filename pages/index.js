@@ -576,14 +576,14 @@ export default function Index() {
 
 			<nav className="nav inline">
 				<div className="sideNav navText">
-					<ul>
-						<li>
+					<ul className="sideNavUL">
+						<li className="titleList">
 							<div className={homeClass} id="sectionHome" onClick={navToggle}>
 								<a className="home">home</a>
 							</div>
 						</li>
 						{navHomeSection}
-						<li>
+						<li className="titleList">
 							<div className={wordGeneratorClass} id="sectionWordGenerator" onClick={navToggle}>
 								<a className="wordGenerator" id="section">
 									proj1_word_generator
@@ -591,7 +591,7 @@ export default function Index() {
 							</div>
 						</li>
 						{navWordGeneratorSection}
-						<li>
+						<li className="titleList">
 							<div className={autojackClass} id="sectionAutojack" onClick={switchTabCheck}>
 								<a className="autojack" id="section">
 									proj2_autojack
@@ -599,7 +599,7 @@ export default function Index() {
 							</div>
 						</li>
 						{navAutojackSection}
-						<li>
+						<li className="titleList">
 							<div className={randomTestClass} id="sectionRandomTest" onClick={switchTabCheck}>
 								<a className="randomTest" id="section">
 									proj3_random_test
@@ -607,7 +607,7 @@ export default function Index() {
 							</div>
 						</li>
 						{navRandomSection}
-						<li>
+						<li className="titleList">
 							<div className={portfolioClass} id="sectionPortfolio" onClick={switchTabCheck}>
 								<a className="portfolio" id="section">
 									proj4_portfolio

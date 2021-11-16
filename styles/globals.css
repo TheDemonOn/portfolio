@@ -71,9 +71,38 @@ button {
 	height: 1.5em;
 }
 
+ul {
+	padding: 0;
+}
+
+.sideNavUL {
+	margin-left: 3em;
+}
+
+.titleList {
+	margin-bottom: 0.3em;
+	margin-top: 0.2em;
+}
+
 li {
-	/* border: solid; */
-	margin-bottom: 0.58em;
+	/* height: 2em; */
+	/* list-style: katakana; */
+	white-space: nowrap;
+	vertical-align: bottom;
+}
+.sideNavBorder {
+	margin-left: -0.75em;
+}
+
+.sideNavBorder li {
+	padding-left: 1.9em;
+	padding-top: 0.1em;
+	padding-bottom: 0.3em;
+	display: block;
+}
+
+.sideNavBorder li:hover {
+	background-color: #61607c80;
 }
 
 .test {
@@ -149,7 +178,7 @@ li {
 
 .navText {
 	font-family: AdobeClean-Regular, sans-serif;
-	font-size: 18px;
+	font-size: 18.5px;
 	letter-spacing: 0.8px;
 }
 
