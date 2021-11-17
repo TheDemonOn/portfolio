@@ -9,6 +9,7 @@ import Portfolio from '../components/Portfolio'
 import EasterEgg from '../components/EasterEgg'
 import Tab from '../components/Tab'
 import DragTab from '../components/DragTab'
+import GithubSVG from '../components/GithubSVG'
 
 export default function Index() {
 	// The index will contain elements that are always there
@@ -572,6 +573,7 @@ export default function Index() {
 				</div>
 				<div className="header"></div>
 				<div className="headerSpaceFill"></div>
+				<GithubSVG />
 			</header>
 
 			<nav className="nav inline">

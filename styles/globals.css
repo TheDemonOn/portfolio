@@ -46,12 +46,12 @@ a {
 h1 {
 	font-family: 'Source Code Pro', monospace;
 	font-weight: 600;
-	font: normal normal 600 45px Source Code Pro;
+	font: normal normal 600 40px Source Code Pro;
 }
 
 h2 {
 	font-family: 'Source Code Pro', monospace;
-	font-size: 24px;
+	font-size: 22px;
 }
 
 h3 {
@@ -306,6 +306,13 @@ svg {
 	border-left: solid;
 	border-color: #babac9;
 	border-width: 2px;
+}
+
+.github {
+	position: fixed;
+	top: 0.7em;
+	right: 1em;
+	/* cursor: pointer; */
 }
 
 /* ID's */
