@@ -75,6 +75,11 @@ ul {
 	padding: 0;
 }
 
+#activeNoHover {
+	border: solid;
+	z-index: 100;
+}
+
 .sideNavUL {
 	margin-left: 3em;
 }
@@ -90,6 +95,13 @@ li {
 	white-space: nowrap;
 	vertical-align: bottom;
 }
+
+svg {
+	position: fixed;
+	/* border: solid; */
+	z-index: 10;
+}
+
 .sideNavBorder {
 	margin-left: -0.75em;
 }
@@ -207,18 +219,25 @@ li {
 
 .tabCloseButton {
 	position: fixed;
-	top: 1em;
-	border: solid;
-	margin-left: 12em;
+	top: 1.1em;
+	margin-left: 10.2em;
+	font-family: AdobeClean-Light, AdobeClean-Regular, sans-serif;
+	z-index: 2;
+}
+
+.tabCloseButtonAlt {
+	position: fixed;
+	top: 0.85em;
+	margin-left: 9.85em;
 	font-family: AdobeClean-Light, AdobeClean-Regular, sans-serif;
 	z-index: 2;
 }
 
 .grabbedTabCloseButton {
-	position: absolute;
-	margin-top: 1em;
-	border: solid;
-	margin-left: 12em;
+	position: fixed;
+	margin-top: 1.1em;
+	/* border: solid; */
+	margin-left: 10.2em;
 	font-family: AdobeClean-Light, AdobeClean-Regular, sans-serif;
 	z-index: 5;
 	opacity: 80%;
@@ -297,7 +316,6 @@ li {
 }
 
 #offScreen {
-	border: solid;
 	z-index: -1;
 	display: none;
 }

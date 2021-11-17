@@ -163,9 +163,7 @@ export default function Index() {
 	const inactiveTabfunc = (active) => {
 		if (active !== 'home') {
 			setHomeClass(inactiveTab)
-			// console.log(homeSubClass)
 			setHomeSubClass(inactiveTab)
-			// console.log(homeSubClass)
 			tabFocusCheck('homeTab')
 		}
 		if (active !== 'wordGenerator') {
@@ -213,14 +211,16 @@ export default function Index() {
 		setSelectedTab([tab, e])
 	}
 
-	// const [destroyCheck, setDestroyCheck] = useState()
-
 	const destroyTab = (e) => {
 		// This function removes a tab and changes the displayedTab if necessary
-		let ID = e.target.previousElementSibling.id
+		let ID
+		if (typeof e.target.dataset.tab !== 'undefined') {
+			ID = e.target.dataset.tab
+		} else {
+			ID = e.target.farthestViewportElement.dataset.tab
+		}
 		let index = headerTabs.indexOf(ID)
 		headerTabs.splice(index, 1)
-		console.log(headerTabs[0])
 		if (ID === selectedTab[0] + 'Tab' && headerTabs[0]) {
 			// If the deleted tab is currently being displayed, move to the next available tab
 			let e
@@ -625,6 +625,7 @@ export default function Index() {
 				focus={tabClick}
 				destroy={destroyTab}
 				position={numberPosition[0]}
+				selectedTab={selectedTab[0]}
 			/>
 			<Tab
 				content="proj1.tab"
@@ -632,6 +633,7 @@ export default function Index() {
 				focus={tabClick}
 				destroy={destroyTab}
 				position={numberPosition[1]}
+				selectedTab={selectedTab[0]}
 			/>
 			<Tab
 				content="proj2.tab"
@@ -639,6 +641,7 @@ export default function Index() {
 				focus={tabClick}
 				destroy={destroyTab}
 				position={numberPosition[2]}
+				selectedTab={selectedTab[0]}
 			/>
 			<Tab
 				content="proj3.tab"
@@ -646,6 +649,7 @@ export default function Index() {
 				focus={tabClick}
 				destroy={destroyTab}
 				position={numberPosition[3]}
+				selectedTab={selectedTab[0]}
 			/>
 			<Tab
 				content="proj4.tab"
@@ -653,6 +657,7 @@ export default function Index() {
 				focus={tabClick}
 				destroy={destroyTab}
 				position={numberPosition[4]}
+				selectedTab={selectedTab[0]}
 			/>
 			<body>
 				<div className="bodyPosition">
