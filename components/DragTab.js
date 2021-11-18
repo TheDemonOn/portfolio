@@ -1,5 +1,4 @@
 import React from 'react'
-import ActiveNoHover from './ActiveNoHover'
 
 export default function DragTab({ content, exist = 0 }) {
 	let potentialId = 'offScreen'
@@ -14,11 +13,6 @@ export default function DragTab({ content, exist = 0 }) {
 			<svg
 				id={potentialId}
 				className="grabbedTabCloseButton"
-				// style={positioning}
-				// onClick={destroy}
-				// data-tab={id}
-				// onMouseEnter={startHover}
-				// onMouseLeave={endHover}
 				xmlns="http://www.w3.org/2000/svg"
 				width="13"
 				height="16.027"

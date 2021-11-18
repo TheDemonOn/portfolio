@@ -13,6 +13,10 @@
 	src: url(../fonts/adobecleanreallight/AdobeClean-Light.ttf);
 }
 
+:root {
+	--cursor-pointer: pointer;
+}
+
 html,
 body {
 	/* display: inline-block; */
@@ -61,7 +65,7 @@ h3 {
 }
 
 a {
-	cursor: pointer;
+	cursor: var(--cursor-pointer);
 }
 
 button {
@@ -85,8 +89,10 @@ ul {
 }
 
 .titleList {
-	margin-bottom: 0.3em;
-	margin-top: 0.2em;
+	padding-bottom: 0.3em;
+	padding-top: 0.2em;
+	/* padding-left: 1em; */
+	list-style-type: disclosure-open;
 }
 
 li {
@@ -253,9 +259,13 @@ svg {
 	letter-spacing: 0.8px;
 	font-weight: lighter;
 	color: #fff;
-	cursor: pointer;
+	cursor: var(--cursor-pointer);
 	z-index: 2;
 	background: #262538;
+}
+
+.highlightedArea {
+	background-color: #767595;
 }
 
 .grabbedFocusedTab {
@@ -268,7 +278,6 @@ svg {
 	letter-spacing: 0.8px;
 	font-weight: lighter;
 	color: #fff;
-	cursor: pointer;
 	z-index: 5;
 	background: #262538;
 	opacity: 80%;
@@ -284,9 +293,9 @@ svg {
 	letter-spacing: 0.8px;
 	font-weight: lighter;
 	color: #fff;
-	cursor: pointer;
+	cursor: var(--cursor-pointer);
 	z-index: 2;
-	background: #61607c;
+	background: #4f4f69;
 }
 
 .bodyPosition {
@@ -296,10 +305,19 @@ svg {
 }
 
 .contentDiv {
+	/* border-left: solid;
+	border-color: #504f6e; */
+	/* border-width: 3.5px; */
+	/* padding-left: 1em; */
+}
+
+.contentSide {
 	border-left: solid;
 	border-color: #504f6e;
 	border-width: 3.5px;
-	padding-left: 1em;
+	margin-left: 0.3em;
+	padding-left: 2em;
+	/* padding-left: 1em; */
 }
 
 .sideNavBorder {
@@ -312,7 +330,6 @@ svg {
 	position: fixed;
 	top: 0.7em;
 	right: 1em;
-	/* cursor: pointer; */
 }
 
 /* ID's */

@@ -121,7 +121,6 @@ export default function Index() {
 	let portfolioSection
 	const [navPortfolioSection, setNavPortfolioSection] = useState(emptySection)
 	useEffect(() => {
-		console.log('I hope something changes')
 		setNavHomeSection(homeSection)
 		setNavWordGeneratorSection(wordGeneratorSection)
 	}, [homeSubClass, wordGeneratorSubClass])
@@ -162,6 +161,7 @@ export default function Index() {
 	}
 
 	const inactiveTabfunc = (active) => {
+		console.log('This triggers', active)
 		if (active !== 'home') {
 			setHomeClass(inactiveTab)
 			setHomeSubClass(inactiveTab)
@@ -205,10 +205,12 @@ export default function Index() {
 		} else {
 			id = e.target.id
 		}
-		inactiveTabfunc(id)
+		console.log(id)
+		// inactiveTabfunc(id)
 		focusTab(id)
 		let regex = /Tab/
 		let tab = id.replace(regex, '')
+		inactiveTabfunc(tab)
 		setSelectedTab([tab, e])
 	}
 
@@ -484,14 +486,23 @@ export default function Index() {
 	useEffect(() => {
 		if (existenceRef.current === 1) {
 			// we are grabbing a tab
-			console.log(headerTabs)
 			headerTabs.map((tabName) => {
 				let tabElement = document.getElementsByClassName(tabName)[0]
-				console.log(tabElement)
 				tabElement.onmouseup = tabRelocate
 			})
+			document.documentElement.style.setProperty('--cursor-pointer', 'alias', 'important')
+		} else {
+			document.documentElement.style.setProperty('--cursor-pointer', 'pointer', 'important')
 		}
 	}, [grabTabExistence])
+
+	// useEffect(() => {
+	// 	if (existenceRef.current === 1) {
+	// 		document.body.style.cursor = 'alias'
+	// 	} else {
+	// 		document.body.style.cursor = 'auto'
+	// 	}
+	// })
 
 	const grabTabAppear = () => {
 		setGrabTabExistence(1)
@@ -628,6 +639,7 @@ export default function Index() {
 				destroy={destroyTab}
 				position={numberPosition[0]}
 				selectedTab={selectedTab[0]}
+				grabTabExistence={grabTabExistence}
 			/>
 			<Tab
 				content="proj1.tab"
@@ -636,6 +648,7 @@ export default function Index() {
 				destroy={destroyTab}
 				position={numberPosition[1]}
 				selectedTab={selectedTab[0]}
+				grabTabExistence={grabTabExistence}
 			/>
 			<Tab
 				content="proj2.tab"
@@ -644,6 +657,7 @@ export default function Index() {
 				destroy={destroyTab}
 				position={numberPosition[2]}
 				selectedTab={selectedTab[0]}
+				grabTabExistence={grabTabExistence}
 			/>
 			<Tab
 				content="proj3.tab"
@@ -652,6 +666,7 @@ export default function Index() {
 				destroy={destroyTab}
 				position={numberPosition[3]}
 				selectedTab={selectedTab[0]}
+				grabTabExistence={grabTabExistence}
 			/>
 			<Tab
 				content="proj4.tab"
@@ -660,6 +675,7 @@ export default function Index() {
 				destroy={destroyTab}
 				position={numberPosition[4]}
 				selectedTab={selectedTab[0]}
+				grabTabExistence={grabTabExistence}
 			/>
 			<body>
 				<div className="bodyPosition">
