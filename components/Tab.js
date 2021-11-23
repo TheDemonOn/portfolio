@@ -11,10 +11,7 @@ export default function Tab({
 	selectedTab,
 	grabTabExistence,
 }) {
-	// Each tab will use its own position in the headerTabs array to determine where it should be placed
-	const [status, setStatus] = useState(0)
-	const [active, setActive] = useState(1)
-
+	// console.log(position)
 	useEffect(() => {
 		if (typeof idWithoutTab !== 'undefined') {
 			if (selectedTab === idWithoutTab) {
@@ -24,12 +21,15 @@ export default function Tab({
 				setActive(0)
 			}
 		}
-		console.log(active)
 	}, [selectedTab])
+	// Each tab will use its own position in the headerTabs array to determine where it should be placed
+	const [status, setStatus] = useState(0)
+	const [active, setActive] = useState(1)
 
 	let positioning
 	let distance = 270 + position * 191.9
 	positioning = {
+		// left: `${distance}px;`,
 		left: distance,
 	}
 	if (position < 0) {
@@ -45,33 +45,42 @@ export default function Tab({
 		if (grabTabExistence) {
 			// change the background color
 			if (!active) {
-				console.log(e)
 				if (typeof e.target.attributes.style !== 'undefined') {
-					e.target.attributes.style.value =
-						e.target.attributes.style.value + ' background-color: #5C5C77;'
+					let styleString = e.target.attributes.style.value
+					let style = styleString.slice(styleString.length - 1)
+					console.log(style)
+					if (style === ';') {
+						e.target.attributes.style.value =
+							e.target.attributes.style.value + ' background-color: #5C5C77;'
+					} else {
+						e.target.attributes.style.value =
+							e.target.attributes.style.value + ';background-color: #5C5C77;'
+					}
 				}
 			}
 		}
 	}
 	const hide = (e) => {
 		setStatus(0)
-		// console.log('Does this hide?!', e.currentTarget.firstChild.attributes.style)
 		if (typeof e.target.attributes.style !== 'undefined') {
-			let regex = / background-color: .*/g
+			let regex = / background-color: .*/
+			let altRegex = /background-color: .*/
 			let newInlineStyle = e.currentTarget.firstChild.attributes.style.value
 			let originalInlineStyle = newInlineStyle.replace(regex, '')
-			console.log(newInlineStyle, originalInlineStyle)
-			e.target.attributes.style.value = originalInlineStyle
+			let newestStyle = originalInlineStyle.replace(altRegex, '')
+			e.target.attributes.style.value = newestStyle
 		}
 	}
 	const colorCheck = (e) => {
+		console.log('colorCheck ' + grabTabExistence)
 		if (!grabTabExistence) {
 			if (typeof e.target.attributes.style !== 'undefined') {
-				let regex = / background-color: .*/g
+				let regex = / background-color: .*/
+				let altRegex = /background-color: .*/
 				let newInlineStyle = e.currentTarget.firstChild.attributes.style.value
 				let originalInlineStyle = newInlineStyle.replace(regex, '')
-				console.log(newInlineStyle, originalInlineStyle)
-				e.target.attributes.style.value = originalInlineStyle
+				let newestStyle = originalInlineStyle.replace(altRegex, '')
+				e.target.attributes.style.value = newestStyle
 			}
 		}
 	}
@@ -87,6 +96,7 @@ export default function Tab({
 				id={id}
 				active={active}
 				status={status}
+				grabTabExistence={grabTabExistence}
 			/>
 		</div>
 	)

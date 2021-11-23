@@ -1,11 +1,18 @@
 import React, { useState } from 'react'
 
-export default function ActiveNoHover({ active, positioning, destroy, id, status }) {
+export default function ActiveNoHover({
+	active,
+	positioning,
+	destroy,
+	id,
+	status,
+	grabTabExistence,
+}) {
 	// Create a function that uses a global handler to say: when this element is moused over, change the state of hover from 0 to 1,
 	// and when it mouses out set the 1 to 0
 	if (active) {
 	} else {
-		if (status === 0) {
+		if (status === 0 || grabTabExistence) {
 			return null
 		}
 	}
