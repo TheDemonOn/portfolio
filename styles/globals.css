@@ -239,14 +239,6 @@ svg {
 	z-index: 2;
 }
 
-.tabCloseButtonAltNonActive {
-	position: fixed;
-	top: 0.85em;
-	margin-left: 9.85em;
-	font-family: AdobeClean-Light, AdobeClean-Regular, sans-serif;
-	z-index: 2;
-}
-
 .grabbedTabCloseButton {
 	position: fixed;
 	margin-top: 1.1em;
