@@ -130,7 +130,7 @@ export default function ActiveNoHover({
 						height="30"
 						rx="6"
 						transform="translate(549 21)"
-						fill="#4e4d67"
+						fill="#47465D"
 					/>
 					<path
 						id="Path_19"
