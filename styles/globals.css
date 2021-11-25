@@ -100,6 +100,7 @@ li {
 	/* list-style: katakana; */
 	white-space: nowrap;
 	vertical-align: bottom;
+	cursor: pointer;
 }
 
 svg {
@@ -109,7 +110,7 @@ svg {
 }
 
 .sideNavBorder {
-	margin-left: -0.75em;
+	margin-left: -0.685em;
 }
 
 .sideNavBorder li {
@@ -137,6 +138,14 @@ svg {
 	/* border: solid; */
 	position: fixed;
 	background: #323146;
+	height: 3.5em;
+	width: 100vw;
+}
+
+.highlightedHeader {
+	/* border: solid; */
+	position: fixed;
+	background: #3e3c55;
 	height: 3.5em;
 	width: 100vw;
 }

@@ -43,31 +43,42 @@ export default function Index() {
 	const [headerTabs, setHeaderTabs] = useState(['homeTab'])
 
 	const switchTabCheck = (e) => {
-		let tab = e.target.className
+		let tab
+		let element
+		if (e.target.className === '') {
+			tab = e.target.firstChild.childNodes[0].className
+			element = e.target
+		} else if (e.target.className !== 'white' && e.target.className !== 'darkGrey') {
+			tab = e.target.className
+			element = e
+		} else {
+			tab = e.target.firstChild.className
+			element = e
+		}
 		// Switch to tab with a useEffect trigger
-		setSelectedTab([tab, e])
+		setSelectedTab([tab, element])
 	}
 
 	let emptySection
 	const homeSection = (
 		<ul className="sideNavBorder">
-			<li>
-				<div className={homeSubClass} onClick={switchTabCheck}>
+			<li onClick={switchTabCheck}>
+				<div className={homeSubClass}>
 					<a className="home">welcome</a>
 				</div>
 			</li>
-			<li>
-				<div className={homeSubClass} onClick={switchTabCheck}>
+			<li onClick={switchTabCheck}>
+				<div className={homeSubClass}>
 					<a className="home">about me</a>
 				</div>
 			</li>
-			<li>
-				<div className={homeSubClass} onClick={switchTabCheck}>
+			<li onClick={switchTabCheck}>
+				<div className={homeSubClass}>
 					<a className="home">projects</a>
 				</div>
 			</li>
-			<li>
-				<div className={homeSubClass} onClick={switchTabCheck}>
+			<li onClick={switchTabCheck}>
+				<div className={homeSubClass}>
 					<a className="home">contact</a>
 				</div>
 			</li>
@@ -76,38 +87,38 @@ export default function Index() {
 	const [navHomeSection, setNavHomeSection] = useState(homeSection)
 	const wordGeneratorSection = (
 		<ul className="sideNavBorder">
-			<li>
-				<div className={wordGeneratorSubClass} onClick={switchTabCheck}>
+			<li onClick={switchTabCheck}>
+				<div className={wordGeneratorSubClass}>
 					<a className="wordGenerator">overview</a>
 				</div>
 			</li>
-			<li>
-				<div className={wordGeneratorSubClass} onClick={switchTabCheck}>
+			<li onClick={switchTabCheck}>
+				<div className={wordGeneratorSubClass}>
 					<a className="wordGenerator">step 1</a>
 				</div>
 			</li>
-			<li>
-				<div className={wordGeneratorSubClass} onClick={switchTabCheck}>
+			<li onClick={switchTabCheck}>
+				<div className={wordGeneratorSubClass}>
 					<a className="wordGenerator">step 2</a>
 				</div>
 			</li>
-			<li>
-				<div className={wordGeneratorSubClass} onClick={switchTabCheck}>
+			<li onClick={switchTabCheck}>
+				<div className={wordGeneratorSubClass}>
 					<a className="wordGenerator">step 3</a>
 				</div>
 			</li>
-			<li>
-				<div className={wordGeneratorSubClass} onClick={switchTabCheck}>
+			<li onClick={switchTabCheck}>
+				<div className={wordGeneratorSubClass}>
 					<a className="wordGenerator">challenges</a>
 				</div>
 			</li>
-			<li>
-				<div className={wordGeneratorSubClass} onClick={switchTabCheck}>
+			<li onClick={switchTabCheck}>
+				<div className={wordGeneratorSubClass}>
 					<a className="wordGenerator">successes</a>
 				</div>
 			</li>
-			<li>
-				<div className={wordGeneratorSubClass} onClick={switchTabCheck}>
+			<li onClick={switchTabCheck}>
+				<div className={wordGeneratorSubClass}>
 					<a className="wordGenerator">screenshots</a>
 				</div>
 			</li>
@@ -126,10 +137,18 @@ export default function Index() {
 	}, [homeSubClass, wordGeneratorSubClass])
 
 	useEffect(() => {
+		console.log(selectedTab[1])
 		if (typeof selectedTab[1] !== 'undefined') {
 			if (typeof selectedTab[1].target !== 'undefined') {
 				if (selectedTab[1].target.id !== 'section') {
+					console.log('Scroll func')
 					scrollTo(selectedTab[1])
+				}
+			} else {
+				// hopefully this is the only other case
+				if (typeof selectedTab[1].firstChild !== 'undefined') {
+					let element = document.getElementById(selectedTab[1].firstChild.childNodes[0].innerText)
+					element.scrollIntoView({ behavior: 'smooth', block: 'center' })
 				}
 			}
 		}
@@ -142,7 +161,9 @@ export default function Index() {
 			typeof document.getElementById(id) !== 'undefined' &&
 			document.getElementById(id) !== null
 		) {
+			console.log(id)
 			let element = document.getElementById(id)
+			console.log(element)
 			element.scrollIntoView({ behavior: 'smooth', block: 'center' })
 		}
 	}
@@ -496,14 +517,6 @@ export default function Index() {
 		}
 	}, [grabTabExistence])
 
-	// useEffect(() => {
-	// 	if (existenceRef.current === 1) {
-	// 		document.body.style.cursor = 'alias'
-	// 	} else {
-	// 		document.body.style.cursor = 'auto'
-	// 	}
-	// })
-
 	const grabTabAppear = () => {
 		setGrabTabExistence(1)
 	}
@@ -556,6 +569,28 @@ export default function Index() {
 			window.onmouseup = removeMouseMove
 		}
 	}, [numberPosition, selectedTab])
+
+	// useEffect(() => {
+	// Feature is a bit too much effort for not something significant.
+	// 	let header = document.getElementsByTagName('header')[0]
+	// 	console.log(header)
+	// 	if (!grabTabExistence) {
+	// 		header.childNodes[1].attributes.class.value = 'header'
+	// 	}
+
+	// 	const tabCheck = () => {
+	// 		if (grabTabExistence === 1) {
+	// 			console.log('woos')
+	// 			header.childNodes[1].attributes.class.value = 'highlightedHeader'
+	// 		}
+	// 	}
+	// 	const leave = () => {
+	// 		header.childNodes[1].attributes.class.value = 'header'
+	// 	}
+
+	// 	header.onmouseover = tabCheck
+	// 	header.onmouseleave = leave
+	// }, [grabTabExistence])
 
 	return (
 		<>
