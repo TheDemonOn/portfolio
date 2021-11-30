@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import ActiveNoHover from './ActiveNoHover'
+import Icons from './Icons'
 
 export default function Tab({
 	content,
@@ -11,7 +12,6 @@ export default function Tab({
 	selectedTab,
 	grabTabExistence,
 }) {
-	// console.log(position)
 	useEffect(() => {
 		if (typeof idWithoutTab !== 'undefined') {
 			if (selectedTab === idWithoutTab) {
@@ -29,7 +29,6 @@ export default function Tab({
 	let positioning
 	let distance = 270 + position * 191.9
 	positioning = {
-		// left: `${distance}px;`,
 		left: distance,
 	}
 	if (position < 0) {
@@ -84,9 +83,10 @@ export default function Tab({
 			}
 		}
 	}
-
+	console.log(positioning)
 	return (
 		<div className={id} onMouseEnter={reveal} onMouseOver={colorCheck} onMouseLeave={hide}>
+			<Icons iconName={id} big={true} positioning={positioning} />
 			<div className="focusedTab" style={positioning} id={id} onMouseDown={focus}>
 				<p className="tabContent">{content}</p>
 			</div>
