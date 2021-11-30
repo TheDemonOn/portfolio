@@ -10,6 +10,7 @@ import EasterEgg from '../components/EasterEgg'
 import Tab from '../components/Tab'
 import DragTab from '../components/DragTab'
 import GithubSVG from '../components/GithubSVG'
+import Icons from '../components/Icons'
 
 export default function Index() {
 	// The index will contain elements that are always there
@@ -147,8 +148,10 @@ export default function Index() {
 			} else {
 				// hopefully this is the only other case
 				if (typeof selectedTab[1].firstChild !== 'undefined') {
-					let element = document.getElementById(selectedTab[1].firstChild.childNodes[0].innerText)
-					element.scrollIntoView({ behavior: 'smooth', block: 'center' })
+					if (document.getElementById(selectedTab[1].firstChild.childNodes[0].innerText) !== null) {
+						let element = document.getElementById(selectedTab[1].firstChild.childNodes[0].innerText)
+						element.scrollIntoView({ behavior: 'smooth', block: 'center' })
+					}
 				}
 			}
 		}
@@ -570,28 +573,6 @@ export default function Index() {
 		}
 	}, [numberPosition, selectedTab])
 
-	// useEffect(() => {
-	// Feature is a bit too much effort for not something significant.
-	// 	let header = document.getElementsByTagName('header')[0]
-	// 	console.log(header)
-	// 	if (!grabTabExistence) {
-	// 		header.childNodes[1].attributes.class.value = 'header'
-	// 	}
-
-	// 	const tabCheck = () => {
-	// 		if (grabTabExistence === 1) {
-	// 			console.log('woos')
-	// 			header.childNodes[1].attributes.class.value = 'highlightedHeader'
-	// 		}
-	// 	}
-	// 	const leave = () => {
-	// 		header.childNodes[1].attributes.class.value = 'header'
-	// 	}
-
-	// 	header.onmouseover = tabCheck
-	// 	header.onmouseleave = leave
-	// }, [grabTabExistence])
-
 	return (
 		<>
 			<Head>
@@ -627,12 +608,14 @@ export default function Index() {
 					<ul className="sideNavUL">
 						<li className="titleList">
 							<div className={homeClass} id="sectionHome" onClick={navToggle}>
+								<Icons iconName="dropActive" />
 								<a className="home">home</a>
 							</div>
 						</li>
 						{navHomeSection}
 						<li className="titleList">
 							<div className={wordGeneratorClass} id="sectionWordGenerator" onClick={navToggle}>
+								<Icons iconName="dropInactive" />
 								<a className="wordGenerator" id="section">
 									proj1_word_generator
 								</a>
@@ -667,51 +650,53 @@ export default function Index() {
 				</div>
 			</nav>
 			<DragTab content={dragTabContent} exist={grabTabExistence} />
-			<Tab
-				content="home.tab"
-				id="homeTab"
-				focus={tabClick}
-				destroy={destroyTab}
-				position={numberPosition[0]}
-				selectedTab={selectedTab[0]}
-				grabTabExistence={grabTabExistence}
-			/>
-			<Tab
-				content="proj1.tab"
-				id="wordGeneratorTab"
-				focus={tabClick}
-				destroy={destroyTab}
-				position={numberPosition[1]}
-				selectedTab={selectedTab[0]}
-				grabTabExistence={grabTabExistence}
-			/>
-			<Tab
-				content="proj2.tab"
-				id="autojackTab"
-				focus={tabClick}
-				destroy={destroyTab}
-				position={numberPosition[2]}
-				selectedTab={selectedTab[0]}
-				grabTabExistence={grabTabExistence}
-			/>
-			<Tab
-				content="proj3.tab"
-				id="randomTestTab"
-				focus={tabClick}
-				destroy={destroyTab}
-				position={numberPosition[3]}
-				selectedTab={selectedTab[0]}
-				grabTabExistence={grabTabExistence}
-			/>
-			<Tab
-				content="proj4.tab"
-				id="portfolioTab"
-				focus={tabClick}
-				destroy={destroyTab}
-				position={numberPosition[4]}
-				selectedTab={selectedTab[0]}
-				grabTabExistence={grabTabExistence}
-			/>
+			<div className="tabCollection">
+				<Tab
+					content="home.tab"
+					id="homeTab"
+					focus={tabClick}
+					destroy={destroyTab}
+					position={numberPosition[0]}
+					selectedTab={selectedTab[0]}
+					grabTabExistence={grabTabExistence}
+				/>
+				<Tab
+					content="proj1.tab"
+					id="wordGeneratorTab"
+					focus={tabClick}
+					destroy={destroyTab}
+					position={numberPosition[1]}
+					selectedTab={selectedTab[0]}
+					grabTabExistence={grabTabExistence}
+				/>
+				<Tab
+					content="proj2.tab"
+					id="autojackTab"
+					focus={tabClick}
+					destroy={destroyTab}
+					position={numberPosition[2]}
+					selectedTab={selectedTab[0]}
+					grabTabExistence={grabTabExistence}
+				/>
+				<Tab
+					content="proj3.tab"
+					id="randomTestTab"
+					focus={tabClick}
+					destroy={destroyTab}
+					position={numberPosition[3]}
+					selectedTab={selectedTab[0]}
+					grabTabExistence={grabTabExistence}
+				/>
+				<Tab
+					content="proj4.tab"
+					id="portfolioTab"
+					focus={tabClick}
+					destroy={destroyTab}
+					position={numberPosition[4]}
+					selectedTab={selectedTab[0]}
+					grabTabExistence={grabTabExistence}
+				/>
+			</div>
 			<body>
 				<div className="bodyPosition">
 					{displayedTab}
