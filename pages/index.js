@@ -456,6 +456,8 @@ export default function Index() {
 	const [tab, setTab] = useState(0)
 	const [button, setButton] = useState(0)
 	const [tabToBeMoved, setTabToBeMoved] = useState(0)
+	const [grabTabIcon, setGrabTabIcon] = useState(0)
+	const [dragTabId, setDragTabId] = useState(0)
 
 	let initialPosition = [0, 0]
 
@@ -470,7 +472,6 @@ export default function Index() {
 		}
 	}
 	let mouseDownFunction = (e) => {
-		// console.log(e)
 		// This function takes in information about where you clicked on the page, as well
 		// as using the left stlye of the element that was clicked to position the grabbed tab
 		let leftString
@@ -587,24 +588,6 @@ export default function Index() {
 		}
 	}, [numberPosition, selectedTab])
 
-	// useEffect(() => {
-	// 	let maxWidth = document.documentElement.clientWidth - 200
-	// 	let last = document.getElementById(headerTabs[headerTabs.length - 1])
-	// 	if (last) {
-	// 		let value1 = last.attributes.style.value
-	// 		let regex1 = /left: /
-	// 		let value2 = value1.replace(regex1, '')
-	// 		let regex2 = /px;/
-	// 		let value3 = value2.replace(regex2, '')
-	// 		console.log(value3)
-	// 		if (maxWidth < value3) {
-	// 			console.log(true)
-	// 		} else {
-	// 			console.log(false)
-	// 		}
-	// 	}
-	// })
-
 	const tabScrollCheck = () => {
 		console.log('over')
 	}
@@ -685,7 +668,7 @@ export default function Index() {
 					</ul>
 				</div>
 			</nav>
-			<DragTab content={dragTabContent} exist={grabTabExistence} />
+			<DragTab content={dragTabContent} exist={grabTabExistence} id={selectedTab[0] + 'Tab'} />
 			<div className="tabCollection">
 				<Tab
 					content="home.tab"

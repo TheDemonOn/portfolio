@@ -1,6 +1,7 @@
 import React from 'react'
+import Icons from './Icons'
 
-export default function DragTab({ content, exist = 0 }) {
+export default function DragTab({ content, exist = 0, id }) {
 	let potentialId = 'offScreen'
 	if (exist !== 0) {
 		potentialId = ''
@@ -8,6 +9,7 @@ export default function DragTab({ content, exist = 0 }) {
 	return (
 		<div id="grabbedTab">
 			<div className="grabbedFocusedTab" id={potentialId}>
+				<Icons iconName={id} big={true} active={true} grab={true} />
 				<p className="tabContent">{content}</p>
 			</div>
 			<svg
@@ -39,7 +41,6 @@ export default function DragTab({ content, exist = 0 }) {
 					/>
 				</g>
 			</svg>
-			{/* <button className="grabbedTabCloseButton" id={potentialId}></button> */}
 		</div>
 	)
 }

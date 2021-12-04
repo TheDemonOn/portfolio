@@ -136,7 +136,7 @@ export default function Tab({
 			}}
 		>
 			<div className="focusedTab" style={positioning} id={id} onMouseDown={focus}>
-				<Icons iconName={id} big={true} positioning={positioning} />
+				<Icons iconName={id} big={true} positioning={positioning} active={active} />
 				<p className="tabContent">{content}</p>
 			</div>
 			<ActiveNoHover
