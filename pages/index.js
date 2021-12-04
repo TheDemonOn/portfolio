@@ -224,10 +224,24 @@ export default function Index() {
 
 	const tabClick = (e) => {
 		let id
+		// console.log(e.target)
 		if (e.target.id === '') {
-			id = e.target.offsetParent.id
+			if (typeof e.target.ownerSVGElement !== 'undefined') {
+				// console.log('SVG')
+				// console.log(e.target.ownerSVGElement.parentNode.attributes)
+				id = e.target.ownerSVGElement.parentNode.attributes.id.value
+			} else if (typeof e.target.offsetParent !== 'undefined') {
+				id = e.target.offsetParent.id
+			} else {
+				id = e.target.parentNode.parentNode.id
+			}
 		} else {
-			id = e.target.id
+			// console.log('That one')
+			if (typeof e.target.parentNode.attributes.id !== 'undefined') {
+				id = e.target.parentNode.attributes.id.value
+			} else {
+				id = e.target.id
+			}
 		}
 		console.log(id)
 		// inactiveTabfunc(id)
@@ -573,6 +587,28 @@ export default function Index() {
 		}
 	}, [numberPosition, selectedTab])
 
+	// useEffect(() => {
+	// 	let maxWidth = document.documentElement.clientWidth - 200
+	// 	let last = document.getElementById(headerTabs[headerTabs.length - 1])
+	// 	if (last) {
+	// 		let value1 = last.attributes.style.value
+	// 		let regex1 = /left: /
+	// 		let value2 = value1.replace(regex1, '')
+	// 		let regex2 = /px;/
+	// 		let value3 = value2.replace(regex2, '')
+	// 		console.log(value3)
+	// 		if (maxWidth < value3) {
+	// 			console.log(true)
+	// 		} else {
+	// 			console.log(false)
+	// 		}
+	// 	}
+	// })
+
+	const tabScrollCheck = () => {
+		console.log('over')
+	}
+
 	return (
 		<>
 			<Head>
@@ -598,7 +634,7 @@ export default function Index() {
 				<div className="headerAntonio">
 					<h3 id="codeAntonio">CODE ANTONIO</h3>
 				</div>
-				<div className="header"></div>
+				<div className="header" onMouseOver={tabScrollCheck}></div>
 				<div className="headerSpaceFill"></div>
 				<GithubSVG />
 			</header>
@@ -659,6 +695,7 @@ export default function Index() {
 					position={numberPosition[0]}
 					selectedTab={selectedTab[0]}
 					grabTabExistence={grabTabExistence}
+					headerTabs={headerTabs}
 				/>
 				<Tab
 					content="proj1.tab"
@@ -668,6 +705,7 @@ export default function Index() {
 					position={numberPosition[1]}
 					selectedTab={selectedTab[0]}
 					grabTabExistence={grabTabExistence}
+					headerTabs={headerTabs}
 				/>
 				<Tab
 					content="proj2.tab"
@@ -677,6 +715,7 @@ export default function Index() {
 					position={numberPosition[2]}
 					selectedTab={selectedTab[0]}
 					grabTabExistence={grabTabExistence}
+					headerTabs={headerTabs}
 				/>
 				<Tab
 					content="proj3.tab"
@@ -686,6 +725,7 @@ export default function Index() {
 					position={numberPosition[3]}
 					selectedTab={selectedTab[0]}
 					grabTabExistence={grabTabExistence}
+					headerTabs={headerTabs}
 				/>
 				<Tab
 					content="proj4.tab"
@@ -695,6 +735,7 @@ export default function Index() {
 					position={numberPosition[4]}
 					selectedTab={selectedTab[0]}
 					grabTabExistence={grabTabExistence}
+					headerTabs={headerTabs}
 				/>
 			</div>
 			<body>

@@ -25,9 +25,9 @@ export default function Tab({
 	// Each tab will use its own position in the headerTabs array to determine where it should be placed
 	const [status, setStatus] = useState(0)
 	const [active, setActive] = useState(1)
-
+	// 191.9
 	let positioning
-	let distance = 270 + position * 191.9
+	let distance = 270 + position * 202.3
 	positioning = {
 		left: distance,
 	}
@@ -84,10 +84,59 @@ export default function Tab({
 		}
 	}
 	console.log(positioning)
+
+	let scrollTop
+	let scrollLeft
+
+	const tabScrollLock = () => {
+		console.log(headerTabs)
+		if (typeof headerTabs !== 'undefined') {
+			let maxWidth = document.documentElement.clientWidth - 200
+			let last = document.getElementById(headerTabs[headerTabs.length - 1])
+			if (last) {
+				let value1 = last.attributes.style.value
+				let regex1 = /left: /
+				let value2 = value1.replace(regex1, '')
+				let regex2 = /px;/
+				let value3 = value2.replace(regex2, '')
+				console.log(value3)
+				if (maxWidth < value3) {
+					console.log('scroll')
+					window.scrollTo(scrollLeft, scrollTop)
+					console.log(document.documentElement.style)
+					document.documentElement.style.overflow = 'hidden'
+				} else {
+					console.log(false)
+				}
+			}
+		}
+	}
+
+	const tabScrollCheck = () => {
+		console.log('over')
+		scrollTop = document.documentElement.scrollTop
+		scrollLeft = document.documentElement.scrollLeft
+		document.onscroll = tabScrollLock
+	}
+	const tabScrollExit = () => {
+		console.log('leave')
+		document.onscroll = null
+		document.documentElement.style.overflow = ''
+	}
+
 	return (
-		<div className={id} onMouseEnter={reveal} onMouseOver={colorCheck} onMouseLeave={hide}>
-			<Icons iconName={id} big={true} positioning={positioning} />
+		<div
+			className={id}
+			onMouseEnter={reveal}
+			onMouseOver={colorCheck}
+			onMouseEnter={tabScrollCheck}
+			onMouseLeave={(e) => {
+				hide(e)
+				tabScrollExit()
+			}}
+		>
 			<div className="focusedTab" style={positioning} id={id} onMouseDown={focus}>
+				<Icons iconName={id} big={true} positioning={positioning} />
 				<p className="tabContent">{content}</p>
 			</div>
 			<ActiveNoHover

@@ -3,7 +3,7 @@ import React from 'react'
 export default function Icons({ iconName, active = true, big, positioning }) {
 	let size = '13px'
 	if (big) {
-		size = '20px'
+		size = '22px'
 	}
 	let path
 	let fill
@@ -351,12 +351,4 @@ M290,187.5c0-62.3-13.2-96.6-40.7-96.6c-25,0-41.2,34.3-41.2,96.6c0,68.2,10.8,96.6
 			{path}
 		</svg>
 	)
-}
-
-{
-	/* <style type="text/css">
-	.st0{fill:#231F20;}
-	.st1{fill:#FFFFFF;}
-	.st2{fill:none;stroke:#FFFFFF;stroke-width:20;stroke-linecap:round;stroke-miterlimit:10;}
-</style> */
 }
