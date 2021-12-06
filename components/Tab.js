@@ -83,7 +83,6 @@ export default function Tab({
 			}
 		}
 	}
-	console.log(positioning)
 
 	let scrollTop
 	let scrollLeft

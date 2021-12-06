@@ -138,11 +138,9 @@ export default function Index() {
 	}, [homeSubClass, wordGeneratorSubClass])
 
 	useEffect(() => {
-		console.log(selectedTab[1])
 		if (typeof selectedTab[1] !== 'undefined') {
 			if (typeof selectedTab[1].target !== 'undefined') {
 				if (selectedTab[1].target.id !== 'section') {
-					console.log('Scroll func')
 					scrollTo(selectedTab[1])
 				}
 			} else {
@@ -164,9 +162,7 @@ export default function Index() {
 			typeof document.getElementById(id) !== 'undefined' &&
 			document.getElementById(id) !== null
 		) {
-			console.log(id)
 			let element = document.getElementById(id)
-			console.log(element)
 			element.scrollIntoView({ behavior: 'smooth', block: 'center' })
 		}
 	}
@@ -224,27 +220,29 @@ export default function Index() {
 
 	const tabClick = (e) => {
 		let id
-		// console.log(e.target)
 		if (e.target.id === '') {
-			if (typeof e.target.ownerSVGElement !== 'undefined') {
-				// console.log('SVG')
-				// console.log(e.target.ownerSVGElement.parentNode.attributes)
+			if (typeof e.target.ownerSVGElement !== 'undefined' && e.target.ownerSVGElement !== null) {
 				id = e.target.ownerSVGElement.parentNode.attributes.id.value
-			} else if (typeof e.target.offsetParent !== 'undefined') {
+			} else if (typeof e.target.offsetParent !== 'undefined' && e.target.offsetParent !== null) {
 				id = e.target.offsetParent.id
+			} else if (
+				e.target.parentNode.id !== 'undefined' &&
+				e.target.parentNode.attributes.id !== null
+			) {
+				id = e.target.parentNode.id
 			} else {
 				id = e.target.parentNode.parentNode.id
 			}
 		} else {
-			// console.log('That one')
-			if (typeof e.target.parentNode.attributes.id !== 'undefined') {
+			if (
+				typeof e.target.parentNode.attributes.id !== 'undefined' &&
+				e.target.parentNode.attributes.id !== null
+			) {
 				id = e.target.parentNode.attributes.id.value
 			} else {
 				id = e.target.id
 			}
 		}
-		console.log(id)
-		// inactiveTabfunc(id)
 		focusTab(id)
 		let regex = /Tab/
 		let tab = id.replace(regex, '')
@@ -476,13 +474,25 @@ export default function Index() {
 		// as using the left stlye of the element that was clicked to position the grabbed tab
 		let leftString
 		let element
-		if (e.target.style.left) {
+		console.log(e)
+		if (typeof e.target.ownerSVGElement !== 'undefined' && e.target.ownerSVGElement !== null) {
+			leftString = e.target.ownerSVGElement.parentNode.style.left
+			element = e.target.ownerSVGElement.parentNode
+		} else if (e.target.parentNode.id) {
+			leftString = e.target.parentNode.style.left
+			element = e.target.parentNode
+			console.log(leftString)
+			console.log(element)
+		} else if (e.target.style.left) {
+			console.log('first')
 			leftString = e.target.style.left
 			element = e.target
 		} else {
+			console.log('Second')
 			leftString = e.explicitOriginalTarget.parentNode.parentNode.style.left
 			element = e.explicitOriginalTarget.parentNode.parentNode
 		}
+		console.log(element)
 		setTabToBeMoved(element)
 		let regex = /px/
 		let leftValueString = leftString.replace(regex, '')
@@ -504,14 +514,34 @@ export default function Index() {
 
 	const tabRelocate = (e) => {
 		if (existenceRef.current === 1) {
+			// If the grabTab exists right now
 			let id
-			if (typeof e.explicitOriginalTarget.id !== 'undefined') {
+			console.log(e)
+			console.log(e.explicitOriginalTarget)
+			if (
+				typeof e.explicitOriginalTarget.ownerSVGElement !== 'undefined' &&
+				e.explicitOriginalTarget.ownerSVGElement !== null
+			) {
+				console.log('zero')
+				id = e.explicitOriginalTarget.ownerSVGElement.parentNode.id
+			} else if (
+				typeof e.explicitOriginalTarget.id !== 'undefined' &&
+				e.explicitOriginalTarget.id !== ''
+			) {
+				console.log('first')
 				id = e.explicitOriginalTarget.id
+				console.log(e.explicitOriginalTarget.id)
+			} else if (e.explicitOriginalTarget.parentNode.id) {
+				console.log('Second')
+				id = e.explicitOriginalTarget.parentNode.id
 			} else {
+				console.log('Third')
 				id = e.explicitOriginalTarget.parentNode.parentNode.id
+				console.log(e.explicitOriginalTarget.parentNode.parentNode.id)
 			}
 			// do the swapping
-			console.log(headerTabs, id, tabToBeMoved)
+			console.log(tabToBeMoved)
+			console.log(id, headerTabs)
 			let movingIndex = headerTabs.indexOf(tabToBeMoved.id)
 			let destinationIndex = headerTabs.indexOf(id)
 			let storedValue = headerTabs[movingIndex]
