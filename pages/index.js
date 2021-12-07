@@ -65,6 +65,7 @@ export default function Index() {
 		<ul className="sideNavBorder">
 			<li onClick={switchTabCheck}>
 				<div className={homeSubClass}>
+					<Icons iconName="welcome" />
 					<a className="home">welcome</a>
 				</div>
 			</li>

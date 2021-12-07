@@ -87,15 +87,19 @@ export default function Tab({
 			typeof e.target.ownerSVGElement !== 'undefined' &&
 			e.target.ownerSVGElement !== null
 		) {
-			let newInlineStyle = e.target.ownerSVGElement.parentNode.attributes.style.value
-			let originalInlineStyle = newInlineStyle.replace(regex, '')
-			let newestStyle = originalInlineStyle.replace(altRegex, '')
-			e.target.ownerSVGElement.parentNode.attributes.style.value = newestStyle
+			if (typeof e.target.ownerSVGElement.parentNode.attributes.style !== 'undefined') {
+				let newInlineStyle = e.target.ownerSVGElement.parentNode.attributes.style.value
+				let originalInlineStyle = newInlineStyle.replace(regex, '')
+				let newestStyle = originalInlineStyle.replace(altRegex, '')
+				e.target.ownerSVGElement.parentNode.attributes.style.value = newestStyle
+			}
 		} else {
-			let newInlineStyle = e.target.parentNode.attributes.style.value
-			let originalInlineStyle = newInlineStyle.replace(regex, '')
-			let newestStyle = originalInlineStyle.replace(altRegex, '')
-			e.target.parentNode.attributes.style.value = newestStyle
+			if (typeof e.target.ownerSVGElement.parentNode.attributes.style !== 'undefined') {
+				let newInlineStyle = e.target.parentNode.attributes.style.value
+				let originalInlineStyle = newInlineStyle.replace(regex, '')
+				let newestStyle = originalInlineStyle.replace(altRegex, '')
+				e.target.parentNode.attributes.style.value = newestStyle
+			}
 		}
 	}
 
