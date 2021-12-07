@@ -522,20 +522,16 @@ export default function Index() {
 				typeof e.explicitOriginalTarget.ownerSVGElement !== 'undefined' &&
 				e.explicitOriginalTarget.ownerSVGElement !== null
 			) {
-				console.log('zero')
 				id = e.explicitOriginalTarget.ownerSVGElement.parentNode.id
 			} else if (
 				typeof e.explicitOriginalTarget.id !== 'undefined' &&
 				e.explicitOriginalTarget.id !== ''
 			) {
-				console.log('first')
 				id = e.explicitOriginalTarget.id
 				console.log(e.explicitOriginalTarget.id)
 			} else if (e.explicitOriginalTarget.parentNode.id) {
-				console.log('Second')
 				id = e.explicitOriginalTarget.parentNode.id
 			} else {
-				console.log('Third')
 				id = e.explicitOriginalTarget.parentNode.parentNode.id
 				console.log(e.explicitOriginalTarget.parentNode.parentNode.id)
 			}

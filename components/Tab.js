@@ -40,6 +40,7 @@ export default function Tab({
 	let idWithoutTab = idWithTab.replace(regex, '')
 
 	const reveal = (e) => {
+		console.log('Reveal function')
 		setStatus(1)
 		if (grabTabExistence) {
 			// change the background color
@@ -70,17 +71,31 @@ export default function Tab({
 			e.target.attributes.style.value = newestStyle
 		}
 	}
-	const colorCheck = (e) => {
-		console.log('colorCheck ' + grabTabExistence)
-		if (!grabTabExistence) {
-			if (typeof e.target.attributes.style !== 'undefined') {
-				let regex = / background-color: .*/
-				let altRegex = /background-color: .*/
-				let newInlineStyle = e.currentTarget.firstChild.attributes.style.value
-				let originalInlineStyle = newInlineStyle.replace(regex, '')
-				let newestStyle = originalInlineStyle.replace(altRegex, '')
-				e.target.attributes.style.value = newestStyle
-			}
+
+	const colorReset = (e) => {
+		let regex = / background-color: .*/
+		let altRegex = /background-color: .*/
+		if (
+			typeof e.target.attributes.style !== 'undefined' &&
+			e.target.attributes.class.value !== 'tabIcon'
+		) {
+			let newInlineStyle = e.currentTarget.firstChild.attributes.style.value
+			let originalInlineStyle = newInlineStyle.replace(regex, '')
+			let newestStyle = originalInlineStyle.replace(altRegex, '')
+			e.target.attributes.style.value = newestStyle
+		} else if (
+			typeof e.target.ownerSVGElement !== 'undefined' &&
+			e.target.ownerSVGElement !== null
+		) {
+			let newInlineStyle = e.target.ownerSVGElement.parentNode.attributes.style.value
+			let originalInlineStyle = newInlineStyle.replace(regex, '')
+			let newestStyle = originalInlineStyle.replace(altRegex, '')
+			e.target.ownerSVGElement.parentNode.attributes.style.value = newestStyle
+		} else {
+			let newInlineStyle = e.target.parentNode.attributes.style.value
+			let originalInlineStyle = newInlineStyle.replace(regex, '')
+			let newestStyle = originalInlineStyle.replace(altRegex, '')
+			e.target.parentNode.attributes.style.value = newestStyle
 		}
 	}
 
@@ -126,13 +141,18 @@ export default function Tab({
 	return (
 		<div
 			className={id}
-			onMouseEnter={reveal}
-			onMouseOver={colorCheck}
-			onMouseEnter={tabScrollCheck}
+			// onMouseEnter={reveal}
+			// onMouseOver={colorCheck}
+			// onMouseEnter={tabScrollCheck}
+			onMouseEnter={(e) => {
+				reveal(e)
+				tabScrollCheck(e)
+			}}
 			onMouseLeave={(e) => {
 				hide(e)
 				tabScrollExit()
 			}}
+			onMouseUp={colorReset}
 		>
 			<div className="focusedTab" style={positioning} id={id} onMouseDown={focus}>
 				<Icons iconName={id} big={true} positioning={positioning} active={active} />
