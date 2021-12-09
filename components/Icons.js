@@ -1,6 +1,14 @@
 import React, { useState, useEffect } from 'react'
 
-export default function Icons({ iconName, active = false, big, positioning, grab, sideNavClass }) {
+export default function Icons({
+	iconName,
+	active = false,
+	big,
+	positioning,
+	grab,
+	sideNavClass,
+	sideNavHead,
+}) {
 	let size
 	if (big) {
 		size = '22px'
@@ -10,6 +18,7 @@ export default function Icons({ iconName, active = false, big, positioning, grab
 	let classValue
 
 	const [sideActive, setSideActive] = useState(false)
+	const [sideNavHeadClass, setSideNavHeadClass] = useState(false)
 
 	useEffect(() => {
 		if (sideNavClass === 'white') {
@@ -18,6 +27,14 @@ export default function Icons({ iconName, active = false, big, positioning, grab
 			setSideActive(false)
 		}
 	}, [sideNavClass])
+
+	useEffect(() => {
+		if (sideNavHead === 'yellow') {
+			setSideNavHeadClass(true)
+		} else {
+			setSideNavHeadClass(false)
+		}
+	}, [sideNavHead])
 
 	// small icons dropActive = #FFE398
 	// small icons dropInactive && inactive = #BABAC9
@@ -29,9 +46,14 @@ export default function Icons({ iconName, active = false, big, positioning, grab
 		case 'dropActive':
 			classValue = 'drop'
 			size = '13px'
+			if (sideNavHeadClass) {
+				fill = '#FFE398'
+			} else {
+				fill = '#BABAC9'
+			}
 			path = (
 				<path
-					fill="#FFE398"
+					fill={fill}
 					d="M254.8,395.2l216.7-283.1c3.1-4,0.2-9.8-4.8-9.8H33.3c-5,0-7.9,5.8-4.8,9.8l216.7,283.1
 C247.6,398.4,252.4,398.4,254.8,395.2z"
 				/>
@@ -40,9 +62,14 @@ C247.6,398.4,252.4,398.4,254.8,395.2z"
 		case 'dropInactive':
 			classValue = 'drop'
 			size = '13px'
+			if (sideNavHeadClass) {
+				fill = '#FFE398'
+			} else {
+				fill = '#BABAC9'
+			}
 			path = (
 				<path
-					fill="#BABAC9"
+					fill={fill}
 					d="M395.2,245.2L112.2,28.5c-4-3.1-9.8-0.2-9.8,4.8v433.4c0,5,5.8,7.9,9.8,4.8l283.1-216.7
 C398.4,252.4,398.4,247.6,395.2,245.2z"
 				/>
