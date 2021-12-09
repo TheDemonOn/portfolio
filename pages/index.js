@@ -662,14 +662,14 @@ export default function Index() {
 					<ul className="sideNavUL">
 						<li className="titleList">
 							<div className={homeClass} id="sectionHome" onClick={navToggle}>
-								<Icons iconName="dropActive" sideNavHead={homeClass} />
+								<Icons iconName="drop" sideNavHead={homeClass} />
 								<a className="home">home</a>
 							</div>
 						</li>
 						{navHomeSection}
 						<li className="titleList">
 							<div className={wordGeneratorClass} id="sectionWordGenerator" onClick={navToggle}>
-								<Icons iconName="dropInactive" sideNavHead={wordGeneratorClass} />
+								<Icons iconName="drop" sideNavHead={wordGeneratorClass} />
 								<a className="wordGenerator" id="section">
 									proj1_word_generator
 								</a>

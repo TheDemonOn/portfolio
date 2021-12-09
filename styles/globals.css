@@ -114,7 +114,7 @@ svg {
 
 .sideNavBorder li {
 	padding-left: 1.9em;
-	padding-top: 0.23em;
+	padding-top: 0.2em;
 	padding-bottom: 0.3em;
 	display: block;
 }
@@ -337,8 +337,7 @@ svg {
 
 .github {
 	position: fixed;
-	/* rotate: 90deg;
-	transition: all 0.1s; */
+	/* rotate: 90deg; */
 	top: 0.7em;
 	right: 1em;
 }
@@ -347,6 +346,7 @@ svg {
 	/* position: relative; */
 	left: 2.05em;
 	margin-top: 0.35em;
+	/* transition: all 0.1s; */
 	/* top: 0; */
 }
 
