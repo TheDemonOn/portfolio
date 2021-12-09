@@ -114,7 +114,7 @@ svg {
 
 .sideNavBorder li {
 	padding-left: 1.9em;
-	padding-top: 0.1em;
+	padding-top: 0.23em;
 	padding-bottom: 0.3em;
 	display: block;
 }
@@ -198,7 +198,7 @@ svg {
 	z-index: 2;
 	width: 270px;
 	height: 100vh;
-	top: 2.5em;
+	top: 2.2em;
 	color: #fff;
 }
 
@@ -359,6 +359,12 @@ svg {
 .grabIcon {
 	margin-top: 0.9em;
 	margin-left: 1.3em;
+}
+
+.sideNavIcon {
+	/* border: solid; */
+	margin-left: -1em;
+	margin-top: 0.29em;
 }
 
 /* ID's */

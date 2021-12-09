@@ -45,19 +45,32 @@ export default function Index() {
 
 	const switchTabCheck = (e) => {
 		let tab
-		let element
+		let innerText
 		if (e.target.className === '') {
-			tab = e.target.firstChild.childNodes[0].className
-			element = e.target
+			tab = e.target.firstChild.childNodes[1].className
+			innerText = e.target.firstChild.childNodes[1].innerText
+		} else if (
+			e.target.ownerSVGElement !== null &&
+			typeof e.target.ownerSVGElement !== 'undefined'
+		) {
+			tab = e.target.ownerSVGElement.nextElementSibling.className
+			innerText = e.target.ownerSVGElement.nextElementSibling.innerText
+		} else if (
+			e.target.ownerSVGElement === null &&
+			typeof e.target.nextElementSibling.className !== 'undefined'
+		) {
+			tab = e.target.nextElementSibling.className
+			innerText = e.target.nextElementSibling.innerText
+			console.log(tab, innerText)
 		} else if (e.target.className !== 'white' && e.target.className !== 'darkGrey') {
 			tab = e.target.className
-			element = e
+			innerText = e.target.innerText
 		} else {
-			tab = e.target.firstChild.className
-			element = e
+			tab = e.target.childNodes[1].className
+			innerText = e.target.childNodes[1].innerText
 		}
 		// Switch to tab with a useEffect trigger
-		setSelectedTab([tab, element])
+		setSelectedTab([tab, innerText])
 	}
 
 	let emptySection
@@ -71,16 +84,19 @@ export default function Index() {
 			</li>
 			<li onClick={switchTabCheck}>
 				<div className={homeSubClass}>
+					<Icons iconName="aboutMe" />
 					<a className="home">about me</a>
 				</div>
 			</li>
 			<li onClick={switchTabCheck}>
 				<div className={homeSubClass}>
+					<Icons iconName="projects" />
 					<a className="home">projects</a>
 				</div>
 			</li>
 			<li onClick={switchTabCheck}>
 				<div className={homeSubClass}>
+					<Icons iconName="contact" />
 					<a className="home">contact</a>
 				</div>
 			</li>
@@ -91,36 +107,43 @@ export default function Index() {
 		<ul className="sideNavBorder">
 			<li onClick={switchTabCheck}>
 				<div className={wordGeneratorSubClass}>
+					<Icons iconName="overview" />
 					<a className="wordGenerator">overview</a>
 				</div>
 			</li>
 			<li onClick={switchTabCheck}>
 				<div className={wordGeneratorSubClass}>
+					<Icons iconName="step" />
 					<a className="wordGenerator">step 1</a>
 				</div>
 			</li>
 			<li onClick={switchTabCheck}>
 				<div className={wordGeneratorSubClass}>
+					<Icons iconName="step" />
 					<a className="wordGenerator">step 2</a>
 				</div>
 			</li>
 			<li onClick={switchTabCheck}>
 				<div className={wordGeneratorSubClass}>
+					<Icons iconName="step" />
 					<a className="wordGenerator">step 3</a>
 				</div>
 			</li>
 			<li onClick={switchTabCheck}>
 				<div className={wordGeneratorSubClass}>
+					<Icons iconName="challenges" />
 					<a className="wordGenerator">challenges</a>
 				</div>
 			</li>
 			<li onClick={switchTabCheck}>
 				<div className={wordGeneratorSubClass}>
+					<Icons iconName="successes" />
 					<a className="wordGenerator">successes</a>
 				</div>
 			</li>
 			<li onClick={switchTabCheck}>
 				<div className={wordGeneratorSubClass}>
+					<Icons iconName="screenshots" />
 					<a className="wordGenerator">screenshots</a>
 				</div>
 			</li>
@@ -139,34 +162,30 @@ export default function Index() {
 	}, [homeSubClass, wordGeneratorSubClass])
 
 	useEffect(() => {
-		if (typeof selectedTab[1] !== 'undefined') {
-			if (typeof selectedTab[1].target !== 'undefined') {
-				if (selectedTab[1].target.id !== 'section') {
-					scrollTo(selectedTab[1])
-				}
-			} else {
-				// hopefully this is the only other case
-				if (typeof selectedTab[1].firstChild !== 'undefined') {
-					if (document.getElementById(selectedTab[1].firstChild.childNodes[0].innerText) !== null) {
-						let element = document.getElementById(selectedTab[1].firstChild.childNodes[0].innerText)
-						element.scrollIntoView({ behavior: 'smooth', block: 'center' })
-					}
-				}
+		// This useEffect attempts to scroll to where was clicked on the sideNav, using info from selectedTab
+		if (selectedTab[1]) {
+			let spaceRegex = / /gm
+			let initialText = selectedTab[1]
+			let id = initialText.replace(spaceRegex, '')
+			// This essentially concatenates the incoming string
+			if (document.getElementById(id) !== null) {
+				let element = document.getElementById(id)
+				element.scrollIntoView({ behavior: 'smooth', block: 'center' })
 			}
 		}
-	}, [displayedTab])
+	}, [displayedTab, selectedTab])
 
-	const scrollTo = (e) => {
-		// This takes advantage of the fact that the id's of the titles IS its own text to find it with one function
-		let id = e.target.innerText
-		if (
-			typeof document.getElementById(id) !== 'undefined' &&
-			document.getElementById(id) !== null
-		) {
-			let element = document.getElementById(id)
-			element.scrollIntoView({ behavior: 'smooth', block: 'center' })
-		}
-	}
+	// const scrollTo = (e) => {
+	// 	// This takes advantage of the fact that the id's of the titles IS its own text to find it with one function
+	// 	let id = e.target.innerText
+	// 	if (
+	// 		typeof document.getElementById(id) !== 'undefined' &&
+	// 		document.getElementById(id) !== null
+	// 	) {
+	// 		let element = document.getElementById(id)
+	// 		element.scrollIntoView({ behavior: 'smooth', block: 'center' })
+	// 	}
+	// }
 
 	const tabFocusCheck = (id) => {
 		if (
@@ -220,6 +239,7 @@ export default function Index() {
 	}
 
 	const tabClick = (e) => {
+		console.log(e)
 		let id
 		if (e.target.id === '') {
 			if (typeof e.target.ownerSVGElement !== 'undefined' && e.target.ownerSVGElement !== null) {
@@ -248,7 +268,7 @@ export default function Index() {
 		let regex = /Tab/
 		let tab = id.replace(regex, '')
 		inactiveTabfunc(tab)
-		setSelectedTab([tab, e])
+		setSelectedTab([tab])
 	}
 
 	const destroyTab = (e) => {
@@ -276,10 +296,10 @@ export default function Index() {
 			}
 			let newId = e.id
 			focusTab(newId)
-			inactiveTabfunc(newId)
+			// inactiveTabfunc(newId) // This is perhaps unnecessary
 			let regex = /Tab/
 			let tab = newId.replace(regex, '')
-			setSelectedTab([tab, e])
+			setSelectedTab([tab])
 		} else if (typeof headerTabs[0] === 'undefined') {
 			// If there are no tabs
 			setSelectedTab([])
@@ -291,11 +311,11 @@ export default function Index() {
 	const [numberPosition, setNumberPosition] = useState([0, -1, -1, -1, -1])
 
 	useEffect(() => {
-		console.log('Setting tab positions based on headerTabs.')
-		console.log(headerTabs)
-		console.log(numberPosition)
+		// console.log('Setting tab positions based on headerTabs.')
+		// console.log(headerTabs)
+		// console.log(numberPosition)
 		for (let i = 0; i < headerTabs.length; i++) {
-			console.log(i, headerTabs[i])
+			// console.log(i, headerTabs[i])
 			switch (headerTabs[i]) {
 				case 'homeTab':
 					numberPosition[0] = i
@@ -335,7 +355,7 @@ export default function Index() {
 			numberPosition[4] = -1
 			setNumberPosition([...numberPosition])
 		}
-		console.log(numberPosition)
+		// console.log(numberPosition)
 	}, [headerTabs])
 
 	const headerLogic = (ID) => {
@@ -351,7 +371,8 @@ export default function Index() {
 	}
 
 	useEffect(() => {
-		console.log(selectedTab)
+		// This useEffect controls the logic for adding a new tab, as well as displaying that requested tab
+		console.log('Does this fire.', selectedTab[0])
 		switch (selectedTab[0]) {
 			case 'home':
 				setHomeClass(activeTab)
@@ -475,25 +496,19 @@ export default function Index() {
 		// as using the left stlye of the element that was clicked to position the grabbed tab
 		let leftString
 		let element
-		console.log(e)
 		if (typeof e.target.ownerSVGElement !== 'undefined' && e.target.ownerSVGElement !== null) {
 			leftString = e.target.ownerSVGElement.parentNode.style.left
 			element = e.target.ownerSVGElement.parentNode
 		} else if (e.target.parentNode.id) {
 			leftString = e.target.parentNode.style.left
 			element = e.target.parentNode
-			console.log(leftString)
-			console.log(element)
 		} else if (e.target.style.left) {
-			console.log('first')
 			leftString = e.target.style.left
 			element = e.target
 		} else {
-			console.log('Second')
 			leftString = e.explicitOriginalTarget.parentNode.parentNode.style.left
 			element = e.explicitOriginalTarget.parentNode.parentNode
 		}
-		console.log(element)
 		setTabToBeMoved(element)
 		let regex = /px/
 		let leftValueString = leftString.replace(regex, '')
@@ -517,8 +532,6 @@ export default function Index() {
 		if (existenceRef.current === 1) {
 			// If the grabTab exists right now
 			let id
-			console.log(e)
-			console.log(e.explicitOriginalTarget)
 			if (
 				typeof e.explicitOriginalTarget.ownerSVGElement !== 'undefined' &&
 				e.explicitOriginalTarget.ownerSVGElement !== null
@@ -529,16 +542,12 @@ export default function Index() {
 				e.explicitOriginalTarget.id !== ''
 			) {
 				id = e.explicitOriginalTarget.id
-				console.log(e.explicitOriginalTarget.id)
 			} else if (e.explicitOriginalTarget.parentNode.id) {
 				id = e.explicitOriginalTarget.parentNode.id
 			} else {
 				id = e.explicitOriginalTarget.parentNode.parentNode.id
-				console.log(e.explicitOriginalTarget.parentNode.parentNode.id)
 			}
 			// do the swapping
-			console.log(tabToBeMoved)
-			console.log(id, headerTabs)
 			let movingIndex = headerTabs.indexOf(tabToBeMoved.id)
 			let destinationIndex = headerTabs.indexOf(id)
 			let storedValue = headerTabs[movingIndex]
@@ -706,6 +715,7 @@ export default function Index() {
 					selectedTab={selectedTab[0]}
 					grabTabExistence={grabTabExistence}
 					headerTabs={headerTabs}
+					activeClass={homeClass}
 				/>
 				<Tab
 					content="proj1.tab"
@@ -716,6 +726,7 @@ export default function Index() {
 					selectedTab={selectedTab[0]}
 					grabTabExistence={grabTabExistence}
 					headerTabs={headerTabs}
+					activeClass={wordGeneratorClass}
 				/>
 				<Tab
 					content="proj2.tab"
@@ -726,6 +737,7 @@ export default function Index() {
 					selectedTab={selectedTab[0]}
 					grabTabExistence={grabTabExistence}
 					headerTabs={headerTabs}
+					activeClass={autojackClass}
 				/>
 				<Tab
 					content="proj3.tab"
@@ -736,6 +748,7 @@ export default function Index() {
 					selectedTab={selectedTab[0]}
 					grabTabExistence={grabTabExistence}
 					headerTabs={headerTabs}
+					activeClass={randomTestClass}
 				/>
 				<Tab
 					content="proj4.tab"
@@ -746,6 +759,7 @@ export default function Index() {
 					selectedTab={selectedTab[0]}
 					grabTabExistence={grabTabExistence}
 					headerTabs={headerTabs}
+					activeClass={portfolioClass}
 				/>
 			</div>
 			<body>

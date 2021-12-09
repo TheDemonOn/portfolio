@@ -10,7 +10,7 @@ export default function Home() {
 				<SectionContent content="This is my portfolio. Have a look around." size="true" />
 				<SectionContent content="If you like my work, I'd love to talk." size="true" />
 			</div>
-			<SectionsTitle content="about me" id="about me" />
+			<SectionsTitle content="about me" id="aboutme" />
 			<div className="contentSide">
 				<SectionContent content="I found my love for programming when I decided to take a closer look at software and found that solving problems was extremely fun." />
 			</div>

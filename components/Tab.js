@@ -11,17 +11,28 @@ export default function Tab({
 	position,
 	selectedTab,
 	grabTabExistence,
+	activeClass,
 }) {
+	// useEffect(() => {
+	// 	console.log(selectedTab, idWithoutTab)
+	// 	if (typeof idWithoutTab !== 'undefined') {
+	// 		if (selectedTab === idWithoutTab) {
+	// 			setActive(1)
+	// 		}
+	// 		if (selectedTab !== idWithoutTab) {
+	// 			setActive(0)
+	// 		}
+	// 	}
+	// }, [selectedTab])
+
 	useEffect(() => {
-		if (typeof idWithoutTab !== 'undefined') {
-			if (selectedTab === idWithoutTab) {
-				setActive(1)
-			}
-			if (selectedTab !== idWithoutTab) {
-				setActive(0)
-			}
+		console.log(activeClass)
+		if (activeClass === 'yellow') {
+			setActive(1)
+		} else {
+			setActive(0)
 		}
-	}, [selectedTab])
+	}, [activeClass])
 	// Each tab will use its own position in the headerTabs array to determine where it should be placed
 	const [status, setStatus] = useState(0)
 	const [active, setActive] = useState(1)
@@ -35,9 +46,19 @@ export default function Tab({
 		return null
 	}
 
-	let idWithTab = id
-	let regex = /Tab/
-	let idWithoutTab = idWithTab.replace(regex, '')
+	// let idWithTab = id
+	// let regex = /Tab/
+	// let idWithoutTab = idWithTab.replace(regex, '')
+
+	// console.log(selectedTab, idWithoutTab)
+	// if (typeof idWithoutTab !== 'undefined') {
+	// 	if (selectedTab === idWithoutTab) {
+	// 		setActive(1)
+	// 	}
+	// 	if (selectedTab !== idWithoutTab) {
+	// 		setActive(0)
+	// 	}
+	// }
 
 	const reveal = (e) => {
 		console.log('Reveal function')
@@ -73,6 +94,7 @@ export default function Tab({
 	}
 
 	const colorReset = (e) => {
+		// console.log(e)
 		let regex = / background-color: .*/
 		let altRegex = /background-color: .*/
 		if (
@@ -94,12 +116,10 @@ export default function Tab({
 				e.target.ownerSVGElement.parentNode.attributes.style.value = newestStyle
 			}
 		} else {
-			if (typeof e.target.ownerSVGElement.parentNode.attributes.style !== 'undefined') {
-				let newInlineStyle = e.target.parentNode.attributes.style.value
-				let originalInlineStyle = newInlineStyle.replace(regex, '')
-				let newestStyle = originalInlineStyle.replace(altRegex, '')
-				e.target.parentNode.attributes.style.value = newestStyle
-			}
+			let newInlineStyle = e.target.parentNode.attributes.style.value
+			let originalInlineStyle = newInlineStyle.replace(regex, '')
+			let newestStyle = originalInlineStyle.replace(altRegex, '')
+			e.target.parentNode.attributes.style.value = newestStyle
 		}
 	}
 
@@ -156,9 +176,14 @@ export default function Tab({
 				hide(e)
 				tabScrollExit()
 			}}
-			onMouseUp={colorReset}
 		>
-			<div className="focusedTab" style={positioning} id={id} onMouseDown={focus}>
+			<div
+				className="focusedTab"
+				style={positioning}
+				id={id}
+				onMouseDown={focus}
+				onMouseUp={colorReset}
+			>
 				<Icons iconName={id} big={true} positioning={positioning} active={active} />
 				<p className="tabContent">{content}</p>
 			</div>

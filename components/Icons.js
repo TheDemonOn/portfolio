@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 
 export default function Icons({ iconName, active = true, big, positioning, grab }) {
-	let size = '13px'
+	let size
 	if (big) {
 		size = '22px'
 	}
@@ -18,6 +18,7 @@ export default function Icons({ iconName, active = true, big, positioning, grab 
 	switch (iconName) {
 		case 'dropActive':
 			classValue = 'drop'
+			size = '13px'
 			path = (
 				<path
 					fill="#FFE398"
@@ -28,6 +29,7 @@ C247.6,398.4,252.4,398.4,254.8,395.2z"
 			break
 		case 'dropInactive':
 			classValue = 'drop'
+			size = '13px'
 			path = (
 				<path
 					fill="#BABAC9"
@@ -159,6 +161,8 @@ M290,187.5c0-62.3-13.2-96.6-40.7-96.6c-25,0-41.2,34.3-41.2,96.6c0,68.2,10.8,96.6
 			)
 			break
 		case 'welcome':
+			classValue = 'sideNavIcon'
+			size = '15px'
 			if (active) {
 				fill = '#FFFFFF'
 			} else {
@@ -177,6 +181,8 @@ M290,187.5c0-62.3-13.2-96.6-40.7-96.6c-25,0-41.2,34.3-41.2,96.6c0,68.2,10.8,96.6
 			)
 			break
 		case 'aboutMe':
+			classValue = 'sideNavIcon'
+			size = '15px'
 			if (active) {
 				fill = '#FFFFFF'
 			} else {
@@ -201,6 +207,8 @@ M290,187.5c0-62.3-13.2-96.6-40.7-96.6c-25,0-41.2,34.3-41.2,96.6c0,68.2,10.8,96.6
 			)
 			break
 		case 'projects':
+			classValue = 'sideNavIcon'
+			size = '15px'
 			if (active) {
 				fill = '#FFFFFF'
 			} else {
@@ -220,6 +228,8 @@ M290,187.5c0-62.3-13.2-96.6-40.7-96.6c-25,0-41.2,34.3-41.2,96.6c0,68.2,10.8,96.6
 			)
 			break
 		case 'contact':
+			classValue = 'sideNavIcon'
+			size = '15px'
 			if (active) {
 				fill = '#FFFFFF'
 			} else {
@@ -237,6 +247,8 @@ M290,187.5c0-62.3-13.2-96.6-40.7-96.6c-25,0-41.2,34.3-41.2,96.6c0,68.2,10.8,96.6
 			)
 			break
 		case 'overview':
+			classValue = 'sideNavIcon'
+			size = '15px'
 			if (active) {
 				fill = '#FFFFFF'
 			} else {
@@ -255,6 +267,8 @@ M290,187.5c0-62.3-13.2-96.6-40.7-96.6c-25,0-41.2,34.3-41.2,96.6c0,68.2,10.8,96.6
 			)
 			break
 		case 'step':
+			classValue = 'sideNavIcon'
+			size = '15px'
 			if (active) {
 				fill = '#FFFFFF'
 			} else {
@@ -269,6 +283,8 @@ M290,187.5c0-62.3-13.2-96.6-40.7-96.6c-25,0-41.2,34.3-41.2,96.6c0,68.2,10.8,96.6
 			)
 			break
 		case 'challenges':
+			classValue = 'sideNavIcon'
+			size = '15px'
 			if (active) {
 				fill = '#FFFFFF'
 			} else {
@@ -285,6 +301,8 @@ M290,187.5c0-62.3-13.2-96.6-40.7-96.6c-25,0-41.2,34.3-41.2,96.6c0,68.2,10.8,96.6
 			)
 			break
 		case 'successes':
+			classValue = 'sideNavIcon'
+			size = '15px'
 			if (active) {
 				fill = '#FFFFFF'
 			} else {
@@ -304,6 +322,8 @@ M290,187.5c0-62.3-13.2-96.6-40.7-96.6c-25,0-41.2,34.3-41.2,96.6c0,68.2,10.8,96.6
 			)
 			break
 		case 'screenshots':
+			classValue = 'sideNavIcon'
+			size = '15px'
 			if (active) {
 				fill = '#FFFFFF'
 			} else {
