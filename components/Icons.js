@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 
-export default function Icons({ iconName, active = true, big, positioning, grab }) {
+export default function Icons({ iconName, active = false, big, positioning, grab, sideNavClass }) {
 	let size
 	if (big) {
 		size = '22px'
@@ -8,6 +8,16 @@ export default function Icons({ iconName, active = true, big, positioning, grab 
 	let path
 	let fill
 	let classValue
+
+	const [sideActive, setSideActive] = useState(false)
+
+	useEffect(() => {
+		if (sideNavClass === 'white') {
+			setSideActive(true)
+		} else {
+			setSideActive(false)
+		}
+	}, [sideNavClass])
 
 	// small icons dropActive = #FFE398
 	// small icons dropInactive && inactive = #BABAC9
@@ -163,7 +173,7 @@ M290,187.5c0-62.3-13.2-96.6-40.7-96.6c-25,0-41.2,34.3-41.2,96.6c0,68.2,10.8,96.6
 		case 'welcome':
 			classValue = 'sideNavIcon'
 			size = '15px'
-			if (active) {
+			if (sideActive) {
 				fill = '#FFFFFF'
 			} else {
 				fill = '#BABAC9'
@@ -183,7 +193,7 @@ M290,187.5c0-62.3-13.2-96.6-40.7-96.6c-25,0-41.2,34.3-41.2,96.6c0,68.2,10.8,96.6
 		case 'aboutMe':
 			classValue = 'sideNavIcon'
 			size = '15px'
-			if (active) {
+			if (sideActive) {
 				fill = '#FFFFFF'
 			} else {
 				fill = '#BABAC9'
@@ -209,7 +219,7 @@ M290,187.5c0-62.3-13.2-96.6-40.7-96.6c-25,0-41.2,34.3-41.2,96.6c0,68.2,10.8,96.6
 		case 'projects':
 			classValue = 'sideNavIcon'
 			size = '15px'
-			if (active) {
+			if (sideActive) {
 				fill = '#FFFFFF'
 			} else {
 				fill = '#BABAC9'
@@ -230,7 +240,7 @@ M290,187.5c0-62.3-13.2-96.6-40.7-96.6c-25,0-41.2,34.3-41.2,96.6c0,68.2,10.8,96.6
 		case 'contact':
 			classValue = 'sideNavIcon'
 			size = '15px'
-			if (active) {
+			if (sideActive) {
 				fill = '#FFFFFF'
 			} else {
 				fill = '#BABAC9'
@@ -249,7 +259,7 @@ M290,187.5c0-62.3-13.2-96.6-40.7-96.6c-25,0-41.2,34.3-41.2,96.6c0,68.2,10.8,96.6
 		case 'overview':
 			classValue = 'sideNavIcon'
 			size = '15px'
-			if (active) {
+			if (sideActive) {
 				fill = '#FFFFFF'
 			} else {
 				fill = '#BABAC9'
@@ -269,7 +279,7 @@ M290,187.5c0-62.3-13.2-96.6-40.7-96.6c-25,0-41.2,34.3-41.2,96.6c0,68.2,10.8,96.6
 		case 'step':
 			classValue = 'sideNavIcon'
 			size = '15px'
-			if (active) {
+			if (sideActive) {
 				fill = '#FFFFFF'
 			} else {
 				fill = '#BABAC9'
@@ -285,7 +295,7 @@ M290,187.5c0-62.3-13.2-96.6-40.7-96.6c-25,0-41.2,34.3-41.2,96.6c0,68.2,10.8,96.6
 		case 'challenges':
 			classValue = 'sideNavIcon'
 			size = '15px'
-			if (active) {
+			if (sideActive) {
 				fill = '#FFFFFF'
 			} else {
 				fill = '#BABAC9'
@@ -303,7 +313,7 @@ M290,187.5c0-62.3-13.2-96.6-40.7-96.6c-25,0-41.2,34.3-41.2,96.6c0,68.2,10.8,96.6
 		case 'successes':
 			classValue = 'sideNavIcon'
 			size = '15px'
-			if (active) {
+			if (sideActive) {
 				fill = '#FFFFFF'
 			} else {
 				fill = '#BABAC9'
@@ -324,7 +334,7 @@ M290,187.5c0-62.3-13.2-96.6-40.7-96.6c-25,0-41.2,34.3-41.2,96.6c0,68.2,10.8,96.6
 		case 'screenshots':
 			classValue = 'sideNavIcon'
 			size = '15px'
-			if (active) {
+			if (sideActive) {
 				fill = '#FFFFFF'
 			} else {
 				fill = '#BABAC9'

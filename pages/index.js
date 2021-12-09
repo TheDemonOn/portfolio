@@ -61,7 +61,6 @@ export default function Index() {
 		) {
 			tab = e.target.nextElementSibling.className
 			innerText = e.target.nextElementSibling.innerText
-			console.log(tab, innerText)
 		} else if (e.target.className !== 'white' && e.target.className !== 'darkGrey') {
 			tab = e.target.className
 			innerText = e.target.innerText
@@ -78,25 +77,25 @@ export default function Index() {
 		<ul className="sideNavBorder">
 			<li onClick={switchTabCheck}>
 				<div className={homeSubClass}>
-					<Icons iconName="welcome" />
+					<Icons iconName="welcome" sideNavClass={homeSubClass} />
 					<a className="home">welcome</a>
 				</div>
 			</li>
 			<li onClick={switchTabCheck}>
 				<div className={homeSubClass}>
-					<Icons iconName="aboutMe" />
+					<Icons iconName="aboutMe" sideNavClass={homeSubClass} />
 					<a className="home">about me</a>
 				</div>
 			</li>
 			<li onClick={switchTabCheck}>
 				<div className={homeSubClass}>
-					<Icons iconName="projects" />
+					<Icons iconName="projects" sideNavClass={homeSubClass} />
 					<a className="home">projects</a>
 				</div>
 			</li>
 			<li onClick={switchTabCheck}>
 				<div className={homeSubClass}>
-					<Icons iconName="contact" />
+					<Icons iconName="contact" sideNavClass={homeSubClass} />
 					<a className="home">contact</a>
 				</div>
 			</li>
@@ -107,43 +106,43 @@ export default function Index() {
 		<ul className="sideNavBorder">
 			<li onClick={switchTabCheck}>
 				<div className={wordGeneratorSubClass}>
-					<Icons iconName="overview" />
+					<Icons iconName="overview" sideNavClass={wordGeneratorSubClass} />
 					<a className="wordGenerator">overview</a>
 				</div>
 			</li>
 			<li onClick={switchTabCheck}>
 				<div className={wordGeneratorSubClass}>
-					<Icons iconName="step" />
+					<Icons iconName="step" sideNavClass={wordGeneratorSubClass} />
 					<a className="wordGenerator">step 1</a>
 				</div>
 			</li>
 			<li onClick={switchTabCheck}>
 				<div className={wordGeneratorSubClass}>
-					<Icons iconName="step" />
+					<Icons iconName="step" sideNavClass={wordGeneratorSubClass} />
 					<a className="wordGenerator">step 2</a>
 				</div>
 			</li>
 			<li onClick={switchTabCheck}>
 				<div className={wordGeneratorSubClass}>
-					<Icons iconName="step" />
+					<Icons iconName="step" sideNavClass={wordGeneratorSubClass} />
 					<a className="wordGenerator">step 3</a>
 				</div>
 			</li>
 			<li onClick={switchTabCheck}>
 				<div className={wordGeneratorSubClass}>
-					<Icons iconName="challenges" />
+					<Icons iconName="challenges" sideNavClass={wordGeneratorSubClass} />
 					<a className="wordGenerator">challenges</a>
 				</div>
 			</li>
 			<li onClick={switchTabCheck}>
 				<div className={wordGeneratorSubClass}>
-					<Icons iconName="successes" />
+					<Icons iconName="successes" sideNavClass={wordGeneratorSubClass} />
 					<a className="wordGenerator">successes</a>
 				</div>
 			</li>
 			<li onClick={switchTabCheck}>
 				<div className={wordGeneratorSubClass}>
-					<Icons iconName="screenshots" />
+					<Icons iconName="screenshots" sideNavClass={wordGeneratorSubClass} />
 					<a className="wordGenerator">screenshots</a>
 				</div>
 			</li>
