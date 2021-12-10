@@ -130,6 +130,12 @@ export default function Index() {
 			</li>
 			<li onClick={switchTabCheck}>
 				<div className={wordGeneratorSubClass}>
+					<Icons iconName="step" sideNavClass={wordGeneratorSubClass} />
+					<a className="wordGenerator">step 4</a>
+				</div>
+			</li>
+			<li onClick={switchTabCheck}>
+				<div className={wordGeneratorSubClass}>
 					<Icons iconName="challenges" sideNavClass={wordGeneratorSubClass} />
 					<a className="wordGenerator">challenges</a>
 				</div>
