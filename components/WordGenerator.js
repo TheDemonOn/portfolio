@@ -11,10 +11,11 @@ export default function WordGenerator() {
 					content="The first project I ever started was a random word generator that could produce rhymes."
 					size="true"
 				/>
+				<div className="contentSide">
+					<SectionContent content="This was my first project I attempted after feeling confident enough in my coding skills. I felt that this project wouldn't be too challenging to develop, and should be a good first start at using javascript to create something complex." />
+				</div>
 			</div>
-			<div className="contentSide">
-				<SectionContent content="This was my first project I attempted after feeling confident enough in my coding skills. I felt that this project wouldn't be too challenging to develop, and should be a good first start at using javascript to create something complex." />
-			</div>
+
 			<SectionsTitle content="step 1" id="step1" />
 			<div className="contentSide">
 				<SectionContent content="The first step for creating this project was first learning about how rhymes were actually constructed in English and how they rhymed." />
@@ -109,7 +110,7 @@ export default function WordGenerator() {
 				<SectionContent content="I would first analyze a problem, then look through the Javascript documentation and pick out functions which could prove useful, developing a set of tools at my disposal." />
 			</div>
 			<div className="contentSide">
-				<SectionContent content="Then I would narrow down the tools to best, or a combination to solve a problem." />
+				<SectionContent content="Then I would narrow down the tools to the best, or a combination to solve a problem." />
 			</div>
 			<div className="contentSide">
 				<SectionContent content="One of larger successes I had was being able to take a design given to me by a graphic designer and being able to realize those plans into a fully functional site." />
