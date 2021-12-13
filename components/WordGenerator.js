@@ -5,7 +5,7 @@ import SectionContent from './SectionContent'
 export default function WordGenerator() {
 	return (
 		<div className="inline tabContentPosition">
-			<SectionsTitle content="word generator overview" size="true" id="overview" />
+			<SectionsTitle content="rhyming word generator" size="true" id="overview" />
 			<div className="contentSide">
 				<SectionContent
 					content="The first project I ever started was a random word generator that could produce rhymes."

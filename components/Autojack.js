@@ -5,7 +5,7 @@ import SectionContent from './SectionContent'
 export default function Autojack() {
 	return (
 		<div className="inline tabContentPosition">
-			<SectionsTitle content="autojack overview" size="true" id="overview" />
+			<SectionsTitle content="autojack" size="true" id="overview" />
 			{/* Perhaps use the Idea of the Chapter Title when the idea is implemented to just have Autojack, then the overview section is it's own thing */}
 			<div className="contentSide">
 				<SectionContent
