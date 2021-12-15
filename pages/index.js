@@ -44,8 +44,11 @@ export default function Index() {
 	const [headerTabs, setHeaderTabs] = useState(['homeTab'])
 
 	const switchTabCheck = (e) => {
+		// This function gets the information needed to swap tabs, and/or scroll to a new position
+		// The different cases are for the different parts of the clickable elements
 		let tab
 		let innerText
+		console.log(e)
 		if (e.target.className === '') {
 			tab = e.target.firstChild.childNodes[1].className
 			innerText = e.target.firstChild.childNodes[1].innerText
@@ -64,12 +67,18 @@ export default function Index() {
 		} else if (e.target.className !== 'white' && e.target.className !== 'darkGrey') {
 			tab = e.target.className
 			innerText = e.target.innerText
-		} else {
+		} else if (typeof e.target.childNodes[1] !== 'undefined') {
 			tab = e.target.childNodes[1].className
 			innerText = e.target.childNodes[1].innerText
+		} else if (typeof e.target.firstChild !== 'undefined') {
+			tab = e.target.firstChild.className
+			innerText = e.target.firstChild.innerText
 		}
+
 		// Switch to tab with a useEffect trigger
-		setSelectedTab([tab, innerText])
+		if (tab || innerText) {
+			setSelectedTab([tab, innerText])
+		}
 	}
 
 	let emptySection
