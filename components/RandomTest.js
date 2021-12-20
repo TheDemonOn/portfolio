@@ -48,28 +48,18 @@ export default function RandomTest() {
 					<SectionContent content="The next step was to create a system to generate random numbers and to analyze the pseudorandom values for use in the Chart.js library for creating the graphs." />
 				</div>
 				<div className="contentSide">
-					<SectionContent content="After creating the first graphs with random data I realized an issue in the way I was going about demonstrating the diffrence between human and random generation." />
+					<SectionContent content="After creating the first graphs with random data I realized an issue in the original way I had intended to demonstrate the difference between human and true randomness using 0-9." />
 				</div>
 				<div className="contentSide">
-					<SectionContent content="Originally I was going using ten numbers 0-9 to show how humans are bad at creating a truly random pattern." />
-				</div>
-				<div className="contentSide">
-					<SectionContent content="But the problem was that a larger sample of values would be needed to see anything at all, more than would be quick to input. So I simply reduced the scope to just 0 and 1 to require significantly less data for interesting charts." />
+					<SectionContent content="But this was resolved by simply reducing the scope to just 0-1, to require significantly less data for interesting charts." />
 				</div>
 			</div>
 			<SectionsTitle content="step 3" id="step3" />
 			<div className="contentSide">
 				<SectionContent content="Data Management" size="true" />
 			</div>
-
 			<div className="contentSide">
-				<SectionContent content="Since this project is mostly just manipulating data and visualizing it, managing all the data is especially critical." />
-			</div>
-			<div className="contentSide">
-				<SectionContent content="I used the React Hook useContext in order to help with transfering data from different components." />
-			</div>
-			<div className="contentSide">
-				<SectionContent content="Prop drilling, the method of passing each state from child to parent through multiple layers, creates a messy system of sending data to exactly where it needs to be." />
+				<SectionContent content="The React Hook useContext was used in order to help with transfering data from different components, rather than continuing to use prop drilling." />
 			</div>
 			<div className="contentSide">
 				<SectionContent content="The useContext hook allows the passing of data to a Context.Provider which can allow the data to be accessed by all the components it is wrapped around very easily." />
@@ -78,7 +68,17 @@ export default function RandomTest() {
 				<SectionContent content="Visuals" size="true" />
 			</div>
 			<div className="contentSide">
-				<SectionContent content="With the different methods of number generation, data management, and graphs worked out, finishing things up was simply preventing any inputs from breaking anything and the project functionally was complete	." />
+				<SectionContent content="With the different methods of number generation, data management, and graphs worked out, finishing things up was simply preventing any inputs from breaking anything and the project functionally was complete." />
+			</div>
+
+			<SectionsTitle content="challenges" id="challenges" />
+			<div className="contentSide">
+				<SectionContent content="." />
+			</div>
+
+			<SectionsTitle content="successes" id="successes" />
+			<div className="contentSide">
+				<SectionContent content="." />
 			</div>
 			{/*  */}
 			{/* <div className="contentSide">

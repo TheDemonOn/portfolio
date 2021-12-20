@@ -18,69 +18,33 @@ export default function WordGenerator() {
 
 			<SectionsTitle content="step 1" id="step1" />
 			<div className="contentSide">
-				<SectionContent content="The first step for creating this project was first learning about how rhymes were actually constructed in English and how they rhymed." />
+				<SectionContent content="Learn how rhymes are made." />
 			</div>
 			<div className="contentSide">
-				<SectionContent content="After understanding the smallest functional unit of a word, called a 'grapheme'. I set out to use a very rudimentary system of random word construction involving creating groups of graphemes that rhymed." />
+				<SectionContent content="Create two catagories of graphemes: Vowels & Consonants." />
 			</div>
 			<div className="contentSide">
-				<SectionContent content="I created two seperate catagories of graphemes: Vowels & Consonants, and filled them with further subcategories for beginning, middle and end. " />
+				<SectionContent content="Finally create a rhyme guide." />
 			</div>
 			<div className="contentSide">
-				<SectionContent content="The Idea is that I would create words by using random choices from the Vowels or Consonants, in their respective position of either beginning, middle, or end." />
-			</div>
-			<div className="contentSide">
-				<SectionContent content="But to create the rhyme I would need the final grapheme (or graphemes) to be similar sounding in order for the word to rhyme." />
-			</div>
-			<div className="contentSide">
-				<SectionContent content="To facilitate this, I created a rhyming guide for the graphemes in the end catagory." />
-			</div>
-			<div className="contentSide">
-				<SectionContent content="To facilitate this, I created a rhyming group for the graphemes in the end catagory. Only the end needed a rhyming guide because only the last grapheme is necessary to coordinate for a rhyme." />
+				<SectionContent content="." />
 			</div>
 			<SectionsTitle content="step 2" id="step2" />
 			<div className="contentSide">
-				<SectionContent content="With the system for generating words, and ensuring that they would rhyme figured out, the next step would be figuring out how to implement the actual construction of groups of words." />
+				<SectionContent content="Create random words using graphemes from a list and combining them together." />
 			</div>
 			<div className="contentSide">
-				<SectionContent content="I knew that options for different combinations of rhyme structure such as 1122 vs 1212 and choosing from a consonant grapheme vs a vowel grapheme was going to eventually added so I created functions for specific orientations of graphemes such as: VCVC." />
-			</div>
-			<div className="contentSide">
-				<SectionContent content="This ended up being a very naive approach to simply hardcode a function for a specific configuration and I would eventually end up with a more robust system which could accommodate any amount of orientations." />
-			</div>
-			<div className="contentSide">
-				<SectionContent content="But for now having a function for a specific orientation was fine for testing and learning. " />
-			</div>
-			<div className="contentSide">
-				<SectionContent content="The actual method for creating a word was to randomly select graphemes from the appropriate list and combine them together." />
-			</div>
-			<div className="contentSide">
-				<SectionContent content="For example. A four grapheme word would pick from: [beginning, middle, middle, end], while a two grapheme word would be: [beginning, end], and even simpler a single grapheme word would just be: [end]" />
-			</div>
-			<div className="contentSide">
-				<SectionContent content="To create the rhyme at least two lines have to be generated, at minimum one word. Every word is generated with the [beginning, middle, end] formula, but the last word in a line is kept track of." />
-			</div>
-			<div className="contentSide">
-				<SectionContent content="First the rhyming word is generated randomly as normal. Then the index of the chosen end group is sent to the second rhyming word that is meant to rhyme and simply chooses a random grapheme using the index sent to it, and since every grapheme in that group is meant to rhyme with each other, the second rhyming word should rhyme with the first." />
-			</div>
-			<div className="contentSide">
-				<SectionContent content="Eventually I came to understand that in order to create a rhyme with a word that ends in a consonant grapheme, I would need the preceding grapheme's vowel sound in order to be able to have it actually rhyme, since rhymes require a similar vowel sound." />
-			</div>
-			<div className="contentSide">
-				<SectionContent content="A consequence of this is that an all Consonant word will produce words that do not rhyme most of the time, as well as being too difficult to pronounce." />
+				<SectionContent content="To create the rhyme at least two lines have to be generated, at minimum one word. Every word is generated with the [beginning, middle, end] formula, but the last word in a line is kept track of to rhyme." />
 			</div>
 			<SectionsTitle content="step 3" id="step3" />
 			<div className="contentSide">
-				<SectionContent content="At this point I had almost 2000 lines of code in a single file which controlled all the logic with word generation. Most of these were functions using different combinations of Vowels and Consonants. This wouldn't be resolved until a later refactor, but this project (and the next) taught me about the importance of proper planning and organization of code to have a more efficient workflow." />
-			</div>
-			<div className="contentSide">
-				<SectionContent content="So after making many functions which produced rhyming words, got started on the actual displaying of the lines." />
+				<SectionContent content="Next was working on the actual displaying of the lines." />
 			</div>
 			<div className="contentSide">
 				<SectionContent content="Once the UI was mostly set up to customize and generate lines of rhyming sentences, I began refactoring code to have less functions and start to clean up." />
 			</div>
 			<div className="contentSide">
-				<SectionContent content="After refactoring more UI features were added such as a way to delete lines, modify lines, undo delete, and add a section to enter youtube links and have them play in the page." />
+				<SectionContent content="After refactoring, more UI features were added such as a way to delete lines, modify lines, undo delete, and add a section to enter youtube links and have them play in the page." />
 			</div>
 			<SectionsTitle content="step 4" id="step4" />
 			<div className="contentSide">

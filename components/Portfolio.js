@@ -5,7 +5,7 @@ import SectionContent from './SectionContent'
 export default function Portfolio() {
 	return (
 		<div className="inline tabContentPosition">
-			<SectionsTitle content="This site: CodeAntonio!" size="true" id="overview" />
+			<SectionsTitle content="This site: codeantonio" size="true" id="overview" />
 			<div className="contentSide">
 				<SectionContent
 					content="This website was made using React with the Next.js framework. "
@@ -19,7 +19,7 @@ export default function Portfolio() {
 				<SectionContent content="The site has a proper tab system, built to be similar to the Visual Studio Code tab system." />
 			</div>
 			<div className="contentSide">
-				<SectionContent content="Code Antonio is a single-page application (SPA)." />
+				<SectionContent content="This site is a single-page application (SPA)." />
 			</div>
 			<SectionsTitle content="step 1" id="step1" />
 			<div className="contentSide">
@@ -28,32 +28,26 @@ export default function Portfolio() {
 					<SectionContent content="The design was the most important element to this site, so no code was set until its appearance was mostly finalized." />
 				</div>
 				<div className="contentSide">
-					<SectionContent content="After coming up with the gimmick of having similar aspects to an IDE I loved the idea of it." />
-				</div>
-				<div className="contentSide">
-					<SectionContent content="I especially liked the gimmick of the site because it meant I had a new challenge of building a tab system." />
+					<SectionContent content="After coming up with the gimmick of having similar aspects to an IDE I loved the idea of it, because it meant I had the new challenge of building a tab system." />
 				</div>
 			</div>
 			<SectionsTitle content="step 2" id="step2" />
 			<div className="contentSide">
 				<SectionContent content="Build" size="true" />
 				<div className="contentSide">
-					<SectionContent content="I simply started by creating skeletons of what would eventually be the tabs, then creating the sideNav in order to scroll to a specific area and swap what tab was being displayed." />
+					<SectionContent content="It began with the creation of the skeleton for the tabs, then creating the sideNav in order to scroll to a specific area." />
 				</div>
 				<div className="contentSide">
-					<SectionContent content="My plan for how the tabs would work is that I would use state to control:" />
+					<SectionContent content="The plan for how the tabs would work is that state would control:" />
 				</div>
 				<div className="contentSide">
-					<SectionContent content="1. what tab was currently being displayed," />
+					<SectionContent content="1. which tab was currently being displayed" />
 				</div>
 				<div className="contentSide">
-					<SectionContent content="2. the order of the tabs in the header as well as what tabs were available there," />
+					<SectionContent content="2. the order of the tabs in the header as well as what tabs were available there" />
 				</div>
 				<div className="contentSide">
-					<SectionContent content="Then I would implement useEffects to perform operations when that state changes." />
-				</div>
-				<div className="contentSide">
-					<SectionContent content="So when something happens like a tab being deleted, or swapping tabs, all that happens is that the state changes to reflect that, then the useEffects trigger to display the new information." />
+					<SectionContent content="Then several useEffects would mutate the DOM to reflect a change in state." />
 				</div>
 			</div>
 
@@ -61,16 +55,10 @@ export default function Portfolio() {
 			<div className="contentSide">
 				<SectionContent content="Tabs" size="true" />
 				<div className="contentSide">
-					<SectionContent content="The tabs themselves were the most complex and challenging aspect to work on." />
+					<SectionContent content="Initially the plan was simply to have an array with the tab Components display in the JSX, but there were issues with state not properly being updated when the tabs were displayed in that way." />
 				</div>
 				<div className="contentSide">
-					<SectionContent content="It took some iteration to find out a way to have the tabs be as reactive and as responsive as I intended." />
-				</div>
-				<div className="contentSide">
-					<SectionContent content="Initially I thought I would simply be able to have an array with the tab Components display in the JSX, but I had issues with state not properly being updated when it was displayed like that." />
-				</div>
-				<div className="contentSide">
-					<SectionContent content="The method I eventually ended up using was to have each tab exist inside the displaying JSX." />
+					<SectionContent content="The method that eventually ended up being used was to have each tab exist inside the displaying JSX." />
 				</div>
 				<div className="contentSide">
 					<SectionContent content="State was used to control whether it was displaying, the text and Icon to use, and its position in the tab order." />
@@ -83,6 +71,16 @@ export default function Portfolio() {
 				<div className="contentSide">
 					<SectionContent content="The last step was to simply add the content, and find the design sketches for the projects, and to examine the commit history of the projects to remember the steps of development more clearly." />
 				</div>
+			</div>
+
+			<SectionsTitle content="challenges" id="challenges" />
+			<div className="contentSide">
+				<SectionContent content="." />
+			</div>
+
+			<SectionsTitle content="successes" id="successes" />
+			<div className="contentSide">
+				<SectionContent content="." />
 			</div>
 			{/* 
 			<div className="contentSide">
