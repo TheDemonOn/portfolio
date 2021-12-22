@@ -73,17 +73,13 @@ export default function Autojack() {
 			<div className="contentSide">
 				<SectionContent content="An Exercise in Madness" size="true" />
 				<div className="contentSide">
-					<SectionContent content="There were a few issues related to caching and animations playing before an element was loaded, and these were resolved in a somewhat convoluted manner." />
+					<SectionContent content="There were a few issues related to caching and animations playing before an element was loaded, and these were resolved in a somewhat convoluted manner, involving loading in elements invisibly and starting animations when they did." />
+				</div>
+				<div className="contentSide">
+					<SectionContent content="The split function was ultimately disabled because of the severity of the animation issues involving it." />
 				</div>
 			</div>
-
-			<div className="contentSide">
-				<SectionContent content="." />
-			</div>
 			<SectionsTitle content="challenges" id="challenges" />
-			<div className="contentSide">
-				<SectionContent content="." />
-			</div>
 			<div className="contentSide">
 				<SectionContent content="A big challenge I faced with Autojack was simply becoming more familiar with React! In the future If I am ever going to learn or use a new tool or technology, I will do something small so that the complexity can be reduced." />
 			</div>

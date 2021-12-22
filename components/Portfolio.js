@@ -75,7 +75,7 @@ export default function Portfolio() {
 
 			<SectionsTitle content="challenges" id="challenges" />
 			<div className="contentSide">
-				<SectionContent content="." />
+				<SectionContent content="The tab system was a challenge that went through some iteration to find a design that worked for this site." />
 			</div>
 
 			<SectionsTitle content="successes" id="successes" />

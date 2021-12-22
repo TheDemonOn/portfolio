@@ -54,31 +54,33 @@ export default function RandomTest() {
 					<SectionContent content="But this was resolved by simply reducing the scope to just 0-1, to require significantly less data for interesting charts." />
 				</div>
 			</div>
+
 			<SectionsTitle content="step 3" id="step3" />
 			<div className="contentSide">
 				<SectionContent content="Data Management" size="true" />
+				<div className="contentSide">
+					<SectionContent content="The React Hook useContext was used in order to help with transfering data from different components, rather than continuing to use prop drilling." />
+				</div>
+				<div className="contentSide">
+					<SectionContent content="The useContext hook allows the passing of data to a Context.Provider which can allow the data to be accessed by all the components it is wrapped around very easily." />
+				</div>
 			</div>
-			<div className="contentSide">
-				<SectionContent content="The React Hook useContext was used in order to help with transfering data from different components, rather than continuing to use prop drilling." />
-			</div>
-			<div className="contentSide">
-				<SectionContent content="The useContext hook allows the passing of data to a Context.Provider which can allow the data to be accessed by all the components it is wrapped around very easily." />
-			</div>
+			<SectionsTitle content="step 4" id="step4" />
 			<div className="contentSide">
 				<SectionContent content="Visuals" size="true" />
-			</div>
-			<div className="contentSide">
-				<SectionContent content="With the different methods of number generation, data management, and graphs worked out, finishing things up was simply preventing any inputs from breaking anything and the project functionally was complete." />
+				<div className="contentSide">
+					<SectionContent content="With the different methods of number generation, data management, and graphs worked out, finishing things up was simply preventing any inputs from breaking anything and the project functionally was complete." />
+				</div>
 			</div>
 
 			<SectionsTitle content="challenges" id="challenges" />
 			<div className="contentSide">
-				<SectionContent content="." />
+				<SectionContent content="A small challenge was figuring out the syntax for how to properly interface with the API. It wasn't clear initially how it was meant to be sent to get a response, but with some trial and error I figured the correct syntax out." />
 			</div>
 
 			<SectionsTitle content="successes" id="successes" />
 			<div className="contentSide">
-				<SectionContent content="." />
+				<SectionContent content="The project was a successful attempt to use an API to aquire and process data." />
 			</div>
 			{/*  */}
 			{/* <div className="contentSide">

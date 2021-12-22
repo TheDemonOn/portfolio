@@ -11,47 +11,53 @@ export default function WordGenerator() {
 					content="The first project I ever started was a random word generator that could produce rhymes."
 					size="true"
 				/>
-				<div className="contentSide">
-					<SectionContent content="This was my first project I attempted after feeling confident enough in my coding skills. I felt that this project wouldn't be too challenging to develop, and should be a good first start at using javascript to create something complex." />
-				</div>
+			</div>
+			<div className="contentSide">
+				<SectionContent content="This was my first project I attempted after feeling confident enough in my coding skills. I felt that this project wouldn't be too challenging to develop, and should be a good first start at using javascript to create something complex." />
 			</div>
 
 			<SectionsTitle content="step 1" id="step1" />
 			<div className="contentSide">
-				<SectionContent content="Learn how rhymes are made." />
-			</div>
-			<div className="contentSide">
-				<SectionContent content="Create two catagories of graphemes: Vowels & Consonants." />
-			</div>
-			<div className="contentSide">
-				<SectionContent content="Finally create a rhyme guide." />
-			</div>
-			<div className="contentSide">
-				<SectionContent content="." />
+				<SectionContent content="Learn how to Rhyme" size="true" />
+				<div className="contentSide">
+					<SectionContent content="Learn how rhymes are made, and how to divide sounds to their smallest units: a grapheme." />
+				</div>
+				<div className="contentSide">
+					<SectionContent content="Create two catagories of graphemes: Vowels & Consonants and a rhyme guide to coordinate two separately generated words." />
+				</div>
 			</div>
 			<SectionsTitle content="step 2" id="step2" />
 			<div className="contentSide">
-				<SectionContent content="Create random words using graphemes from a list and combining them together." />
-			</div>
-			<div className="contentSide">
-				<SectionContent content="To create the rhyme at least two lines have to be generated, at minimum one word. Every word is generated with the [beginning, middle, end] formula, but the last word in a line is kept track of to rhyme." />
+				<SectionContent content="Setup Generation" size="true" />
+				<div className="contentSide">
+					<SectionContent content="Create random words using graphemes from a list and combining them together." />
+				</div>
+				<div className="contentSide">
+					<SectionContent content="To create the rhyme at least two lines have to be generated, at minimum one word. Every word is generated with the [beginning, middle, end] formula, but the last word in a line is kept track of for rhyming." />
+				</div>
 			</div>
 			<SectionsTitle content="step 3" id="step3" />
 			<div className="contentSide">
-				<SectionContent content="Next was working on the actual displaying of the lines." />
-			</div>
-			<div className="contentSide">
-				<SectionContent content="Once the UI was mostly set up to customize and generate lines of rhyming sentences, I began refactoring code to have less functions and start to clean up." />
-			</div>
-			<div className="contentSide">
-				<SectionContent content="After refactoring, more UI features were added such as a way to delete lines, modify lines, undo delete, and add a section to enter youtube links and have them play in the page." />
+				<SectionContent content="User Interface" size="true" />
+				<div className="contentSide">
+					<SectionContent content="Next was working on the actual displaying of the lines." />
+				</div>
+				<div className="contentSide">
+					<SectionContent content="Once the UI was mostly set up to customize and generate lines of rhyming sentences, I began refactoring code to have less functions and start to clean up." />
+				</div>
+				<div className="contentSide">
+					<SectionContent content="After refactoring, more UI features were added such as a way to delete lines, modify lines, undo delete, and add a section to enter youtube links and have them play in the page." />
+				</div>
 			</div>
 			<SectionsTitle content="step 4" id="step4" />
 			<div className="contentSide">
-				<SectionContent content="With most features implemented and complete, the only thing remaining was a proper design for the site, as well as responsitivity." />
-			</div>
-			<div className="contentSide">
-				<SectionContent content="And with that my first project was finally taken to completion." />
+				<SectionContent content="Design & Responsitivity" size="true" />
+				<div className="contentSide">
+					<SectionContent content="With most features implemented and complete, the only thing remaining was a proper design for the site, as well as responsitivity." />
+				</div>
+				<div className="contentSide">
+					<SectionContent content="And with that my first project was finally taken to completion." />
+				</div>
 			</div>
 			<SectionsTitle content="challenges i had" id="challenges" />
 			<div className="contentSide">
