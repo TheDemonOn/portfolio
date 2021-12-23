@@ -1,6 +1,8 @@
 import React from 'react'
 import SectionsTitle from './SectionsTitle'
 import SectionContent from './SectionContent'
+import Picture from './Picture'
+import Image from 'next/image'
 
 export default function WordGenerator() {
 	return (
@@ -14,6 +16,14 @@ export default function WordGenerator() {
 			</div>
 			<div className="contentSide">
 				<SectionContent content="This was my first project I attempted after feeling confident enough in my coding skills. I felt that this project wouldn't be too challenging to develop, and should be a good first start at using javascript to create something complex." />
+			</div>
+			<div className="contentSide">
+				<SectionContent
+					content="View the generator"
+					decoration="underline"
+					color="yellow"
+					link="https://www.codeantonio.com/"
+				/>
 			</div>
 
 			<SectionsTitle content="step 1" id="step1" />
@@ -88,6 +98,24 @@ export default function WordGenerator() {
 
 			<SectionsTitle content="final screenshots" id="screenshots" />
 			<SectionContent content="[Pictures]" />
+			<Picture
+				srcset="/rwg_sketch50.jpg 848w, /rwg_sketch80.jpg 1357w, /rwg_sketch100.jpg 1696w,"
+				sizes="(max-width: 500px) 848px, (max-width: 1000px) 1347px, 1696px"
+				src="/rwg_sketch100.jpg"
+				alt="Initial sketch of site."
+			/>
+			<Picture
+				srcset="/rwg_notes50.jpg 838w, /rwg_notes80.jpg 1340w, /rwg_notes100.jpg 1675w,"
+				sizes="(max-width: 500px) 838px, (max-width: 1000px) 1340px, 1675px"
+				src="/rwg_notes100.jpg"
+				alt="Another sketch with more detail."
+			/>
+			<Picture
+				srcset="/rwg_final_prev50.jpg 720w, /rwg_final_prev80.jpg 1152w, /rwg_final_prev100.jpg 1440w,"
+				sizes="(max-width: 500px) 720px, (max-width: 1000px) 1152px, 1440px"
+				src="/rwg_final_prev100.jpg"
+				alt="A finalized design of the site."
+			/>
 		</div>
 	)
 }

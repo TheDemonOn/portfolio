@@ -6,7 +6,7 @@ export default function SectionsTitle({ content, size, id }) {
 		customSize = 'biggerTitle'
 	}
 	return (
-		<div id={id}>
+		<div id={id} className="titleSpace">
 			<h1 className={'yellow inline' + ` ${customSize}`}>/*</h1>
 			<h1 className={'white inline pad' + ` ${customSize}`}>{content}</h1>
 			<h1 className={'yellow inline' + ` ${customSize}`}>*/</h1>

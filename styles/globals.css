@@ -79,6 +79,10 @@ ul {
 	padding: 0;
 }
 
+img {
+	width: 900px;
+}
+
 #activeNoHover {
 	border: solid;
 	z-index: 100;
@@ -150,7 +154,7 @@ svg {
 }
 
 .headerSpaceFill {
-	height: 3.5em;
+	height: 2em;
 }
 
 .white {
@@ -221,6 +225,7 @@ svg {
 	/* border: solid; */
 	max-width: 58em;
 	margin-right: 2em;
+	margin-bottom: 4em;
 	/* This will be used with media queries to resize content */
 }
 
@@ -318,6 +323,13 @@ svg {
 	border-color: #504f6e; */
 	/* border-width: 3.5px; */
 	/* padding-left: 1em; */
+	/* margin-top: 2em; */
+}
+
+.titleSpace {
+	/* border: solid; */
+	margin-top: 3em;
+	margin-bottom: -1em;
 }
 
 .contentSide {
@@ -365,6 +377,16 @@ svg {
 	/* border: solid; */
 	margin-left: -1em;
 	margin-top: 0.29em;
+}
+
+.underline {
+	text-decoration: underline #ffe398;
+	text-decoration-thickness: 2px;
+	text-underline-position: under;
+}
+
+.link {
+	cursor: pointer;
 }
 
 /* ID's */
