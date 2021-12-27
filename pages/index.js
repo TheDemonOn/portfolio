@@ -48,7 +48,6 @@ export default function Index() {
 		// The different cases are for the different parts of the clickable elements
 		let tab
 		let innerText
-		console.log(e)
 		if (e.target.className === '') {
 			tab = e.target.firstChild.childNodes[1].className
 			innerText = e.target.firstChild.childNodes[1].innerText
@@ -164,16 +163,199 @@ export default function Index() {
 		</ul>
 	)
 	const [navWordGeneratorSection, setNavWordGeneratorSection] = useState(wordGeneratorSection)
-	let autojackSection
-	const [navAutojackSection, setNavAutojackSection] = useState(emptySection)
-	let randomSection
-	const [navRandomSection, setNavRandomSection] = useState(emptySection)
-	let portfolioSection
-	const [navPortfolioSection, setNavPortfolioSection] = useState(emptySection)
+	const autojackSection = (
+		<ul className="sideNavBorder">
+			<li onClick={switchTabCheck}>
+				<div className={autojackSubClass}>
+					<Icons iconName="overview" sideNavClass={autojackSubClass} />
+					<a className="autojack">overview</a>
+				</div>
+			</li>
+			<li onClick={switchTabCheck}>
+				<div className={autojackSubClass}>
+					<Icons iconName="step" sideNavClass={autojackSubClass} />
+					<a className="autojack">step 1</a>
+				</div>
+			</li>
+			<li onClick={switchTabCheck}>
+				<div className={autojackSubClass}>
+					<Icons iconName="step" sideNavClass={autojackSubClass} />
+					<a className="autojack">step 2</a>
+				</div>
+			</li>
+			<li onClick={switchTabCheck}>
+				<div className={autojackSubClass}>
+					<Icons iconName="step" sideNavClass={autojackSubClass} />
+					<a className="autojack">step 3</a>
+				</div>
+			</li>
+			<li onClick={switchTabCheck}>
+				<div className={autojackSubClass}>
+					<Icons iconName="step" sideNavClass={autojackSubClass} />
+					<a className="autojack">step 4</a>
+				</div>
+			</li>
+			<li onClick={switchTabCheck}>
+				<div className={autojackSubClass}>
+					<Icons iconName="challenges" sideNavClass={autojackSubClass} />
+					<a className="autojack">challenges</a>
+				</div>
+			</li>
+			<li onClick={switchTabCheck}>
+				<div className={autojackSubClass}>
+					<Icons iconName="successes" sideNavClass={autojackSubClass} />
+					<a className="autojack">successes</a>
+				</div>
+			</li>
+			<li onClick={switchTabCheck}>
+				<div className={autojackSubClass}>
+					<Icons iconName="screenshots" sideNavClass={autojackSubClass} />
+					<a className="autojack">screenshots</a>
+				</div>
+			</li>
+		</ul>
+	)
+	const [navAutojackSection, setNavAutojackSection] = useState(autojackSection)
+	const randomSection = (
+		<ul className="sideNavBorder">
+			<li onClick={switchTabCheck}>
+				<div className={randomTestSubClass}>
+					<Icons iconName="overview" sideNavClass={randomTestSubClass} />
+					<a className="randomTest">overview</a>
+				</div>
+			</li>
+			<li onClick={switchTabCheck}>
+				<div className={randomTestSubClass}>
+					<Icons iconName="step" sideNavClass={randomTestSubClass} />
+					<a className="randomTest">step 1</a>
+				</div>
+			</li>
+			<li onClick={switchTabCheck}>
+				<div className={randomTestSubClass}>
+					<Icons iconName="step" sideNavClass={randomTestSubClass} />
+					<a className="randomTest">step 2</a>
+				</div>
+			</li>
+			<li onClick={switchTabCheck}>
+				<div className={randomTestSubClass}>
+					<Icons iconName="step" sideNavClass={randomTestSubClass} />
+					<a className="randomTest">step 3</a>
+				</div>
+			</li>
+			<li onClick={switchTabCheck}>
+				<div className={randomTestSubClass}>
+					<Icons iconName="step" sideNavClass={randomTestSubClass} />
+					<a className="randomTest">step 4</a>
+				</div>
+			</li>
+			<li onClick={switchTabCheck}>
+				<div className={randomTestSubClass}>
+					<Icons iconName="challenges" sideNavClass={randomTestSubClass} />
+					<a className="randomTest">challenges</a>
+				</div>
+			</li>
+			<li onClick={switchTabCheck}>
+				<div className={randomTestSubClass}>
+					<Icons iconName="successes" sideNavClass={randomTestSubClass} />
+					<a className="randomTest">successes</a>
+				</div>
+			</li>
+			<li onClick={switchTabCheck}>
+				<div className={randomTestSubClass}>
+					<Icons iconName="screenshots" sideNavClass={randomTestSubClass} />
+					<a className="randomTest">screenshots</a>
+				</div>
+			</li>
+		</ul>
+	)
+	const [navRandomSection, setNavRandomSection] = useState(randomSection)
+	const portfolioSection = (
+		<ul className="sideNavBorder">
+			<li onClick={switchTabCheck}>
+				<div className={portfolioSubClass}>
+					<Icons iconName="overview" sideNavClass={portfolioSubClass} />
+					<a className="portfolio">overview</a>
+				</div>
+			</li>
+			<li onClick={switchTabCheck}>
+				<div className={portfolioSubClass}>
+					<Icons iconName="step" sideNavClass={portfolioSubClass} />
+					<a className="portfolio">step 1</a>
+				</div>
+			</li>
+			<li onClick={switchTabCheck}>
+				<div className={portfolioSubClass}>
+					<Icons iconName="step" sideNavClass={portfolioSubClass} />
+					<a className="portfolio">step 2</a>
+				</div>
+			</li>
+			<li onClick={switchTabCheck}>
+				<div className={portfolioSubClass}>
+					<Icons iconName="step" sideNavClass={portfolioSubClass} />
+					<a className="portfolio">step 3</a>
+				</div>
+			</li>
+			<li onClick={switchTabCheck}>
+				<div className={portfolioSubClass}>
+					<Icons iconName="step" sideNavClass={portfolioSubClass} />
+					<a className="portfolio">step 4</a>
+				</div>
+			</li>
+			<li onClick={switchTabCheck}>
+				<div className={portfolioSubClass}>
+					<Icons iconName="challenges" sideNavClass={portfolioSubClass} />
+					<a className="portfolio">challenges</a>
+				</div>
+			</li>
+			<li onClick={switchTabCheck}>
+				<div className={portfolioSubClass}>
+					<Icons iconName="successes" sideNavClass={portfolioSubClass} />
+					<a className="portfolio">successes</a>
+				</div>
+			</li>
+			<li onClick={switchTabCheck}>
+				<div className={portfolioSubClass}>
+					<Icons iconName="screenshots" sideNavClass={portfolioSubClass} />
+					<a className="portfolio">screenshots</a>
+				</div>
+			</li>
+		</ul>
+	)
+	const [navPortfolioSection, setNavPortfolioSection] = useState(portfolioSection)
+
 	useEffect(() => {
-		setNavHomeSection(homeSection)
-		setNavWordGeneratorSection(wordGeneratorSection)
-	}, [homeSubClass, wordGeneratorSubClass])
+		// if it is not active, don't set it to be itself
+		// console.log(homeSection.props.children[0].props.children.props.className)
+		// if (homeSection.props.children[0].props.children.props.className === 'darkGrey') {
+		// 	setNavHomeSection(homeSection)
+		// } else {
+		// 	setNavHomeSection(homeSection)
+		// }
+		if (navHomeSection) {
+			setNavHomeSection(homeSection)
+		}
+		// console.log(navHomeSection)
+	}, [homeSubClass])
+	useEffect(() => {
+		if (navWordGeneratorSection) {
+			setNavWordGeneratorSection(wordGeneratorSection)
+		}
+	}, [wordGeneratorSubClass])
+	useEffect(() => {
+		if (navAutojackSection) {
+			setNavAutojackSection(autojackSection)
+		}
+	}, [autojackSubClass])
+	useEffect(() => {
+		if (navRandomSection) {
+			setNavRandomSection(randomSection)
+		}
+	}, [randomTestSubClass])
+	useEffect(() => {
+		if (navPortfolioSection) {
+			setNavPortfolioSection(portfolioSection)
+		}
+	}, [portfolioSubClass])
 
 	useEffect(() => {
 		// This useEffect attempts to scroll to where was clicked on the sideNav, using info from selectedTab
@@ -188,18 +370,6 @@ export default function Index() {
 			}
 		}
 	}, [displayedTab, selectedTab])
-
-	// const scrollTo = (e) => {
-	// 	// This takes advantage of the fact that the id's of the titles IS its own text to find it with one function
-	// 	let id = e.target.innerText
-	// 	if (
-	// 		typeof document.getElementById(id) !== 'undefined' &&
-	// 		document.getElementById(id) !== null
-	// 	) {
-	// 		let element = document.getElementById(id)
-	// 		element.scrollIntoView({ behavior: 'smooth', block: 'center' })
-	// 	}
-	// }
 
 	const tabFocusCheck = (id) => {
 		if (
@@ -414,6 +584,7 @@ export default function Index() {
 				break
 			case 'autojack':
 				setAutojackClass(activeTab)
+				setAutojackSubClass(activeSubClass)
 				setDisplayedTab(<Autojack />)
 				headerLogic('autojackTab')
 				setTitle(
@@ -425,6 +596,7 @@ export default function Index() {
 				break
 			case 'randomTest':
 				setRandomTestClass(activeTab)
+				setRandomTestSubClass(activeSubClass)
 				setDisplayedTab(<RandomTest />)
 				headerLogic('randomTestTab')
 				setTitle(
@@ -436,6 +608,7 @@ export default function Index() {
 				break
 			case 'portfolio':
 				setPortfolioClass(activeTab)
+				setPortfolioSubClass(activeSubClass)
 				setDisplayedTab(<Portfolio />)
 				headerLogic('portfolioTab')
 				setTitle(
@@ -455,15 +628,16 @@ export default function Index() {
 						</Head>
 					)
 				}
+				inactiveTabfunc('None')
 				break
 		}
 	}, [selectedTab])
 
 	const navToggle = (e) => {
+		// This function sets the target section's content to be the opposite of what it currently is
 		let tab = e.target.className
 		switch (tab) {
 			case 'home':
-				// Toggle visivility of home
 				if (typeof navHomeSection !== 'undefined') {
 					setNavHomeSection(emptySection)
 				} else {
@@ -478,10 +652,25 @@ export default function Index() {
 				}
 				break
 			case 'autojack':
+				if (typeof navAutojackSection !== 'undefined') {
+					setNavAutojackSection(emptySection)
+				} else {
+					setNavAutojackSection(autojackSection)
+				}
 				break
 			case 'randomTest':
+				if (typeof navRandomSection !== 'undefined') {
+					setNavRandomSection(emptySection)
+				} else {
+					setNavRandomSection(randomSection)
+				}
 				break
 			case 'portfolio':
+				if (typeof navPortfolioSection !== 'undefined') {
+					setNavPortfolioSection(emptySection)
+				} else {
+					setNavPortfolioSection(portfolioSection)
+				}
 				break
 		}
 	}
@@ -490,8 +679,6 @@ export default function Index() {
 	const [tab, setTab] = useState(0)
 	const [button, setButton] = useState(0)
 	const [tabToBeMoved, setTabToBeMoved] = useState(0)
-	const [grabTabIcon, setGrabTabIcon] = useState(0)
-	const [dragTabId, setDragTabId] = useState(0)
 
 	let initialPosition = [0, 0]
 
@@ -692,7 +879,8 @@ export default function Index() {
 						</li>
 						{navWordGeneratorSection}
 						<li className="titleList">
-							<div className={autojackClass} id="sectionAutojack" onClick={switchTabCheck}>
+							<div className={autojackClass} id="sectionAutojack" onClick={navToggle}>
+								<Icons iconName="drop" sideNavHead={autojackClass} />
 								<a className="autojack" id="section">
 									proj2_autojack
 								</a>
@@ -700,7 +888,8 @@ export default function Index() {
 						</li>
 						{navAutojackSection}
 						<li className="titleList">
-							<div className={randomTestClass} id="sectionRandomTest" onClick={switchTabCheck}>
+							<div className={randomTestClass} id="sectionRandomTest" onClick={navToggle}>
+								<Icons iconName="drop" sideNavHead={randomTestClass} />
 								<a className="randomTest" id="section">
 									proj3_random_test
 								</a>
@@ -708,7 +897,8 @@ export default function Index() {
 						</li>
 						{navRandomSection}
 						<li className="titleList">
-							<div className={portfolioClass} id="sectionPortfolio" onClick={switchTabCheck}>
+							<div className={portfolioClass} id="sectionPortfolio" onClick={navToggle}>
+								<Icons iconName="drop" sideNavHead={portfolioClass} />
 								<a className="portfolio" id="section">
 									proj4_portfolio
 								</a>

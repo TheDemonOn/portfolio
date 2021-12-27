@@ -21,6 +21,14 @@ export default function RandomTest() {
 			<div className="contentSide">
 				<SectionContent content="This project learns from the failures of the past and was a significantly better experience to develop and execute." />
 			</div>
+			<div className="contentSide">
+				<SectionContent
+					content="View the project"
+					decoration="underline"
+					color="yellow"
+					link="https://www.codeantonio.com/"
+				/>
+			</div>
 			<SectionsTitle content="step 1" id="step1" />
 			<div className="contentSide">
 				<SectionContent content="Foresight" size="true" />

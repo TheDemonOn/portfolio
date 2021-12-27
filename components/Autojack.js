@@ -19,6 +19,14 @@ export default function Autojack() {
 			<div className="contentSide">
 				<SectionContent content="The original goal was to implement a feature to simulate many thousands of games with different betting strategies to show how effective counting cards was in Blackjack, and to visualize this with a library of some kind." />
 			</div>
+			<div className="contentSide">
+				<SectionContent
+					content="View Autojack"
+					decoration="underline"
+					color="yellow"
+					link="https://www.codeantonio.com/"
+				/>
+			</div>
 			<SectionsTitle content="step 1" id="step1" />
 			<div className="contentSide">
 				<SectionContent content="The Technology used" size="true" />
