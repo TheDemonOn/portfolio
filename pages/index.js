@@ -556,7 +556,6 @@ export default function Index() {
 
 	useEffect(() => {
 		// This useEffect controls the logic for adding a new tab, as well as displaying that requested tab
-		console.log('Does this fire.', selectedTab[0])
 		switch (selectedTab[0]) {
 			case 'home':
 				setHomeClass(activeTab)
@@ -828,6 +827,105 @@ export default function Index() {
 	const tabScrollCheck = () => {
 		console.log('over')
 	}
+
+	const sideNavScroll = (e) => {
+		if (e.deltaY > 0) {
+			// scroll sideNav Up
+			if (e.deltaY > 1.5) {
+				let headerShadowElement = document.getElementsByClassName('headerAntonio')[0]
+				headerShadowElement.style.boxShadow = '0 4px 2px -1px rgba(0, 0, 0, 0.2)'
+				let nav = document.getElementsByClassName('sideNavUL')[0]
+				let marginTop = window.getComputedStyle(nav).getPropertyValue('margin-top')
+				let pxRegex = /px/
+				let stringNum = marginTop.replace(pxRegex, '')
+				let modifier = e.deltaY / 2.5
+				let num = stringNum - modifier
+				if (num > -610) {
+					let final = num.toString() + 'px'
+					console.log(final)
+					nav.style.setProperty('margin-top', final)
+				} else {
+					nav.style.setProperty('margin-top', '-610px')
+				}
+			}
+		} else {
+			// scroll sideNav Down
+			if (e.deltaY < -1.5) {
+				let nav = document.getElementsByClassName('sideNavUL')[0]
+				let marginTop = window.getComputedStyle(nav).getPropertyValue('margin-top')
+				let pxRegex = /px/
+				let stringNum = marginTop.replace(pxRegex, '')
+
+				let modifier = e.deltaY / 2.5
+				let num = Number.parseInt(stringNum, 10) - modifier
+				if (num < 18.5) {
+					let final = num.toString() + 'px'
+					console.log(final)
+					nav.style.setProperty('margin-top', final)
+				} else {
+					let headerShadowElement = document.getElementsByClassName('headerAntonio')[0]
+					headerShadowElement.style.boxShadow = ''
+					nav.style.setProperty('margin-top', '18.5px')
+				}
+			}
+		}
+	}
+
+	const sideNavScrollLock = () => {
+		// Locking
+		window.scrollTo(0, 0)
+		document.documentElement.style.overflow = 'hidden'
+		// Do the scrolling
+		// window.addEventListener('scroll', sideNavScroll)
+		window.onwheel = sideNavScroll
+	}
+
+	// const sideNavScrollCreate = () => {
+	// 	document.onscroll =
+	// }
+
+	const sideNavScrollExit = () => {
+		document.onscroll = null
+		window.onwheel = null
+		document.documentElement.style.overflow = ''
+	}
+
+	const sideNavScrollCheck = () => {
+		document.onscroll = sideNavScrollLock
+	}
+
+	useLayoutEffect(() => {
+		let nav = document.getElementsByClassName('sideNavUL')[0]
+		// console.log(nav)
+		// offsetHeight is the height of the box, just need to figure out how big the viewport is
+		// window.innerHeight
+		if (window.innerHeight < nav.offsetHeight) {
+			console.log('The box is too large by about: ' + (nav.offsetHeight - window.innerHeight))
+			let value = window.getComputedStyle(nav).getPropertyValue('border-top-style')
+			if (value === 'hidden') {
+				// Mouse is already inside
+				sideNavScrollCheck()
+			}
+			nav.onmouseenter = sideNavScrollCheck // Function which sets the on mouse leave
+			nav.onmouseleave = sideNavScrollExit
+
+			// nav.onMouseEnter()
+		} else {
+			console.log('The box has space, about: ' + (window.innerHeight - nav.offsetHeight))
+			nav.onmouseenter = null
+			nav.onmouseleave = null
+			sideNavScrollExit()
+		}
+		// setSideNavBox()
+
+		// setSideNavBox()
+	}, [
+		navHomeSection,
+		navWordGeneratorSection,
+		navAutojackSection,
+		navRandomSection,
+		navPortfolioSection,
+	])
 
 	return (
 		<>

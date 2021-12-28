@@ -88,8 +88,31 @@ img {
 	z-index: 100;
 }
 
+/* .sideNavTop {
+	position: fixed;
+	top: 0em;
+	width: 270px;
+	height: 4em;
+	background: #3a3950;
+	z-index: 3;
+} */
+
 .sideNavUL {
 	margin-left: 3em;
+	/* border: solid; */
+	/* height: 1em; */
+	/* margin-top: -30em; */
+	/* 
+
+	Top = -555px
+	0 is 18.5px
+	
+	*/
+	/* overflow: auto; */
+}
+
+.sideNavUL:hover {
+	border-top-style: hidden;
 }
 
 .titleList {
@@ -201,9 +224,13 @@ svg {
 	position: fixed;
 	z-index: 2;
 	width: 270px;
-	height: 100vh;
+	height: auto;
 	top: 2.2em;
 	color: #fff;
+
+	/* display: flex; */
+	/* flex-direction: column;
+	flex-shrink: 1; */
 }
 
 .navText {
@@ -217,8 +244,10 @@ svg {
 	/* border: solid; */
 	z-index: 1;
 	width: 270px;
-	height: 100vh;
+	height: 4em;
 	background: #3a3950;
+	z-index: 4;
+	/* box-shadow: 0 4px 2px -1px rgba(0, 0, 0, 0.2); */
 }
 
 .tabContentPosition {
@@ -394,6 +423,7 @@ svg {
 #codeAntonio {
 	margin-left: 2em;
 	color: #fff;
+	/* z-index: 40; */
 }
 
 #offScreen {

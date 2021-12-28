@@ -26,7 +26,6 @@ export default function Tab({
 	// }, [selectedTab])
 
 	useEffect(() => {
-		console.log(activeClass)
 		if (activeClass === 'yellow') {
 			setActive(1)
 		} else {
@@ -141,7 +140,7 @@ export default function Tab({
 				if (maxWidth < value3) {
 					console.log('scroll')
 					window.scrollTo(scrollLeft, scrollTop)
-					console.log(document.documentElement.style)
+					// console.log(document.documentElement.style)
 					document.documentElement.style.overflow = 'hidden'
 				} else {
 					console.log(false)
