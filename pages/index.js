@@ -162,7 +162,7 @@ export default function Index() {
 			</li>
 		</ul>
 	)
-	const [navWordGeneratorSection, setNavWordGeneratorSection] = useState(wordGeneratorSection)
+	const [navWordGeneratorSection, setNavWordGeneratorSection] = useState(emptySection)
 	const autojackSection = (
 		<ul className="sideNavBorder">
 			<li onClick={switchTabCheck}>
@@ -215,7 +215,7 @@ export default function Index() {
 			</li>
 		</ul>
 	)
-	const [navAutojackSection, setNavAutojackSection] = useState(autojackSection)
+	const [navAutojackSection, setNavAutojackSection] = useState(emptySection)
 	const randomSection = (
 		<ul className="sideNavBorder">
 			<li onClick={switchTabCheck}>
@@ -268,7 +268,7 @@ export default function Index() {
 			</li>
 		</ul>
 	)
-	const [navRandomSection, setNavRandomSection] = useState(randomSection)
+	const [navRandomSection, setNavRandomSection] = useState(emptySection)
 	const portfolioSection = (
 		<ul className="sideNavBorder">
 			<li onClick={switchTabCheck}>
@@ -321,20 +321,12 @@ export default function Index() {
 			</li>
 		</ul>
 	)
-	const [navPortfolioSection, setNavPortfolioSection] = useState(portfolioSection)
+	const [navPortfolioSection, setNavPortfolioSection] = useState(emptySection)
 
 	useEffect(() => {
-		// if it is not active, don't set it to be itself
-		// console.log(homeSection.props.children[0].props.children.props.className)
-		// if (homeSection.props.children[0].props.children.props.className === 'darkGrey') {
-		// 	setNavHomeSection(homeSection)
-		// } else {
-		// 	setNavHomeSection(homeSection)
-		// }
 		if (navHomeSection) {
 			setNavHomeSection(homeSection)
 		}
-		// console.log(navHomeSection)
 	}, [homeSubClass])
 	useEffect(() => {
 		if (navWordGeneratorSection) {
@@ -539,7 +531,6 @@ export default function Index() {
 			numberPosition[4] = -1
 			setNumberPosition([...numberPosition])
 		}
-		// console.log(numberPosition)
 	}, [headerTabs])
 
 	const headerLogic = (ID) => {
@@ -560,6 +551,7 @@ export default function Index() {
 			case 'home':
 				setHomeClass(activeTab)
 				setHomeSubClass(activeSubClass)
+				setNavHomeSection(homeSection)
 				setDisplayedTab(<Home />)
 				headerLogic('homeTab')
 				setTitle(
@@ -572,6 +564,7 @@ export default function Index() {
 			case 'wordGenerator':
 				setWordGeneratorClass(activeTab)
 				setWordGeneratorSubClass(activeSubClass)
+				setNavWordGeneratorSection(wordGeneratorSection)
 				setDisplayedTab(<WordGenerator />)
 				headerLogic('wordGeneratorTab')
 				setTitle(
@@ -584,6 +577,7 @@ export default function Index() {
 			case 'autojack':
 				setAutojackClass(activeTab)
 				setAutojackSubClass(activeSubClass)
+				setNavAutojackSection(autojackSection)
 				setDisplayedTab(<Autojack />)
 				headerLogic('autojackTab')
 				setTitle(
@@ -596,6 +590,7 @@ export default function Index() {
 			case 'randomTest':
 				setRandomTestClass(activeTab)
 				setRandomTestSubClass(activeSubClass)
+				setNavRandomSection(randomSection)
 				setDisplayedTab(<RandomTest />)
 				headerLogic('randomTestTab')
 				setTitle(
@@ -608,6 +603,7 @@ export default function Index() {
 			case 'portfolio':
 				setPortfolioClass(activeTab)
 				setPortfolioSubClass(activeSubClass)
+				setNavPortfolioSection(portfolioSection)
 				setDisplayedTab(<Portfolio />)
 				headerLogic('portfolioTab')
 				setTitle(
@@ -824,10 +820,6 @@ export default function Index() {
 		}
 	}, [numberPosition, selectedTab])
 
-	const tabScrollCheck = () => {
-		console.log('over')
-	}
-
 	const sideNavScroll = (e) => {
 		if (e.deltaY > 0) {
 			// scroll sideNav Up
@@ -840,12 +832,12 @@ export default function Index() {
 				let stringNum = marginTop.replace(pxRegex, '')
 				let modifier = e.deltaY / 2.5
 				let num = stringNum - modifier
-				if (num > -610) {
-					let final = num.toString() + 'px'
-					console.log(final)
-					nav.style.setProperty('margin-top', final)
+				// This if else determines when the bottom of the sideNav is already in view, and prevents further scrolling
+				if (40 + nav.offsetHeight + nav.offsetTop <= window.innerHeight) {
+					nav.style.setProperty('margin-top', 40 + nav.offsetHeight + nav.offsetTop)
 				} else {
-					nav.style.setProperty('margin-top', '-610px')
+					let final = num.toString() + 'px'
+					nav.style.setProperty('margin-top', final)
 				}
 			}
 		} else {
@@ -855,12 +847,10 @@ export default function Index() {
 				let marginTop = window.getComputedStyle(nav).getPropertyValue('margin-top')
 				let pxRegex = /px/
 				let stringNum = marginTop.replace(pxRegex, '')
-
 				let modifier = e.deltaY / 2.5
 				let num = Number.parseInt(stringNum, 10) - modifier
 				if (num < 18.5) {
 					let final = num.toString() + 'px'
-					console.log(final)
 					nav.style.setProperty('margin-top', final)
 				} else {
 					let headerShadowElement = document.getElementsByClassName('headerAntonio')[0]
@@ -871,54 +861,51 @@ export default function Index() {
 		}
 	}
 
-	const sideNavScrollLock = () => {
+	const sideNavScrollLock = (y) => {
 		// Locking
-		window.scrollTo(0, 0)
+		window.scrollTo(0, y)
 		document.documentElement.style.overflow = 'hidden'
 		// Do the scrolling
-		// window.addEventListener('scroll', sideNavScroll)
 		window.onwheel = sideNavScroll
 	}
 
-	// const sideNavScrollCreate = () => {
-	// 	document.onscroll =
-	// }
-
 	const sideNavScrollExit = () => {
-		document.onscroll = null
+		// Reset everything
+		document.onwheel = null
 		window.onwheel = null
 		document.documentElement.style.overflow = ''
 	}
 
 	const sideNavScrollCheck = () => {
-		document.onscroll = sideNavScrollLock
+		// When the wheel is used the current y position is passed to the function so there is no abrupt jump
+		document.onwheel = sideNavScrollLock(document.documentElement.scrollHeight)
 	}
 
 	useLayoutEffect(() => {
+		// This effect manages the sideNav's size in comparison to the viewport and dynamically attaches functions to control scrolling
 		let nav = document.getElementsByClassName('sideNavUL')[0]
-		// console.log(nav)
-		// offsetHeight is the height of the box, just need to figure out how big the viewport is
-		// window.innerHeight
+		let navArea = document.getElementsByClassName('sideNav')[0]
 		if (window.innerHeight < nav.offsetHeight) {
 			console.log('The box is too large by about: ' + (nav.offsetHeight - window.innerHeight))
 			let value = window.getComputedStyle(nav).getPropertyValue('border-top-style')
+			// Here in order to detect if the mouse is currently over the sideNav, even without moving the mouse, a :hover
+			// is used to change data about the nav's css and we check it to see if the value has been changed
 			if (value === 'hidden') {
-				// Mouse is already inside
+				// Mouse is already inside the sideNav
 				sideNavScrollCheck()
 			}
-			nav.onmouseenter = sideNavScrollCheck // Function which sets the on mouse leave
-			nav.onmouseleave = sideNavScrollExit
-
-			// nav.onMouseEnter()
+			navArea.onmouseenter = sideNavScrollCheck
+			navArea.onmouseleave = sideNavScrollExit
 		} else {
 			console.log('The box has space, about: ' + (window.innerHeight - nav.offsetHeight))
-			nav.onmouseenter = null
-			nav.onmouseleave = null
+			navArea.onmouseenter = null
+			navArea.onmouseleave = null
 			sideNavScrollExit()
+			// Set the box to be at the top & Clear the drop shadow
+			let headerShadowElement = document.getElementsByClassName('headerAntonio')[0]
+			headerShadowElement.style.boxShadow = ''
+			nav.style.setProperty('margin-top', '18.5px')
 		}
-		// setSideNavBox()
-
-		// setSideNavBox()
 	}, [
 		navHomeSection,
 		navWordGeneratorSection,
@@ -952,7 +939,7 @@ export default function Index() {
 				<div className="headerAntonio">
 					<h3 id="codeAntonio">CODE ANTONIO</h3>
 				</div>
-				<div className="header" onMouseOver={tabScrollCheck}></div>
+				<div className="header"></div>
 				<div className="headerSpaceFill"></div>
 				<GithubSVG />
 			</header>
