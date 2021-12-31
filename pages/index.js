@@ -83,25 +83,25 @@ export default function Index() {
 	let emptySection
 	const homeSection = (
 		<ul className="sideNavBorder">
-			<li onClick={switchTabCheck}>
+			<li onMouseDown={switchTabCheck}>
 				<div className={homeSubClass}>
 					<Icons iconName="welcome" sideNavClass={homeSubClass} />
 					<a className="home">welcome</a>
 				</div>
 			</li>
-			<li onClick={switchTabCheck}>
+			<li onMouseDown={switchTabCheck}>
 				<div className={homeSubClass}>
 					<Icons iconName="aboutMe" sideNavClass={homeSubClass} />
 					<a className="home">about me</a>
 				</div>
 			</li>
-			<li onClick={switchTabCheck}>
+			<li onMouseDown={switchTabCheck}>
 				<div className={homeSubClass}>
 					<Icons iconName="projects" sideNavClass={homeSubClass} />
 					<a className="home">projects</a>
 				</div>
 			</li>
-			<li onClick={switchTabCheck}>
+			<li onMouseDown={switchTabCheck}>
 				<div className={homeSubClass}>
 					<Icons iconName="contact" sideNavClass={homeSubClass} />
 					<a className="home">contact</a>
@@ -112,49 +112,49 @@ export default function Index() {
 	const [navHomeSection, setNavHomeSection] = useState(homeSection)
 	const wordGeneratorSection = (
 		<ul className="sideNavBorder">
-			<li onClick={switchTabCheck}>
+			<li onMouseDown={switchTabCheck}>
 				<div className={wordGeneratorSubClass}>
 					<Icons iconName="overview" sideNavClass={wordGeneratorSubClass} />
 					<a className="wordGenerator">overview</a>
 				</div>
 			</li>
-			<li onClick={switchTabCheck}>
+			<li onMouseDown={switchTabCheck}>
 				<div className={wordGeneratorSubClass}>
 					<Icons iconName="step" sideNavClass={wordGeneratorSubClass} />
 					<a className="wordGenerator">step 1</a>
 				</div>
 			</li>
-			<li onClick={switchTabCheck}>
+			<li onMouseDown={switchTabCheck}>
 				<div className={wordGeneratorSubClass}>
 					<Icons iconName="step" sideNavClass={wordGeneratorSubClass} />
 					<a className="wordGenerator">step 2</a>
 				</div>
 			</li>
-			<li onClick={switchTabCheck}>
+			<li onMouseDown={switchTabCheck}>
 				<div className={wordGeneratorSubClass}>
 					<Icons iconName="step" sideNavClass={wordGeneratorSubClass} />
 					<a className="wordGenerator">step 3</a>
 				</div>
 			</li>
-			<li onClick={switchTabCheck}>
+			<li onMouseDown={switchTabCheck}>
 				<div className={wordGeneratorSubClass}>
 					<Icons iconName="step" sideNavClass={wordGeneratorSubClass} />
 					<a className="wordGenerator">step 4</a>
 				</div>
 			</li>
-			<li onClick={switchTabCheck}>
+			<li onMouseDown={switchTabCheck}>
 				<div className={wordGeneratorSubClass}>
 					<Icons iconName="challenges" sideNavClass={wordGeneratorSubClass} />
 					<a className="wordGenerator">challenges</a>
 				</div>
 			</li>
-			<li onClick={switchTabCheck}>
+			<li onMouseDown={switchTabCheck}>
 				<div className={wordGeneratorSubClass}>
 					<Icons iconName="successes" sideNavClass={wordGeneratorSubClass} />
 					<a className="wordGenerator">successes</a>
 				</div>
 			</li>
-			<li onClick={switchTabCheck}>
+			<li onMouseDown={switchTabCheck}>
 				<div className={wordGeneratorSubClass}>
 					<Icons iconName="screenshots" sideNavClass={wordGeneratorSubClass} />
 					<a className="wordGenerator">screenshots</a>
@@ -165,49 +165,49 @@ export default function Index() {
 	const [navWordGeneratorSection, setNavWordGeneratorSection] = useState(emptySection)
 	const autojackSection = (
 		<ul className="sideNavBorder">
-			<li onClick={switchTabCheck}>
+			<li onMouseDown={switchTabCheck}>
 				<div className={autojackSubClass}>
 					<Icons iconName="overview" sideNavClass={autojackSubClass} />
 					<a className="autojack">overview</a>
 				</div>
 			</li>
-			<li onClick={switchTabCheck}>
+			<li onMouseDown={switchTabCheck}>
 				<div className={autojackSubClass}>
 					<Icons iconName="step" sideNavClass={autojackSubClass} />
 					<a className="autojack">step 1</a>
 				</div>
 			</li>
-			<li onClick={switchTabCheck}>
+			<li onMouseDown={switchTabCheck}>
 				<div className={autojackSubClass}>
 					<Icons iconName="step" sideNavClass={autojackSubClass} />
 					<a className="autojack">step 2</a>
 				</div>
 			</li>
-			<li onClick={switchTabCheck}>
+			<li onMouseDown={switchTabCheck}>
 				<div className={autojackSubClass}>
 					<Icons iconName="step" sideNavClass={autojackSubClass} />
 					<a className="autojack">step 3</a>
 				</div>
 			</li>
-			<li onClick={switchTabCheck}>
+			<li onMouseDown={switchTabCheck}>
 				<div className={autojackSubClass}>
 					<Icons iconName="step" sideNavClass={autojackSubClass} />
 					<a className="autojack">step 4</a>
 				</div>
 			</li>
-			<li onClick={switchTabCheck}>
+			<li onMouseDown={switchTabCheck}>
 				<div className={autojackSubClass}>
 					<Icons iconName="challenges" sideNavClass={autojackSubClass} />
 					<a className="autojack">challenges</a>
 				</div>
 			</li>
-			<li onClick={switchTabCheck}>
+			<li onMouseDown={switchTabCheck}>
 				<div className={autojackSubClass}>
 					<Icons iconName="successes" sideNavClass={autojackSubClass} />
 					<a className="autojack">successes</a>
 				</div>
 			</li>
-			<li onClick={switchTabCheck}>
+			<li onMouseDown={switchTabCheck}>
 				<div className={autojackSubClass}>
 					<Icons iconName="screenshots" sideNavClass={autojackSubClass} />
 					<a className="autojack">screenshots</a>
@@ -218,49 +218,49 @@ export default function Index() {
 	const [navAutojackSection, setNavAutojackSection] = useState(emptySection)
 	const randomSection = (
 		<ul className="sideNavBorder">
-			<li onClick={switchTabCheck}>
+			<li onMouseDown={switchTabCheck}>
 				<div className={randomTestSubClass}>
 					<Icons iconName="overview" sideNavClass={randomTestSubClass} />
 					<a className="randomTest">overview</a>
 				</div>
 			</li>
-			<li onClick={switchTabCheck}>
+			<li onMouseDown={switchTabCheck}>
 				<div className={randomTestSubClass}>
 					<Icons iconName="step" sideNavClass={randomTestSubClass} />
 					<a className="randomTest">step 1</a>
 				</div>
 			</li>
-			<li onClick={switchTabCheck}>
+			<li onMouseDown={switchTabCheck}>
 				<div className={randomTestSubClass}>
 					<Icons iconName="step" sideNavClass={randomTestSubClass} />
 					<a className="randomTest">step 2</a>
 				</div>
 			</li>
-			<li onClick={switchTabCheck}>
+			<li onMouseDown={switchTabCheck}>
 				<div className={randomTestSubClass}>
 					<Icons iconName="step" sideNavClass={randomTestSubClass} />
 					<a className="randomTest">step 3</a>
 				</div>
 			</li>
-			<li onClick={switchTabCheck}>
+			<li onMouseDown={switchTabCheck}>
 				<div className={randomTestSubClass}>
 					<Icons iconName="step" sideNavClass={randomTestSubClass} />
 					<a className="randomTest">step 4</a>
 				</div>
 			</li>
-			<li onClick={switchTabCheck}>
+			<li onMouseDown={switchTabCheck}>
 				<div className={randomTestSubClass}>
 					<Icons iconName="challenges" sideNavClass={randomTestSubClass} />
 					<a className="randomTest">challenges</a>
 				</div>
 			</li>
-			<li onClick={switchTabCheck}>
+			<li onMouseDown={switchTabCheck}>
 				<div className={randomTestSubClass}>
 					<Icons iconName="successes" sideNavClass={randomTestSubClass} />
 					<a className="randomTest">successes</a>
 				</div>
 			</li>
-			<li onClick={switchTabCheck}>
+			<li onMouseDown={switchTabCheck}>
 				<div className={randomTestSubClass}>
 					<Icons iconName="screenshots" sideNavClass={randomTestSubClass} />
 					<a className="randomTest">screenshots</a>
@@ -271,49 +271,49 @@ export default function Index() {
 	const [navRandomSection, setNavRandomSection] = useState(emptySection)
 	const portfolioSection = (
 		<ul className="sideNavBorder">
-			<li onClick={switchTabCheck}>
+			<li onMouseDown={switchTabCheck}>
 				<div className={portfolioSubClass}>
 					<Icons iconName="overview" sideNavClass={portfolioSubClass} />
 					<a className="portfolio">overview</a>
 				</div>
 			</li>
-			<li onClick={switchTabCheck}>
+			<li onMouseDown={switchTabCheck}>
 				<div className={portfolioSubClass}>
 					<Icons iconName="step" sideNavClass={portfolioSubClass} />
 					<a className="portfolio">step 1</a>
 				</div>
 			</li>
-			<li onClick={switchTabCheck}>
+			<li onMouseDown={switchTabCheck}>
 				<div className={portfolioSubClass}>
 					<Icons iconName="step" sideNavClass={portfolioSubClass} />
 					<a className="portfolio">step 2</a>
 				</div>
 			</li>
-			<li onClick={switchTabCheck}>
+			<li onMouseDown={switchTabCheck}>
 				<div className={portfolioSubClass}>
 					<Icons iconName="step" sideNavClass={portfolioSubClass} />
 					<a className="portfolio">step 3</a>
 				</div>
 			</li>
-			<li onClick={switchTabCheck}>
+			<li onMouseDown={switchTabCheck}>
 				<div className={portfolioSubClass}>
 					<Icons iconName="step" sideNavClass={portfolioSubClass} />
 					<a className="portfolio">step 4</a>
 				</div>
 			</li>
-			<li onClick={switchTabCheck}>
+			<li onMouseDown={switchTabCheck}>
 				<div className={portfolioSubClass}>
 					<Icons iconName="challenges" sideNavClass={portfolioSubClass} />
 					<a className="portfolio">challenges</a>
 				</div>
 			</li>
-			<li onClick={switchTabCheck}>
+			<li onMouseDown={switchTabCheck}>
 				<div className={portfolioSubClass}>
 					<Icons iconName="successes" sideNavClass={portfolioSubClass} />
 					<a className="portfolio">successes</a>
 				</div>
 			</li>
-			<li onClick={switchTabCheck}>
+			<li onMouseDown={switchTabCheck}>
 				<div className={portfolioSubClass}>
 					<Icons iconName="screenshots" sideNavClass={portfolioSubClass} />
 					<a className="portfolio">screenshots</a>
@@ -631,6 +631,11 @@ export default function Index() {
 	const navToggle = (e) => {
 		// This function sets the target section's content to be the opposite of what it currently is
 		let tab = e.target.className
+		if (tab === 'yellow' || tab === 'darkGrey') {
+			tab = e.target.lastChild.className
+		} else if (tab === 'titleList') {
+			tab = e.target.lastChild.lastChild.className
+		}
 		switch (tab) {
 			case 'home':
 				if (typeof navHomeSection !== 'undefined') {
@@ -887,7 +892,7 @@ export default function Index() {
 		let navArea = document.getElementsByClassName('sideNav')[0]
 		if (window.innerHeight < nav.offsetHeight) {
 			console.log('The box is too large by about: ' + (nav.offsetHeight - window.innerHeight))
-			let value = window.getComputedStyle(nav).getPropertyValue('border-top-style')
+			let value = window.getComputedStyle(nav).getPropertyValue('border-right-style')
 			// Here in order to detect if the mouse is currently over the sideNav, even without moving the mouse, a :hover
 			// is used to change data about the nav's css and we check it to see if the value has been changed
 			if (value === 'hidden') {
@@ -947,15 +952,15 @@ export default function Index() {
 			<nav className="nav inline">
 				<div className="sideNav navText">
 					<ul className="sideNavUL">
-						<li className="titleList">
-							<div className={homeClass} id="sectionHome" onClick={navToggle}>
+						<li className="titleList" onMouseDown={navToggle}>
+							<div className={homeClass} id="sectionHome">
 								<Icons iconName="drop" sideNavHead={homeClass} />
 								<a className="home">home</a>
 							</div>
 						</li>
 						{navHomeSection}
-						<li className="titleList">
-							<div className={wordGeneratorClass} id="sectionWordGenerator" onClick={navToggle}>
+						<li className="titleList" onMouseDown={navToggle}>
+							<div className={wordGeneratorClass} id="sectionWordGenerator">
 								<Icons iconName="drop" sideNavHead={wordGeneratorClass} />
 								<a className="wordGenerator" id="section">
 									proj1_word_generator
@@ -963,8 +968,8 @@ export default function Index() {
 							</div>
 						</li>
 						{navWordGeneratorSection}
-						<li className="titleList">
-							<div className={autojackClass} id="sectionAutojack" onClick={navToggle}>
+						<li className="titleList" onMouseDown={navToggle}>
+							<div className={autojackClass} id="sectionAutojack">
 								<Icons iconName="drop" sideNavHead={autojackClass} />
 								<a className="autojack" id="section">
 									proj2_autojack
@@ -972,8 +977,8 @@ export default function Index() {
 							</div>
 						</li>
 						{navAutojackSection}
-						<li className="titleList">
-							<div className={randomTestClass} id="sectionRandomTest" onClick={navToggle}>
+						<li className="titleList" onMouseDown={navToggle}>
+							<div className={randomTestClass} id="sectionRandomTest">
 								<Icons iconName="drop" sideNavHead={randomTestClass} />
 								<a className="randomTest" id="section">
 									proj3_random_test
@@ -981,8 +986,8 @@ export default function Index() {
 							</div>
 						</li>
 						{navRandomSection}
-						<li className="titleList">
-							<div className={portfolioClass} id="sectionPortfolio" onClick={navToggle}>
+						<li className="titleList" onMouseDown={navToggle}>
+							<div className={portfolioClass} id="sectionPortfolio">
 								<Icons iconName="drop" sideNavHead={portfolioClass} />
 								<a className="portfolio" id="section">
 									proj4_portfolio

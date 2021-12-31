@@ -80,7 +80,7 @@ ul {
 }
 
 img {
-	width: 900px;
+	max-width: 47vw;
 }
 
 #activeNoHover {
@@ -103,13 +103,26 @@ img {
 }
 
 .sideNavUL:hover {
-	border-top-style: hidden;
+	border-right-style: hidden;
+	/* margin-left: 1em; */
 }
 
 .titleList {
 	padding-bottom: 0.3em;
 	padding-top: 0.2em;
 	list-style-type: none;
+	/* border: solid; */
+}
+
+.titleList:hover {
+	background-color: #61607c80;
+	/* border: solid; */
+	/* padding-left: 2em; */
+}
+
+#sectionHome:hover {
+	/* margin-left: -2em; */
+	/* background-size: 1em; */
 }
 
 li {

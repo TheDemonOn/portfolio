@@ -95,12 +95,13 @@ export default function WordGenerator() {
 			<div className="contentSide">
 				<SectionContent content="One of larger successes I had was being able to take a design given to me by a graphic designer and being able to realize those plans into a fully functional site." />
 			</div>
-
+			{/* Abtou 1250 is touching the edge */}
+			{/* About 350 for tghe content on the left */}
 			<SectionsTitle content="final screenshots" id="screenshots" />
 			<SectionContent content="[Pictures]" />
 			<Picture
 				srcset="/rwg_sketch50.jpg 848w, /rwg_sketch80.jpg 1357w, /rwg_sketch100.jpg 1696w,"
-				sizes="(max-width: 500px) 848px, (max-width: 1000px) 1347px, 1696px"
+				sizes="(max-width: 1200px) 848px, (max-width: 1700px) 1347px, 1696px"
 				src="/rwg_sketch100.jpg"
 				alt="Initial sketch of site."
 			/>
