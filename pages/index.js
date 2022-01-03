@@ -963,7 +963,7 @@ export default function Index() {
 							<div className={wordGeneratorClass} id="sectionWordGenerator">
 								<Icons iconName="drop" sideNavHead={wordGeneratorClass} />
 								<a className="wordGenerator" id="section">
-									proj1_word_generator
+									proj0_word_generator
 								</a>
 							</div>
 						</li>
@@ -972,7 +972,7 @@ export default function Index() {
 							<div className={autojackClass} id="sectionAutojack">
 								<Icons iconName="drop" sideNavHead={autojackClass} />
 								<a className="autojack" id="section">
-									proj2_autojack
+									proj1_autojack
 								</a>
 							</div>
 						</li>
@@ -981,7 +981,7 @@ export default function Index() {
 							<div className={randomTestClass} id="sectionRandomTest">
 								<Icons iconName="drop" sideNavHead={randomTestClass} />
 								<a className="randomTest" id="section">
-									proj3_random_test
+									proj2_random_test
 								</a>
 							</div>
 						</li>
@@ -990,7 +990,7 @@ export default function Index() {
 							<div className={portfolioClass} id="sectionPortfolio">
 								<Icons iconName="drop" sideNavHead={portfolioClass} />
 								<a className="portfolio" id="section">
-									proj4_portfolio
+									proj3_portfolio
 								</a>
 							</div>
 						</li>
@@ -1012,7 +1012,7 @@ export default function Index() {
 					activeClass={homeClass}
 				/>
 				<Tab
-					content="proj1.tab"
+					content="proj0.tab"
 					id="wordGeneratorTab"
 					focus={tabClick}
 					destroy={destroyTab}
@@ -1023,7 +1023,7 @@ export default function Index() {
 					activeClass={wordGeneratorClass}
 				/>
 				<Tab
-					content="proj2.tab"
+					content="proj1.tab"
 					id="autojackTab"
 					focus={tabClick}
 					destroy={destroyTab}
@@ -1034,7 +1034,7 @@ export default function Index() {
 					activeClass={autojackClass}
 				/>
 				<Tab
-					content="proj3.tab"
+					content="proj2.tab"
 					id="randomTestTab"
 					focus={tabClick}
 					destroy={destroyTab}
@@ -1045,7 +1045,7 @@ export default function Index() {
 					activeClass={randomTestClass}
 				/>
 				<Tab
-					content="proj4.tab"
+					content="proj3.tab"
 					id="portfolioTab"
 					focus={tabClick}
 					destroy={destroyTab}
