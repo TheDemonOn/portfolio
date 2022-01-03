@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useLayoutEffect } from 'react'
 import ActiveNoHover from './ActiveNoHover'
 import Icons from './Icons'
 
@@ -12,19 +12,9 @@ export default function Tab({
 	selectedTab,
 	grabTabExistence,
 	activeClass,
+	dimensions,
+	offset,
 }) {
-	// useEffect(() => {
-	// 	console.log(selectedTab, idWithoutTab)
-	// 	if (typeof idWithoutTab !== 'undefined') {
-	// 		if (selectedTab === idWithoutTab) {
-	// 			setActive(1)
-	// 		}
-	// 		if (selectedTab !== idWithoutTab) {
-	// 			setActive(0)
-	// 		}
-	// 	}
-	// }, [selectedTab])
-
 	useEffect(() => {
 		if (activeClass === 'yellow') {
 			setActive(1)
@@ -37,27 +27,15 @@ export default function Tab({
 	const [active, setActive] = useState(1)
 	// 191.9
 	let positioning
-	let distance = 270 + position * 202.3
+	let initialOffset = offset
+
+	let distance = initialOffset + position * 202.3
 	positioning = {
 		left: distance,
 	}
 	if (position < 0) {
 		return null
 	}
-
-	// let idWithTab = id
-	// let regex = /Tab/
-	// let idWithoutTab = idWithTab.replace(regex, '')
-
-	// console.log(selectedTab, idWithoutTab)
-	// if (typeof idWithoutTab !== 'undefined') {
-	// 	if (selectedTab === idWithoutTab) {
-	// 		setActive(1)
-	// 	}
-	// 	if (selectedTab !== idWithoutTab) {
-	// 		setActive(0)
-	// 	}
-	// }
 
 	const reveal = (e) => {
 		console.log('Reveal function')
@@ -164,9 +142,6 @@ export default function Tab({
 	return (
 		<div
 			className={id}
-			// onMouseEnter={reveal}
-			// onMouseOver={colorCheck}
-			// onMouseEnter={tabScrollCheck}
 			onMouseEnter={(e) => {
 				reveal(e)
 				tabScrollCheck(e)

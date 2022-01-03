@@ -191,12 +191,6 @@ export default function Index() {
 			</li>
 			<li onMouseDown={switchTabCheck}>
 				<div className={autojackSubClass}>
-					<Icons iconName="step" sideNavClass={autojackSubClass} />
-					<a className="autojack">step 4</a>
-				</div>
-			</li>
-			<li onMouseDown={switchTabCheck}>
-				<div className={autojackSubClass}>
 					<Icons iconName="challenges" sideNavClass={autojackSubClass} />
 					<a className="autojack">challenges</a>
 				</div>
@@ -355,9 +349,11 @@ export default function Index() {
 			let spaceRegex = / /gm
 			let initialText = selectedTab[1]
 			let id = initialText.replace(spaceRegex, '')
+			console.log(id)
 			// This essentially concatenates the incoming string
 			if (document.getElementById(id) !== null) {
 				let element = document.getElementById(id)
+				console.log(element)
 				element.scrollIntoView({ behavior: 'smooth', block: 'center' })
 			}
 		}
@@ -866,14 +862,6 @@ export default function Index() {
 		}
 	}
 
-	const sideNavScrollLock = (y) => {
-		// Locking
-		window.scrollTo(0, y)
-		document.documentElement.style.overflow = 'hidden'
-		// Do the scrolling
-		window.onwheel = sideNavScroll
-	}
-
 	const sideNavScrollExit = () => {
 		// Reset everything
 		document.onwheel = null
@@ -881,17 +869,44 @@ export default function Index() {
 		document.documentElement.style.overflow = ''
 	}
 
+	const sideNavScrollLock = () => {
+		// Locking
+		document.documentElement.style.overflow = 'hidden'
+		// Do the scrolling
+		window.onwheel = sideNavScroll
+	}
+
 	const sideNavScrollCheck = () => {
-		// When the wheel is used the current y position is passed to the function so there is no abrupt jump
+		// So this bit does not work from the original way I had intended, however the current result is what is desired so no further
+		// refactor is required until something else related to it changes
+		// The function is immidiately invoking and creating a similar result to if this was merely a onMouseEnter, lock
 		document.onwheel = sideNavScrollLock(document.documentElement.scrollHeight)
 	}
+
+	const [offset, setOffset] = useState()
+
+	useLayoutEffect(() => {
+		let value = window
+			.getComputedStyle(document.getElementsByClassName('headerAntonio')[0])
+			.getPropertyValue('width')
+		let pxRegex = /px/
+		let stringNum = value.replace(pxRegex, '')
+		let numValue = parseInt(stringNum, 10)
+		setOffset(numValue)
+	})
 
 	useLayoutEffect(() => {
 		// This effect manages the sideNav's size in comparison to the viewport and dynamically attaches functions to control scrolling
 		let nav = document.getElementsByClassName('sideNavUL')[0]
 		let navArea = document.getElementsByClassName('sideNav')[0]
-		if (window.innerHeight < nav.offsetHeight) {
-			console.log('The box is too large by about: ' + (nav.offsetHeight - window.innerHeight))
+		// console.log(nav.offsetHeight, window.innerHeight, offset, nav)
+		// console.log(window.innerHeight, nav.offsetHeight)
+		// console.log(window.innerHeight, nav.offsetHeight + 45)
+		// console.log(window.innerHeight, nav.clientHeight + 45)
+		// if (offset < 270) {
+		// }
+		if (window.innerHeight < nav.offsetHeight + 45) {
+			console.log('The box is too large by about: ' + (nav.offsetHeight - window.innerHeight + 45))
 			let value = window.getComputedStyle(nav).getPropertyValue('border-right-style')
 			// Here in order to detect if the mouse is currently over the sideNav, even without moving the mouse, a :hover
 			// is used to change data about the nav's css and we check it to see if the value has been changed
@@ -902,7 +917,7 @@ export default function Index() {
 			navArea.onmouseenter = sideNavScrollCheck
 			navArea.onmouseleave = sideNavScrollExit
 		} else {
-			console.log('The box has space, about: ' + (window.innerHeight - nav.offsetHeight))
+			console.log('The box has space, about: ' + (window.innerHeight - nav.offsetHeight + 45))
 			navArea.onmouseenter = null
 			navArea.onmouseleave = null
 			sideNavScrollExit()
@@ -918,6 +933,16 @@ export default function Index() {
 		navRandomSection,
 		navPortfolioSection,
 	])
+
+	const [dimensions, setDimensions] = useState()
+
+	const updateDimensions = () => {
+		setDimensions([window.innerHeight])
+	}
+
+	useEffect(() => {
+		window.onresize = updateDimensions
+	}, [])
 
 	return (
 		<>
@@ -1010,6 +1035,8 @@ export default function Index() {
 					grabTabExistence={grabTabExistence}
 					headerTabs={headerTabs}
 					activeClass={homeClass}
+					dimensions={dimensions}
+					offset={offset}
 				/>
 				<Tab
 					content="proj0.tab"
@@ -1021,6 +1048,8 @@ export default function Index() {
 					grabTabExistence={grabTabExistence}
 					headerTabs={headerTabs}
 					activeClass={wordGeneratorClass}
+					dimensions={dimensions}
+					offset={offset}
 				/>
 				<Tab
 					content="proj1.tab"
@@ -1032,6 +1061,8 @@ export default function Index() {
 					grabTabExistence={grabTabExistence}
 					headerTabs={headerTabs}
 					activeClass={autojackClass}
+					dimensions={dimensions}
+					offset={offset}
 				/>
 				<Tab
 					content="proj2.tab"
@@ -1043,6 +1074,8 @@ export default function Index() {
 					grabTabExistence={grabTabExistence}
 					headerTabs={headerTabs}
 					activeClass={randomTestClass}
+					dimensions={dimensions}
+					offset={offset}
 				/>
 				<Tab
 					content="proj3.tab"
@@ -1054,6 +1087,8 @@ export default function Index() {
 					grabTabExistence={grabTabExistence}
 					headerTabs={headerTabs}
 					activeClass={portfolioClass}
+					dimensions={dimensions}
+					offset={offset}
 				/>
 			</div>
 			<body>
