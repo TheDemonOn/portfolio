@@ -756,7 +756,8 @@ export default function Index() {
 	}
 
 	useEffect(() => {
-		if (existenceRef.current === 1) {
+		// console.log(existenceRef.current, grabTabExistence)
+		if (grabTabExistence === 1) {
 			// we are grabbing a tab
 			headerTabs.map((tabName) => {
 				let tabElement = document.getElementsByClassName(tabName)[0]
