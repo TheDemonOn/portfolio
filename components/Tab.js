@@ -100,55 +100,55 @@ export default function Tab({
 		}
 	}
 
-	let scrollTop
-	let scrollLeft
+	// let scrollTop
+	// let scrollLeft
 
-	const tabScrollLock = () => {
-		console.log(headerTabs)
-		if (typeof headerTabs !== 'undefined') {
-			let maxWidth = document.documentElement.clientWidth - 200
-			let last = document.getElementById(headerTabs[headerTabs.length - 1])
-			if (last) {
-				let value1 = last.attributes.style.value
-				let regex1 = /left: /
-				let value2 = value1.replace(regex1, '')
-				let regex2 = /px;/
-				let value3 = value2.replace(regex2, '')
-				console.log(value3)
-				if (maxWidth < value3) {
-					console.log('scroll')
-					window.scrollTo(scrollLeft, scrollTop)
-					// console.log(document.documentElement.style)
-					document.documentElement.style.overflow = 'hidden'
-				} else {
-					console.log(false)
-				}
-			}
-		}
-	}
+	// const tabScrollLock = () => {
+	// 	console.log(headerTabs)
+	// 	if (typeof headerTabs !== 'undefined') {
+	// 		let maxWidth = document.documentElement.clientWidth - 200
+	// 		let last = document.getElementById(headerTabs[headerTabs.length - 1])
+	// 		if (last) {
+	// 			let value1 = last.attributes.style.value
+	// 			let regex1 = /left: /
+	// 			let value2 = value1.replace(regex1, '')
+	// 			let regex2 = /px;/
+	// 			let value3 = value2.replace(regex2, '')
+	// 			console.log(value3)
+	// 			if (maxWidth < value3) {
+	// 				console.log('scroll')
+	// 				window.scrollTo(scrollLeft, scrollTop)
+	// 				// console.log(document.documentElement.style)
+	// 				document.documentElement.style.overflow = 'hidden'
+	// 			} else {
+	// 				console.log(false)
+	// 			}
+	// 		}
+	// 	}
+	// }
 
-	const tabScrollCheck = () => {
-		console.log('over')
-		scrollTop = document.documentElement.scrollTop
-		scrollLeft = document.documentElement.scrollLeft
-		document.onscroll = tabScrollLock
-	}
-	const tabScrollExit = () => {
-		console.log('leave')
-		document.onscroll = null
-		document.documentElement.style.overflow = ''
-	}
+	// const tabScrollCheck = () => {
+	// 	console.log('over')
+	// 	scrollTop = document.documentElement.scrollTop
+	// 	scrollLeft = document.documentElement.scrollLeft
+	// 	document.onscroll = tabScrollLock
+	// }
+	// const tabScrollExit = () => {
+	// 	console.log('leave')
+	// 	document.onscroll = null
+	// 	document.documentElement.style.overflow = ''
+	// }
 
 	return (
 		<div
 			className={id}
 			onMouseEnter={(e) => {
 				reveal(e)
-				tabScrollCheck(e)
+				// tabScrollCheck(e)
 			}}
 			onMouseLeave={(e) => {
 				hide(e)
-				tabScrollExit()
+				// tabScrollExit()
 			}}
 		>
 			<div

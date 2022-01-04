@@ -906,8 +906,9 @@ export default function Index() {
 		// console.log(window.innerHeight, nav.clientHeight + 45)
 		// if (offset < 270) {
 		// }
-		if (window.innerHeight < nav.offsetHeight + 45) {
-			console.log('The box is too large by about: ' + (nav.offsetHeight - window.innerHeight + 45))
+		console.log(window.innerHeight, nav.offsetHeight)
+		if (window.innerHeight < nav.offsetHeight + 55) {
+			console.log('The box is too large by about: ' + (55 + nav.offsetHeight - window.innerHeight))
 			let value = window.getComputedStyle(nav).getPropertyValue('border-right-style')
 			// Here in order to detect if the mouse is currently over the sideNav, even without moving the mouse, a :hover
 			// is used to change data about the nav's css and we check it to see if the value has been changed
@@ -918,7 +919,7 @@ export default function Index() {
 			navArea.onmouseenter = sideNavScrollCheck
 			navArea.onmouseleave = sideNavScrollExit
 		} else {
-			console.log('The box has space, about: ' + (window.innerHeight - nav.offsetHeight + 45))
+			console.log('The box has space, about: ' + (window.innerHeight - (nav.offsetHeight + 55)))
 			navArea.onmouseenter = null
 			navArea.onmouseleave = null
 			sideNavScrollExit()

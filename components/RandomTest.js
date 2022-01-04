@@ -13,9 +13,6 @@ export default function RandomTest() {
 				/>
 			</div>
 			<div className="contentSide">
-				<SectionContent content="This is a simple project which compares human randomness to computer randomness and 'true' randomness." />
-			</div>
-			<div className="contentSide">
 				<SectionContent content="This site compares the distribution of streaks of 0's and 1's between human and computer at small data samples, and compares pseudorandom to true random at a larger scale." />
 			</div>
 			<div className="contentSide">
