@@ -14,6 +14,7 @@ export default function Tab({
 	activeClass,
 	dimensions,
 	offset,
+	spacing,
 }) {
 	useEffect(() => {
 		if (activeClass === 'yellow') {
@@ -25,20 +26,83 @@ export default function Tab({
 	// Each tab will use its own position in the headerTabs array to determine where it should be placed
 	const [status, setStatus] = useState(0)
 	const [active, setActive] = useState(1)
+	const [disable, setDisable] = useState(1)
 	// 191.9
 	let positioning
+	let buttonPosition
 	let initialOffset = offset
+	let altInitialOffset = offset
+	let inBetween = 202.3
+	let altInBetween = 202.3
 
-	let distance = initialOffset + position * 202.3
+	switch (spacing) {
+		case 0:
+			// Default do nothing
+			if (disable !== 1) {
+				setDisable(1)
+			}
+			break
+		case 1:
+			// first media query
+			inBetween = 183
+			altInitialOffset = 250
+			altInBetween = 182.1
+			if (disable !== 1) {
+				setDisable(1)
+			}
+			break
+		case 2:
+			// second media query
+			// Disables close Icon for nonActive tabs
+			inBetween = 164
+			altInitialOffset = 230
+			altInBetween = 163
+			if (disable !== 0) {
+				setDisable(0)
+			}
+			break
+		case 3:
+			inBetween = 164
+			altInitialOffset = 160.5
+			altInBetween = 163
+			if (disable !== 0) {
+				setDisable(0)
+			}
+			break
+		case 4:
+			inBetween = 145
+			altInitialOffset = 145
+			altInBetween = 146
+			if (disable !== 0) {
+				setDisable(0)
+			}
+			break
+
+		case 6:
+			inBetween = 69
+			altInitialOffset = 10000
+			altInBetween = 144
+			if (disable !== 0) {
+				setDisable(0)
+			}
+			break
+	}
+
+	let distance = initialOffset + position * inBetween
+	let altDistance = altInitialOffset + position * altInBetween
+
 	positioning = {
 		left: distance,
 	}
 	if (position < 0) {
 		return null
 	}
+	buttonPosition = {
+		left: altDistance,
+	}
 
 	const reveal = (e) => {
-		console.log('Reveal function')
+		// console.log('Reveal function')
 		setStatus(1)
 		if (grabTabExistence) {
 			// change the background color
@@ -162,12 +226,13 @@ export default function Tab({
 				<p className="tabContent">{content}</p>
 			</div>
 			<ActiveNoHover
-				positioning={positioning}
+				positioning={buttonPosition}
 				destroy={destroy}
 				id={id}
 				active={active}
 				status={status}
 				grabTabExistence={grabTabExistence}
+				disable={disable}
 			/>
 		</div>
 	)

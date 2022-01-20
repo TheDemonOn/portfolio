@@ -259,7 +259,7 @@ svg {
 
 .tabCloseButton {
 	position: fixed;
-	top: 1.2em;
+	top: 1.25em;
 	margin-left: 10.9em;
 	font-family: AdobeClean-Light, AdobeClean-Regular, sans-serif;
 	z-index: 2;
@@ -267,7 +267,7 @@ svg {
 
 .tabCloseButtonAlt {
 	position: fixed;
-	top: 0.95em;
+	top: 1.05em;
 	margin-left: 10.55em;
 	font-family: AdobeClean-Light, AdobeClean-Regular, sans-serif;
 	z-index: 2;
@@ -404,6 +404,10 @@ svg {
 	cursor: pointer;
 }
 
+.tabCollection {
+	z-index: 0;
+}
+
 /* ID's */
 
 #codeAntonio {
@@ -424,6 +428,24 @@ svg {
 
 /* Media Queries */
 
+@media (max-width: 1362px) {
+	.tabCollection {
+		z-index: 1;
+	}
+	.tab {
+		width: 9.55em;
+	}
+	.focusedTab {
+		width: 9.55em;
+	}
+	/* .tab {
+		width: 3.55em;
+	}
+	.focusedTab {
+		width: 3.55em;
+	} */
+}
+
 @media (max-width: 1289px) {
 	.biggerTitle {
 		font: normal normal 600 50px Source Code Pro;
@@ -435,7 +457,22 @@ svg {
 	}
 }
 
+@media (max-width: 1246px) {
+	.tabCollection {
+		z-index: 2;
+	}
+	.tab {
+		width: 8.55em;
+	}
+	.focusedTab {
+		width: 8.55em;
+	}
+}
+
 @media (max-width: 1200px) {
+	.tabCollection {
+		z-index: 3;
+	}
 	.headerAntonio {
 		width: 200px;
 		height: 3.6em;
@@ -481,9 +518,45 @@ svg {
 	}
 }
 
+@media (max-width: 1080px) {
+	.tabCollection {
+		z-index: 4;
+	}
+	.tab {
+		width: 7.55em;
+	}
+	.focusedTab {
+		width: 7.55em;
+	}
+	.tabIcon {
+		margin-left: 0.7em;
+	}
+	.tabContent {
+		left: 2.5em;
+	}
+}
+
 @media (max-width: 1055px) {
 	.biggerTitle {
 		font: normal normal 600 50px Source Code Pro;
+	}
+}
+
+@media (max-width: 767px) {
+	.tabCollection {
+		z-index: 6;
+	}
+	.tab {
+		width: 3.55em;
+	}
+	.focusedTab {
+		width: 3.55em;
+	}
+	.tabIcon {
+		margin-left: 1.3em;
+	}
+	.tabContent {
+		left: 200000.5em;
 	}
 }
 

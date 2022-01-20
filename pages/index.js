@@ -46,34 +46,40 @@ export default function Index() {
 	const switchTabCheck = (e) => {
 		// This function gets the information needed to swap tabs, and/or scroll to a new position
 		// The different cases are for the different parts of the clickable elements
+		console.log(e)
 		let tab
 		let innerText
-		if (e.target.className === '') {
-			tab = e.target.firstChild.childNodes[1].className
-			innerText = e.target.firstChild.childNodes[1].innerText
-		} else if (
-			e.target.ownerSVGElement !== null &&
-			typeof e.target.ownerSVGElement !== 'undefined'
-		) {
-			tab = e.target.ownerSVGElement.nextElementSibling.className
-			innerText = e.target.ownerSVGElement.nextElementSibling.innerText
-		} else if (
-			e.target.ownerSVGElement === null &&
-			typeof e.target.nextElementSibling.className !== 'undefined'
-		) {
-			tab = e.target.nextElementSibling.className
-			innerText = e.target.nextElementSibling.innerText
-		} else if (e.target.className !== 'white' && e.target.className !== 'darkGrey') {
-			tab = e.target.className
-			innerText = e.target.innerText
-		} else if (typeof e.target.childNodes[1] !== 'undefined') {
-			tab = e.target.childNodes[1].className
-			innerText = e.target.childNodes[1].innerText
-		} else if (typeof e.target.firstChild !== 'undefined') {
-			tab = e.target.firstChild.className
-			innerText = e.target.firstChild.innerText
+		if (typeof e.target !== 'undefined') {
+			if (e.target.className === '') {
+				tab = e.target.firstChild.childNodes[1].className
+				innerText = e.target.firstChild.childNodes[1].innerText
+			} else if (
+				e.target.ownerSVGElement !== null &&
+				typeof e.target.ownerSVGElement !== 'undefined'
+			) {
+				tab = e.target.ownerSVGElement.nextElementSibling.className
+				innerText = e.target.ownerSVGElement.nextElementSibling.innerText
+			} else if (
+				e.target.ownerSVGElement === null &&
+				typeof e.target.nextElementSibling.className !== 'undefined'
+			) {
+				tab = e.target.nextElementSibling.className
+				innerText = e.target.nextElementSibling.innerText
+			} else if (e.target.className !== 'white' && e.target.className !== 'darkGrey') {
+				tab = e.target.className
+				innerText = e.target.innerText
+			} else if (typeof e.target.childNodes[1] !== 'undefined') {
+				tab = e.target.childNodes[1].className
+				innerText = e.target.childNodes[1].innerText
+			} else if (typeof e.target.firstChild !== 'undefined') {
+				tab = e.target.firstChild.className
+				innerText = e.target.firstChild.innerText
+			}
+		} else {
+			tab = e
 		}
 
+		console.log(tab, innerText)
 		// Switch to tab with a useEffect trigger
 		if (tab || innerText) {
 			setSelectedTab([tab, innerText])
@@ -638,6 +644,7 @@ export default function Index() {
 					setNavHomeSection(emptySection)
 				} else {
 					setNavHomeSection(homeSection)
+					switchTabCheck(tab)
 				}
 				break
 			case 'wordGenerator':
@@ -645,6 +652,7 @@ export default function Index() {
 					setNavWordGeneratorSection(emptySection)
 				} else {
 					setNavWordGeneratorSection(wordGeneratorSection)
+					switchTabCheck(tab)
 				}
 				break
 			case 'autojack':
@@ -652,6 +660,7 @@ export default function Index() {
 					setNavAutojackSection(emptySection)
 				} else {
 					setNavAutojackSection(autojackSection)
+					switchTabCheck(tab)
 				}
 				break
 			case 'randomTest':
@@ -659,6 +668,7 @@ export default function Index() {
 					setNavRandomSection(emptySection)
 				} else {
 					setNavRandomSection(randomSection)
+					switchTabCheck(tab)
 				}
 				break
 			case 'portfolio':
@@ -666,6 +676,7 @@ export default function Index() {
 					setNavPortfolioSection(emptySection)
 				} else {
 					setNavPortfolioSection(portfolioSection)
+					switchTabCheck(tab)
 				}
 				break
 		}
@@ -885,6 +896,7 @@ export default function Index() {
 	}
 
 	const [offset, setOffset] = useState()
+	const [spacing, setSpacing] = useState()
 
 	useLayoutEffect(() => {
 		let value = window
@@ -893,7 +905,17 @@ export default function Index() {
 		let pxRegex = /px/
 		let stringNum = value.replace(pxRegex, '')
 		let numValue = parseInt(stringNum, 10)
+
+		let value2 = window
+			.getComputedStyle(document.getElementsByClassName('tabCollection')[0])
+			.getPropertyValue('z-index')
+		let stringNum2 = value2.replace(pxRegex, '')
+		let numValue2 = parseInt(stringNum2, 10)
+		// This numValue2 is the z index which I will be using media Queries to adjust, then inside the tabs when the state for spacing
+		//changes according to the media query the spacing value will change the in between spacing of all the tabs
+
 		setOffset(numValue)
+		setSpacing(numValue2)
 	})
 
 	useLayoutEffect(() => {
@@ -1039,6 +1061,7 @@ export default function Index() {
 					activeClass={homeClass}
 					dimensions={dimensions}
 					offset={offset}
+					spacing={spacing}
 				/>
 				<Tab
 					content="proj0.tab"
@@ -1052,6 +1075,7 @@ export default function Index() {
 					activeClass={wordGeneratorClass}
 					dimensions={dimensions}
 					offset={offset}
+					spacing={spacing}
 				/>
 				<Tab
 					content="proj1.tab"
@@ -1065,6 +1089,7 @@ export default function Index() {
 					activeClass={autojackClass}
 					dimensions={dimensions}
 					offset={offset}
+					spacing={spacing}
 				/>
 				<Tab
 					content="proj2.tab"
@@ -1078,6 +1103,7 @@ export default function Index() {
 					activeClass={randomTestClass}
 					dimensions={dimensions}
 					offset={offset}
+					spacing={spacing}
 				/>
 				<Tab
 					content="proj3.tab"
@@ -1091,6 +1117,7 @@ export default function Index() {
 					activeClass={portfolioClass}
 					dimensions={dimensions}
 					offset={offset}
+					spacing={spacing}
 				/>
 			</div>
 			<body>
