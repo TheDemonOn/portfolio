@@ -259,8 +259,16 @@ svg {
 
 .tabCloseButton {
 	position: fixed;
-	top: 1.25em;
+	top: 1.3em;
 	margin-left: 10.9em;
+	font-family: AdobeClean-Light, AdobeClean-Regular, sans-serif;
+	z-index: 2;
+}
+
+.tabCloseButtonSmall {
+	position: fixed;
+	top: 1.05em;
+	margin-left: 10.55em;
 	font-family: AdobeClean-Light, AdobeClean-Regular, sans-serif;
 	z-index: 2;
 }
@@ -457,9 +465,15 @@ svg {
 	}
 }
 
-@media (max-width: 1246px) {
+@media (max-width: 1266px) {
 	.tabCollection {
 		z-index: 2;
+	}
+	.tabIcon {
+		margin-left: 1em;
+	}
+	.tabContent {
+		left: 2.7em;
 	}
 	.tab {
 		width: 8.55em;
@@ -472,6 +486,9 @@ svg {
 @media (max-width: 1200px) {
 	.tabCollection {
 		z-index: 3;
+	}
+	.tabContent {
+		left: 2.9em;
 	}
 	.headerAntonio {
 		width: 200px;
@@ -518,7 +535,7 @@ svg {
 	}
 }
 
-@media (max-width: 1080px) {
+@media (max-width: 1100px) {
 	.tabCollection {
 		z-index: 4;
 	}
@@ -532,8 +549,30 @@ svg {
 		margin-left: 0.7em;
 	}
 	.tabContent {
-		left: 2.5em;
+		left: 2.1em;
 	}
+}
+
+@media (max-width: 1000px) {
+	.tabCollection {
+		z-index: 5;
+	}
+	.tab {
+		width: 5.15em;
+	}
+	.focusedTab {
+		width: 5.15em;
+	}
+	.tabIcon {
+		margin-left: 2em;
+	}
+	.tabContent {
+		/* left: 2999999.1em; */
+		display: none;
+	}
+	/* .tabCloseButtonSmall {
+
+	} */
 }
 
 @media (max-width: 1055px) {
@@ -556,7 +595,8 @@ svg {
 		margin-left: 1.3em;
 	}
 	.tabContent {
-		left: 200000.5em;
+		/* left: 200000.5em; */
+		display: none;
 	}
 }
 

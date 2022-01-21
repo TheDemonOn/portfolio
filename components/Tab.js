@@ -34,8 +34,9 @@ export default function Tab({
 	let altInitialOffset = offset
 	let inBetween = 202.3
 	let altInBetween = 202.3
-
+	console.log(spacing)
 	switch (spacing) {
+		// Set an alt condition based on how many tabs are currently displayed to line up with the amount of space remaining
 		case 0:
 			// Default do nothing
 			if (disable !== 1) {
@@ -57,22 +58,31 @@ export default function Tab({
 			inBetween = 164
 			altInitialOffset = 230
 			altInBetween = 163
-			if (disable !== 0) {
-				setDisable(0)
+			if (disable !== 1) {
+				setDisable(1)
 			}
 			break
 		case 3:
 			inBetween = 164
-			altInitialOffset = 160.5
-			altInBetween = 163
-			if (disable !== 0) {
-				setDisable(0)
+			altInitialOffset = 168
+			altInBetween = 163.5
+			if (disable !== 1) {
+				setDisable(1)
 			}
 			break
 		case 4:
 			inBetween = 145
-			altInitialOffset = 145
-			altInBetween = 146
+			altInitialOffset = 149.5
+			altInBetween = 145
+			if (disable !== 0) {
+				setDisable(0)
+			}
+			break
+
+		case 5:
+			inBetween = 99.1
+			altInitialOffset = 100
+			altInBetween = 99
 			if (disable !== 0) {
 				setDisable(0)
 			}
@@ -80,8 +90,8 @@ export default function Tab({
 
 		case 6:
 			inBetween = 69
-			altInitialOffset = 10000
-			altInBetween = 144
+			altInitialOffset = 53 // 74
+			altInBetween = 69.0
 			if (disable !== 0) {
 				setDisable(0)
 			}

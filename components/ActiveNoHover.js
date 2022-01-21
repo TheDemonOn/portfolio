@@ -76,13 +76,14 @@ export default function ActiveNoHover({
 	} else if (active) {
 		output = (
 			<svg
-				className="tabCloseButton"
+				className="tabCloseButtonSmall"
 				style={positioning}
 				onClick={destroy}
 				data-tab={id}
 				onMouseEnter={startHover}
 				onMouseLeave={endHover}
 				xmlns="http://www.w3.org/2000/svg"
+				data-name="Layer 1"
 				width="24"
 				height="24"
 				viewBox="0 0 30 30"
@@ -95,14 +96,20 @@ export default function ActiveNoHover({
 						y2="15"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop offset="0" stopOpacity="0"></stop>
-						<stop offset="0.04" stopOpacity="0.27"></stop>
-						<stop offset="0.32"></stop>
-						<stop offset="0.41"></stop>
-						<stop offset="1"></stop>
+						<stop offset="0" stopOpacity="0" stop-color="#262538"></stop>
+						<stop offset="0.20" stopOpacity="0.97" stop-color="#262538"></stop>
+						<stop offset="0.32" stop-color="#262538"></stop>
+						<stop offset="0.41" stop-color="#262538"></stop>
+						<stop offset="1" stop-color="#262538"></stop>
 					</linearGradient>
 				</defs>
-				<rect width="30" height="30" fill="red " data-name="Rectangle 21" rx="6"></rect>
+				<rect
+					width="30"
+					height="30"
+					fill="url(#linear-gradient)"
+					data-name="Rectangle 21"
+					rx="6"
+				></rect>
 				<path
 					fill="none"
 					stroke="#fff"
