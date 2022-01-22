@@ -1036,14 +1036,18 @@ export default function Index() {
 					<ul className="sideNavUL">
 						<li className="titleList" onMouseDown={navToggle}>
 							<div className={homeClass} id="sectionHome">
-								<Icons iconName="drop" sideNavHead={homeClass} />
+								<Icons iconName="drop" sideNavHead={navHomeSection} color={homeClass} />
 								<a className="home">home</a>
 							</div>
 						</li>
 						{navHomeSection}
 						<li className="titleList" onMouseDown={navToggle}>
 							<div className={wordGeneratorClass} id="sectionWordGenerator">
-								<Icons iconName="drop" sideNavHead={wordGeneratorClass} />
+								<Icons
+									iconName="drop"
+									sideNavHead={navWordGeneratorSection}
+									color={wordGeneratorClass}
+								/>
 								<a className="wordGenerator" id="section">
 									proj0_word_generator
 								</a>
@@ -1052,7 +1056,7 @@ export default function Index() {
 						{navWordGeneratorSection}
 						<li className="titleList" onMouseDown={navToggle}>
 							<div className={autojackClass} id="sectionAutojack">
-								<Icons iconName="drop" sideNavHead={autojackClass} />
+								<Icons iconName="drop" sideNavHead={navAutojackSection} color={autojackClass} />
 								<a className="autojack" id="section">
 									proj1_autojack
 								</a>
@@ -1061,7 +1065,7 @@ export default function Index() {
 						{navAutojackSection}
 						<li className="titleList" onMouseDown={navToggle}>
 							<div className={randomTestClass} id="sectionRandomTest">
-								<Icons iconName="drop" sideNavHead={randomTestClass} />
+								<Icons iconName="drop" sideNavHead={navRandomSection} color={randomTestClass} />
 								<a className="randomTest" id="section">
 									proj2_random_test
 								</a>
@@ -1070,7 +1074,7 @@ export default function Index() {
 						{navRandomSection}
 						<li className="titleList" onMouseDown={navToggle}>
 							<div className={portfolioClass} id="sectionPortfolio">
-								<Icons iconName="drop" sideNavHead={portfolioClass} />
+								<Icons iconName="drop" sideNavHead={navPortfolioSection} color={portfolioClass} />
 								<a className="portfolio" id="section">
 									proj3_portfolio
 								</a>

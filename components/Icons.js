@@ -8,6 +8,7 @@ export default function Icons({
 	grab,
 	sideNavClass,
 	sideNavHead,
+	color,
 }) {
 	let size
 	if (big) {
@@ -19,6 +20,7 @@ export default function Icons({
 
 	const [sideActive, setSideActive] = useState(false)
 	const [sideNavHeadClass, setSideNavHeadClass] = useState(false)
+	const [dropColor, setDropColor] = useState('#bfbfc5')
 
 	useEffect(() => {
 		if (sideNavClass === 'white') {
@@ -29,12 +31,20 @@ export default function Icons({
 	}, [sideNavClass])
 
 	useEffect(() => {
-		if (sideNavHead === 'yellow') {
-			setSideNavHeadClass(true)
-		} else {
+		if (typeof sideNavHead === 'undefined') {
 			setSideNavHeadClass(false)
+		} else {
+			setSideNavHeadClass(true)
 		}
 	}, [sideNavHead])
+
+	useEffect(() => {
+		if (color === 'yellow') {
+			setDropColor('#FFE398')
+		} else {
+			setDropColor('#bfbfc5')
+		}
+	}, [color])
 
 	// small icons dropActive = #FFE398
 	// small icons dropInactive && inactive = #BABAC9
@@ -49,7 +59,7 @@ export default function Icons({
 				size = '15px'
 				path = (
 					<path
-						fill="#FFE398"
+						fill={dropColor}
 						d="M254.8,395.2l216.7-283.1c3.1-4,0.2-9.8-4.8-9.8H33.3c-5,0-7.9,5.8-4.8,9.8l216.7,283.1
 	C247.6,398.4,252.4,398.4,254.8,395.2z"
 					/>
@@ -59,7 +69,7 @@ export default function Icons({
 				size = '15px'
 				path = (
 					<path
-						fill="#BABAC9"
+						fill={dropColor}
 						d="M395.2,245.2L112.2,28.5c-4-3.1-9.8-0.2-9.8,4.8v433.4c0,5,5.8,7.9,9.8,4.8l283.1-216.7
 	C398.4,252.4,398.4,247.6,395.2,245.2z"
 					/>
