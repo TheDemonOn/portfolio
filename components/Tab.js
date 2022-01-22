@@ -32,9 +32,9 @@ export default function Tab({
 	let buttonPosition
 	let initialOffset = offset
 	let altInitialOffset = offset
-	let inBetween = 202.3
+	let inBetweenTabs = 202.3
 	let altInBetween = 202.3
-	console.log(spacing)
+	// console.log(spacing)
 	switch (spacing) {
 		// Set an alt condition based on how many tabs are currently displayed to line up with the amount of space remaining
 		case 0:
@@ -45,7 +45,7 @@ export default function Tab({
 			break
 		case 1:
 			// first media query
-			inBetween = 183
+			inBetweenTabs = 183
 			altInitialOffset = 250
 			altInBetween = 182.1
 			if (disable !== 1) {
@@ -55,7 +55,7 @@ export default function Tab({
 		case 2:
 			// second media query
 			// Disables close Icon for nonActive tabs
-			inBetween = 164
+			inBetweenTabs = 164
 			altInitialOffset = 230
 			altInBetween = 163
 			if (disable !== 1) {
@@ -63,7 +63,7 @@ export default function Tab({
 			}
 			break
 		case 3:
-			inBetween = 164
+			inBetweenTabs = 164
 			altInitialOffset = 168
 			altInBetween = 163.5
 			if (disable !== 1) {
@@ -71,7 +71,7 @@ export default function Tab({
 			}
 			break
 		case 4:
-			inBetween = 145
+			inBetweenTabs = 145
 			altInitialOffset = 149.5
 			altInBetween = 145
 			if (disable !== 0) {
@@ -80,7 +80,7 @@ export default function Tab({
 			break
 
 		case 5:
-			inBetween = 99.1
+			inBetweenTabs = 99.1
 			altInitialOffset = 100
 			altInBetween = 99
 			if (disable !== 0) {
@@ -89,16 +89,43 @@ export default function Tab({
 			break
 
 		case 6:
-			inBetween = 69
-			altInitialOffset = 53 // 74
+			inBetweenTabs = 68.8
+			altInitialOffset = 54 // 74
 			altInBetween = 69.0
+			if (disable !== 0) {
+				setDisable(0)
+			}
+			break
+		case 7:
+			initialOffset = 170
+			inBetweenTabs = 69.6
+			altInitialOffset = 23 // 74
+			altInBetween = 69.0
+			if (disable !== 0) {
+				setDisable(0)
+			}
+			break
+		case 8:
+			initialOffset = 0
+			inBetweenTabs = 69.6
+			altInitialOffset = -146 // 74
+			altInBetween = 69.0
+			if (disable !== 0) {
+				setDisable(0)
+			}
+			break
+		case 9:
+			initialOffset = 0
+			inBetweenTabs = 48.8
+			altInitialOffset = -158 // 74
+			altInBetween = 48.3
 			if (disable !== 0) {
 				setDisable(0)
 			}
 			break
 	}
 
-	let distance = initialOffset + position * inBetween
+	let distance = initialOffset + position * inBetweenTabs
 	let altDistance = altInitialOffset + position * altInBetween
 
 	positioning = {
@@ -120,7 +147,7 @@ export default function Tab({
 				if (typeof e.target.attributes.style !== 'undefined') {
 					let styleString = e.target.attributes.style.value
 					let style = styleString.slice(styleString.length - 1)
-					console.log(style)
+					// console.log(style)
 					if (style === ';') {
 						e.target.attributes.style.value =
 							e.target.attributes.style.value + ' background-color: #5C5C77;'

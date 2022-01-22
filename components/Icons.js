@@ -46,7 +46,7 @@ export default function Icons({
 		case 'drop':
 			if (sideNavHeadClass) {
 				classValue = 'drop'
-				size = '13px'
+				size = '15px'
 				path = (
 					<path
 						fill="#FFE398"
@@ -56,7 +56,7 @@ export default function Icons({
 				)
 			} else {
 				classValue = 'drop'
-				size = '13px'
+				size = '15px'
 				path = (
 					<path
 						fill="#BABAC9"

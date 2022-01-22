@@ -46,7 +46,7 @@ export default function Index() {
 	const switchTabCheck = (e) => {
 		// This function gets the information needed to swap tabs, and/or scroll to a new position
 		// The different cases are for the different parts of the clickable elements
-		console.log(e)
+		// console.log(e)
 		let tab
 		let innerText
 		if (typeof e.target !== 'undefined') {
@@ -79,7 +79,7 @@ export default function Index() {
 			tab = e
 		}
 
-		console.log(tab, innerText)
+		// console.log(tab, innerText)
 		// Switch to tab with a useEffect trigger
 		if (tab || innerText) {
 			setSelectedTab([tab, innerText])
@@ -379,7 +379,7 @@ export default function Index() {
 	}
 
 	const inactiveTabfunc = (active) => {
-		console.log('This triggers', active)
+		// console.log('This triggers', active)
 		if (active !== 'home') {
 			setHomeClass(inactiveTab)
 			setHomeSubClass(inactiveTab)
@@ -631,6 +631,7 @@ export default function Index() {
 	}, [selectedTab])
 
 	const navToggle = (e) => {
+		console.log(e)
 		// This function sets the target section's content to be the opposite of what it currently is
 		let tab = e.target.className
 		if (tab === 'yellow' || tab === 'darkGrey') {
@@ -638,47 +639,79 @@ export default function Index() {
 		} else if (tab === 'titleList') {
 			tab = e.target.lastChild.lastChild.className
 		}
-		switch (tab) {
-			case 'home':
-				if (typeof navHomeSection !== 'undefined') {
-					setNavHomeSection(emptySection)
-				} else {
+
+		console.log(typeof tab)
+
+		if (typeof tab !== 'string') {
+			// clicked on the Icon
+			let sectionName
+
+			if (e.target.parentElement.nextElementSibling !== null) {
+				sectionName = e.target.parentElement.nextElementSibling.className
+			} else {
+				sectionName = e.target.nextElementSibling.className
+			}
+
+			switch (sectionName) {
+				case 'home':
+					if (typeof navHomeSection !== 'undefined') {
+						setNavHomeSection(emptySection)
+					} else {
+						setNavHomeSection(homeSection)
+					}
+					break
+				case 'wordGenerator':
+					if (typeof navWordGeneratorSection !== 'undefined') {
+						setNavWordGeneratorSection(emptySection)
+					} else {
+						setNavWordGeneratorSection(wordGeneratorSection)
+					}
+					break
+				case 'autojack':
+					if (typeof navAutojackSection !== 'undefined') {
+						setNavAutojackSection(emptySection)
+					} else {
+						setNavAutojackSection(autojackSection)
+					}
+					break
+				case 'randomTest':
+					if (typeof navRandomSection !== 'undefined') {
+						setNavRandomSection(emptySection)
+					} else {
+						setNavRandomSection(randomSection)
+					}
+					break
+				case 'portfolio':
+					if (typeof navPortfolioSection !== 'undefined') {
+						setNavPortfolioSection(emptySection)
+					} else {
+						setNavPortfolioSection(portfolioSection)
+					}
+					break
+			}
+		} else {
+			switch (tab) {
+				case 'home':
 					setNavHomeSection(homeSection)
 					switchTabCheck(tab)
-				}
-				break
-			case 'wordGenerator':
-				if (typeof navWordGeneratorSection !== 'undefined') {
-					setNavWordGeneratorSection(emptySection)
-				} else {
+					break
+				case 'wordGenerator':
 					setNavWordGeneratorSection(wordGeneratorSection)
 					switchTabCheck(tab)
-				}
-				break
-			case 'autojack':
-				if (typeof navAutojackSection !== 'undefined') {
-					setNavAutojackSection(emptySection)
-				} else {
+					break
+				case 'autojack':
 					setNavAutojackSection(autojackSection)
 					switchTabCheck(tab)
-				}
-				break
-			case 'randomTest':
-				if (typeof navRandomSection !== 'undefined') {
-					setNavRandomSection(emptySection)
-				} else {
+					break
+				case 'randomTest':
 					setNavRandomSection(randomSection)
 					switchTabCheck(tab)
-				}
-				break
-			case 'portfolio':
-				if (typeof navPortfolioSection !== 'undefined') {
-					setNavPortfolioSection(emptySection)
-				} else {
+					break
+				case 'portfolio':
 					setNavPortfolioSection(portfolioSection)
 					switchTabCheck(tab)
-				}
-				break
+					break
+			}
 		}
 	}
 
@@ -928,7 +961,7 @@ export default function Index() {
 		// console.log(window.innerHeight, nav.clientHeight + 45)
 		// if (offset < 270) {
 		// }
-		console.log(window.innerHeight, nav.offsetHeight)
+		// console.log(window.innerHeight, nav.offsetHeight)
 		if (window.innerHeight < nav.offsetHeight + 55) {
 			console.log('The box is too large by about: ' + (55 + nav.offsetHeight - window.innerHeight))
 			let value = window.getComputedStyle(nav).getPropertyValue('border-right-style')
