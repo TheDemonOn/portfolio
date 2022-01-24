@@ -56,7 +56,7 @@ export default function Tab({
 			// second media query
 			// Disables close Icon for nonActive tabs
 			inBetweenTabs = 164
-			altInitialOffset = 230
+			altInitialOffset = 232
 			altInBetween = 163
 			if (disable !== 1) {
 				setDisable(1)
