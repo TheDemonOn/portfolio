@@ -5,7 +5,7 @@ import SectionContent from './SectionContent'
 export default function RandomTest() {
 	return (
 		<div className="inline tabContentPosition">
-			<SectionsTitle content="randomness test" size="true" id="overview" />
+			<SectionsTitle content="random test" size="true" id="overview" />
 			<div className="contentSide">
 				<SectionContent
 					content="Randomness Test was a small project to learn how to use an API and try out Next.js"

@@ -7,9 +7,9 @@ export default function SectionsTitle({ content, size, id }) {
 	}
 	return (
 		<div id={id} className="titleSpace">
-			<h1 className={'yellow inline' + ` ${customSize}`}>/*</h1>
-			<h1 className={'white inline pad' + ` ${customSize}`}>{content}</h1>
-			<h1 className={'yellow inline' + ` ${customSize}`}>*/</h1>
+			<h1 className={'yellow' + ` ${customSize}`}>/*</h1>
+			<h1 className={'white pad' + ` ${customSize}`}>{content}</h1>
+			<h1 className={'yellow' + ` ${customSize}`}>*/</h1>
 		</div>
 	)
 }

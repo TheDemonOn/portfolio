@@ -69,7 +69,7 @@ export default function WordGenerator() {
 					<SectionContent content="And with that my first project was finally taken to completion." />
 				</div>
 			</div>
-			<SectionsTitle content="challenges i had" id="challenges" />
+			<SectionsTitle content="challenges" id="challenges" />
 			<div className="contentSide">
 				<SectionContent content="There were many basic problems I enountered, related to how to send & receive data, as well as inserting and removing elements to the DOM. The technical problems ultimately were not significantly challenging and helped me develop my skills." />
 			</div>

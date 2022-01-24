@@ -48,12 +48,15 @@ a {
 h1 {
 	font-family: 'Source Code Pro', monospace;
 	font-weight: 600;
-	font: normal normal 600 40px Source Code Pro;
+	font: normal normal 600 30px Source Code Pro;
+	display: inline;
+	line-height: 1.5;
 }
 
 h2 {
 	font-family: 'Source Code Pro', monospace;
-	font-size: 22px;
+	font-size: 20px;
+	line-height: 1.5;
 }
 
 h3 {
@@ -157,6 +160,8 @@ svg {
 /* Classes */
 
 .inline {
+	/* display: inline; */
+	/* display: block; */
 	display: inline-block;
 }
 
@@ -202,18 +207,15 @@ svg {
 }
 
 .biggerTitle {
-	font: normal normal 600 52px Source Code Pro;
+	/* font: normal normal 600 40px Source Code Pro; */
 }
 
 .biggerContent {
-	font-size: 29px;
+	/* font-size: 29px; */
 }
 
 .nav {
-	/* border: solid; */
 	background: #3a3950;
-	/* top: 0px; */
-	/* left: 0px; */
 	width: 350px;
 	height: 0;
 }
@@ -340,7 +342,7 @@ svg {
 }
 
 .bodyPosition {
-	margin-left: 22em;
+	margin-left: 20em;
 }
 
 .contentDiv {
@@ -353,17 +355,16 @@ svg {
 
 .titleSpace {
 	/* border: solid; */
-	margin-top: 3em;
-	margin-bottom: -1em;
+	margin-top: 4em;
+	margin-bottom: 0em;
 }
 
 .contentSide {
 	border-left: solid;
 	border-color: #504f6e;
 	border-width: 3.5px;
-	margin-left: 0.3em;
-	padding-left: 2em;
-	/* padding-left: 1em; */
+	margin-left: 0.1em;
+	padding-left: 1.1em;
 }
 
 .sideNavBorder {
@@ -457,14 +458,14 @@ svg {
 }
 
 @media (max-width: 1289px) {
-	.biggerTitle {
+	/* .biggerTitle {
 		font: normal normal 600 50px Source Code Pro;
-	}
+	} */
 }
 @media (max-width: 1253px) {
-	.biggerTitle {
+	/* .biggerTitle {
 		font: normal normal 600 48px Source Code Pro;
-	}
+	} */
 }
 
 @media (max-width: 1266px) {
@@ -545,13 +546,13 @@ svg {
 	.inline {
 		margin-top: -0.5em;
 	}
-	.titleSpace {
+	/* .titleSpace {
 		margin-top: 5em;
-		margin-bottom: -1em;
-	}
-	.biggerTitle {
+		margin-bottom: 10em;
+	} */
+	/* .biggerTitle {
 		font: normal normal 600 45px Source Code Pro;
-	}
+	} */
 
 	.grabbedFocusedTab {
 		width: 8.55em;
@@ -633,9 +634,9 @@ svg {
 }
 
 @media (max-width: 1055px) {
-	.biggerTitle {
+	/* .biggerTitle {
 		font: normal normal 600 50px Source Code Pro;
-	}
+	} */
 }
 
 @media (max-width: 777px) {
@@ -690,17 +691,27 @@ svg {
 	.sideNav {
 		display: none;
 	}
+	.nav {
+		display: none;
+	}
 	.bodyPosition {
 		margin-left: 1em;
 	}
-	.tabContentPosition {
-		/* border: solid; */
+	/* .tabContentPosition {
 		max-width: 92vw;
 		margin-right: 0em;
 		margin-bottom: 4em;
-	}
+	} */
 	.inline {
 		margin-top: -0.4em;
+	}
+
+	.contentSide {
+		border-left: solid;
+		border-color: #504f6e;
+		border-width: 3.5px;
+		margin-left: 0.1em;
+		padding-left: 1.1em;
 	}
 }
 
@@ -744,36 +755,40 @@ svg {
 }
 
 @media (max-width: 400px) {
-	.biggerTitle {
+	/* .biggerTitle {
 		font: normal normal 600 47px Source Code Pro;
-	}
+	} */
 	.tabContentPosition {
 		/* border: solid; */
-		max-width: 91vw;
+		max-width: 83vw;
 		margin-right: 0em;
 		margin-bottom: 4em;
 	}
-	h2 {
+	/* h2 {
 		font-family: 'Source Code Pro', monospace;
 		font-size: 20px;
-	}
-	.biggerContent {
+	} */
+	/* .biggerContent {
 		font-size: 24px;
-	}
-	.titleSpace {
+	} */
+	/* .titleSpace {
 		margin-top: 3em;
 		margin-bottom: -1em;
-	}
+	} */
 	.dynamicStar {
 		display: none;
 	}
-	h1 {
+	/* h1 {
 		font-family: 'Source Code Pro', monospace;
 		font-weight: 600;
 		font: normal normal 600 40px Source Code Pro;
-	}
+	} */
 
 	/* .inline {
 		display: inline-block;
 	} */
+}
+
+@media (max-width: 368px) {
+	/* Maybe adjust some h1 ids here */
 }

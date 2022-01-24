@@ -5,7 +5,7 @@ import SectionContent from './SectionContent'
 export default function Portfolio() {
 	return (
 		<div className="inline tabContentPosition">
-			<SectionsTitle content="This site: codeantonio" size="true" id="overview" />
+			<SectionsTitle content="this site: codeantonio" size="true" id="overview" />
 			<div className="contentSide">
 				<SectionContent
 					content="This website was made using React with the Next.js framework. "
