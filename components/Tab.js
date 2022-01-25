@@ -27,14 +27,12 @@ export default function Tab({
 	const [status, setStatus] = useState(0)
 	const [active, setActive] = useState(1)
 	const [disable, setDisable] = useState(1)
-	// 191.9
 	let positioning
 	let buttonPosition
 	let initialOffset = offset
 	let altInitialOffset = offset
 	let inBetweenTabs = 202.3
 	let altInBetween = 202.3
-	// console.log(spacing)
 	switch (spacing) {
 		// Set an alt condition based on how many tabs are currently displayed to line up with the amount of space remaining
 		case 0:
@@ -201,55 +199,14 @@ export default function Tab({
 		}
 	}
 
-	// let scrollTop
-	// let scrollLeft
-
-	// const tabScrollLock = () => {
-	// 	console.log(headerTabs)
-	// 	if (typeof headerTabs !== 'undefined') {
-	// 		let maxWidth = document.documentElement.clientWidth - 200
-	// 		let last = document.getElementById(headerTabs[headerTabs.length - 1])
-	// 		if (last) {
-	// 			let value1 = last.attributes.style.value
-	// 			let regex1 = /left: /
-	// 			let value2 = value1.replace(regex1, '')
-	// 			let regex2 = /px;/
-	// 			let value3 = value2.replace(regex2, '')
-	// 			console.log(value3)
-	// 			if (maxWidth < value3) {
-	// 				console.log('scroll')
-	// 				window.scrollTo(scrollLeft, scrollTop)
-	// 				// console.log(document.documentElement.style)
-	// 				document.documentElement.style.overflow = 'hidden'
-	// 			} else {
-	// 				console.log(false)
-	// 			}
-	// 		}
-	// 	}
-	// }
-
-	// const tabScrollCheck = () => {
-	// 	console.log('over')
-	// 	scrollTop = document.documentElement.scrollTop
-	// 	scrollLeft = document.documentElement.scrollLeft
-	// 	document.onscroll = tabScrollLock
-	// }
-	// const tabScrollExit = () => {
-	// 	console.log('leave')
-	// 	document.onscroll = null
-	// 	document.documentElement.style.overflow = ''
-	// }
-
 	return (
 		<div
 			className={id}
 			onMouseEnter={(e) => {
 				reveal(e)
-				// tabScrollCheck(e)
 			}}
 			onMouseLeave={(e) => {
 				hide(e)
-				// tabScrollExit()
 			}}
 		>
 			<div

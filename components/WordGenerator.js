@@ -82,7 +82,7 @@ export default function WordGenerator() {
 			<div className="contentSide">
 				<SectionContent content="This proved to be the most frustrating aspect of the project. Not partitioning the Javascript into some smaller components was certainly the largest failure in hindsight, due to how much harder it was to do anything." />
 			</div>
-			<SectionsTitle content="my successes" id="successes" />
+			<SectionsTitle content="successes" id="successes" />
 			<div className="contentSide">
 				<SectionContent content="Before I had many of the functions and DOM manipulations of Javascript memorized, I developed a successful workflow using the MDN documentation as a large toolbox." />
 			</div>

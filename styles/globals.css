@@ -81,7 +81,7 @@ ul {
 }
 
 img {
-	max-width: 47vw;
+	max-width: 50vw;
 }
 
 #activeNoHover {
@@ -375,9 +375,25 @@ svg {
 
 .github {
 	position: fixed;
-	/* rotate: 90deg; */
 	top: 0.7em;
 	right: 1em;
+}
+
+.hamburger {
+	display: none;
+	position: fixed;
+	top: 1.1em;
+	left: 1.5em;
+	cursor: pointer;
+}
+
+.hamburgerNew {
+	display: none;
+	position: static;
+	margin-top: 1.1em;
+	margin-left: 1.5em;
+	z-index: 13;
+	cursor: pointer;
 }
 
 .drop {
@@ -416,11 +432,56 @@ svg {
 	z-index: 0;
 }
 
+.sideNavContent {
+	/* border: solid; */
+	margin-left: 1.4em;
+	margin-top: 2em;
+}
+
+.sideNavSection {
+	/* border: solid; */
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+	height: 3em;
+	margin-left: -1.5em;
+}
+
+.sideNavSection:active {
+	background-color: #3c3b54;
+}
+.sideNavSection:hover {
+	background-color: #3c3b54;
+}
+
+/* .sideNavSection:focus {
+	background-color: #3c3b54;
+} */
+
+.sideNavText {
+	/* display: inline; */
+	/* border: solid; */
+	font-family: AdobeClean-Light, AdobeClean-Regular, sans-serif;
+	font-size: 18px;
+	letter-spacing: 0.8px;
+	font-weight: lighter;
+	color: #fff;
+	margin-left: 0.5em;
+}
+
 /* ID's */
 
 #codeAntonio {
+	margin-top: 1em;
 	margin-left: 2em;
 	color: #fff;
+}
+
+#codeAntonioNew {
+	position: static;
+	color: #fff;
+	margin-top: -1.2em;
+	margin-left: 3.5em;
 }
 
 #offScreen {
@@ -430,6 +491,84 @@ svg {
 
 #grabbedTab {
 	pointer-events: none;
+}
+
+.mobileSideNav {
+	position: fixed;
+	top: 0;
+	height: 200vh;
+	width: 260px;
+	z-index: 12;
+	background: #262538;
+
+	animation-name: slideInNav;
+	animation-duration: 200ms;
+}
+
+@keyframes slideInNav {
+	from {
+		left: -260px;
+	}
+
+	to {
+		left: 0px;
+	}
+}
+
+.darkFilter {
+	position: fixed;
+	top: 0;
+	height: 100vh;
+	width: 100vw;
+	z-index: 11;
+	/* filter: brightness(0.4); */
+	background: black;
+	opacity: 0.4;
+
+	animation-name: darkFilter;
+	animation-duration: 200ms;
+}
+
+@keyframes darkFilter {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 0.4;
+	}
+}
+
+.exitNav {
+	left: -260px;
+	animation-name: slideOutNav;
+	animation-duration: 200ms;
+}
+
+@keyframes slideOutNav {
+	from {
+		left: 0px;
+	}
+
+	to {
+		left: -260px;
+	}
+}
+
+.exitDark {
+	opacity: 0;
+	animation-name: exitDarkFilter;
+	animation-duration: 200ms;
+}
+
+@keyframes exitDarkFilter {
+	from {
+		opacity: 0.4;
+	}
+
+	to {
+		opacity: 0;
+	}
 }
 
 /* The magic number is 191.9px increments */
@@ -516,8 +655,6 @@ svg {
 	}
 	#codeAntonio {
 		margin-left: 1em;
-		/* text-align: center; */
-		color: #fff;
 	}
 	.sideNav {
 		z-index: 2;
@@ -687,6 +824,8 @@ svg {
 	.headerAntonio {
 		height: 3.5em;
 		z-index: 1;
+		background: #323146;
+		box-shadow: none !important;
 	}
 	.sideNav {
 		display: none;
@@ -705,6 +844,25 @@ svg {
 	.inline {
 		margin-top: -0.4em;
 	}
+	.github {
+		display: none;
+	}
+	.hamburger {
+		display: inherit;
+	}
+	.hamburgerNew {
+		display: inherit;
+	}
+	#codeAntonio {
+		position: fixed;
+		margin-top: 0.85em;
+		margin-left: 0;
+		left: 3.5em;
+	}
+
+	.tabCollection div {
+		display: none;
+	}
 
 	.contentSide {
 		border-left: solid;
@@ -713,15 +871,19 @@ svg {
 		margin-left: 0.1em;
 		padding-left: 1.1em;
 	}
+	.tabIcon {
+		position: inherit;
+		margin-left: 1.5em;
+	}
 }
 
 @media (max-width: 578px) {
 	.tabCollection {
 		z-index: 8;
 	}
-	.headerAntonio {
+	/* .headerAntonio {
 		display: none;
-	}
+	} */
 }
 
 @media (max-width: 408px) {
@@ -735,7 +897,7 @@ svg {
 		width: 2.5em;
 	}
 	.tabIcon {
-		margin-left: 0.7em;
+		/* margin-left: 0.7em; */
 	}
 	/* Last one */
 	.grabbedFocusedTab {
