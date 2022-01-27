@@ -150,8 +150,8 @@ export default function HamburgerSVG({ focus, selected }) {
 						</div>
 					</div>
 					<div className="sideNavSection" id="altGithubPositioning">
-						<AltGithubSVG />
-						<p class="sideNavText">github</p>
+						{/* <AltGithubSVG /> */}
+						{/* <p class="sideNavText">github</p> */}
 					</div>
 				</div>
 				<div class="darkFilter" onMouseDown={menuClose}></div>

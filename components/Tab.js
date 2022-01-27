@@ -216,7 +216,13 @@ export default function Tab({
 				onMouseDown={focus}
 				onMouseUp={colorReset}
 			>
-				<Icons iconName={id} big={true} positioning={positioning} active={active} />
+				<Icons
+					iconName={id}
+					big={true}
+					positioning={positioning}
+					active={active}
+					spacing={spacing}
+				/>
 				<p className="tabContent">{content}</p>
 			</div>
 			<ActiveNoHover

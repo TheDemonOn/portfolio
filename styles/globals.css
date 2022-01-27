@@ -407,6 +407,10 @@ svg {
 	margin-left: 1.3em;
 }
 
+.noIcon {
+	display: none;
+}
+
 .grabIcon {
 	margin-top: 0.9em;
 	margin-left: 1.3em;
@@ -863,7 +867,7 @@ svg {
 		margin-top: -0.4em;
 	}
 	.github {
-		display: none;
+		/* display: none; */
 		/* position: relative;
 		margin-top: 30em;
 		top: unset;

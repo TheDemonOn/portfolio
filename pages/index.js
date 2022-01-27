@@ -964,13 +964,6 @@ export default function Index() {
 		// This effect manages the sideNav's size in comparison to the viewport and dynamically attaches functions to control scrolling
 		let nav = document.getElementsByClassName('sideNavUL')[0]
 		let navArea = document.getElementsByClassName('sideNav')[0]
-		// console.log(nav.offsetHeight, window.innerHeight, offset, nav)
-		// console.log(window.innerHeight, nav.offsetHeight)
-		// console.log(window.innerHeight, nav.offsetHeight + 45)
-		// console.log(window.innerHeight, nav.clientHeight + 45)
-		// if (offset < 270) {
-		// }
-		// console.log(window.innerHeight, nav.offsetHeight)
 		if (window.innerHeight < nav.offsetHeight + 55) {
 			console.log('The box is too large by about: ' + (55 + nav.offsetHeight - window.innerHeight))
 			let value = window.getComputedStyle(nav).getPropertyValue('border-right-style')
