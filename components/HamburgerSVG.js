@@ -1,9 +1,22 @@
 import React, { useState, useEffect } from 'react'
 
 import Icons from './Icons'
-import AltGithubSVG from './AltGithubSVG'
 
 export default function HamburgerSVG({ focus, selected }) {
+	useEffect(() => {
+		const checkWidth = () => {
+			console.log(window.innerWidth)
+			if (window.innerWidth >= 627) {
+				setMobileNavMenu(<></>)
+			}
+		}
+		window.addEventListener('resize', checkWidth)
+
+		return () => {
+			window.removeEventListener('resize', checkWidth)
+		}
+	}, [])
+
 	const [active, setActive] = useState([false, false, false, false, false])
 
 	useEffect(() => {
@@ -148,10 +161,6 @@ export default function HamburgerSVG({ focus, selected }) {
 							<Icons iconName="portfolioTab" id="portfolio" big={true} active={active[4]} />
 							<p class="sideNavText">proj3_portfolio</p>
 						</div>
-					</div>
-					<div className="sideNavSection" id="altGithubPositioning">
-						{/* <AltGithubSVG /> */}
-						{/* <p class="sideNavText">github</p> */}
 					</div>
 				</div>
 				<div class="darkFilter" onMouseDown={menuClose}></div>
