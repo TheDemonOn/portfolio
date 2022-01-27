@@ -1,8 +1,31 @@
 import React, { useState, useEffect } from 'react'
 
 import Icons from './Icons'
+import AltGithubSVG from './AltGithubSVG'
 
-export default function HamburgerSVG() {
+export default function HamburgerSVG({ focus, selected }) {
+	const [active, setActive] = useState([false, false, false, false, false])
+
+	useEffect(() => {
+		switch (selected) {
+			case 'home':
+				setActive([true, false, false, false, false])
+				break
+			case 'wordGenerator':
+				setActive([false, true, false, false, false])
+				break
+			case 'autojack':
+				setActive([false, false, true, false, false])
+				break
+			case 'randomTest':
+				setActive([false, false, false, true, false])
+				break
+			case 'portfolio':
+				setActive([false, false, false, false, true])
+				break
+		}
+	}, [selected])
+
 	const [mobileNavMenu, setMobileNavMenu] = useState()
 
 	const menuClose = () => {
@@ -16,6 +39,7 @@ export default function HamburgerSVG() {
 	}
 
 	const menuOpen = () => {
+		// let header = document.getElementsByTagName('header')[0]
 		setMobileNavMenu(
 			<>
 				<div class="mobileSideNav">
@@ -69,26 +93,65 @@ export default function HamburgerSVG() {
 					</svg>
 					<h3 id="codeAntonioNew">CODE ANTONIO</h3>
 					<div className="sideNavContent">
-						<div className="sideNavSection">
-							<Icons iconName="homeTab" big={true} />
+						<div
+							className="sideNavSection"
+							id="homeTab"
+							onClick={(e) => {
+								menuClose()
+								focus(e)
+							}}
+						>
+							<Icons iconName="homeTab" big={true} active={active[0]} />
 							<p class="sideNavText">home</p>
 						</div>
-						<div className="sideNavSection">
-							<Icons iconName="wordGeneratorTab" big={true} />
+						<div
+							className="sideNavSection"
+							id="wordGeneratorTab"
+							onClick={(e) => {
+								menuClose()
+								focus(e)
+							}}
+						>
+							<Icons iconName="wordGeneratorTab" id="wordGenerator" big={true} active={active[1]} />
 							<p class="sideNavText">proj0_word_generator</p>
 						</div>
-						<div className="sideNavSection">
-							<Icons iconName="autojackTab" big={true} />
+						<div
+							className="sideNavSection"
+							id="autojackTab"
+							onClick={(e) => {
+								menuClose()
+								focus(e)
+							}}
+						>
+							<Icons iconName="autojackTab" id="autojack" big={true} active={active[2]} />
 							<p class="sideNavText">proj1_autojack</p>
 						</div>
-						<div className="sideNavSection">
-							<Icons iconName="randomTestTab" big={true} />
+						<div
+							className="sideNavSection"
+							id="randomTestTab"
+							onClick={(e) => {
+								menuClose()
+								focus(e)
+							}}
+						>
+							<Icons iconName="randomTestTab" id="randomTest" big={true} active={active[3]} />
 							<p class="sideNavText">proj2_random_test</p>
 						</div>
-						<div className="sideNavSection">
-							<Icons iconName="portfolioTab" big={true} />
+						<div
+							className="sideNavSection"
+							id="portfolioTab"
+							onClick={(e) => {
+								menuClose()
+								focus(e)
+							}}
+						>
+							<Icons iconName="portfolioTab" id="portfolio" big={true} active={active[4]} />
 							<p class="sideNavText">proj3_portfolio</p>
 						</div>
+					</div>
+					<div className="sideNavSection" id="altGithubPositioning">
+						<AltGithubSVG />
+						<p class="sideNavText">github</p>
 					</div>
 				</div>
 				<div class="darkFilter" onMouseDown={menuClose}></div>
@@ -99,7 +162,6 @@ export default function HamburgerSVG() {
 	return (
 		<>
 			{mobileNavMenu}
-			{/* <div id="mobileSideNav"></div> */}
 			<svg
 				className="hamburger"
 				width="1.2em"

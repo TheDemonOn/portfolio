@@ -443,7 +443,7 @@ svg {
 	display: flex;
 	align-items: center;
 	cursor: pointer;
-	height: 3em;
+	height: 4em;
 	margin-left: -1.5em;
 }
 
@@ -469,7 +469,25 @@ svg {
 	margin-left: 0.5em;
 }
 
+.altGithub {
+	position: relative;
+	/* margin-top: 16em;
+	margin-left: 2em; */
+	z-index: 14;
+}
+
 /* ID's */
+
+#altGithubPositioning {
+	position: absolute;
+	margin-left: unset;
+	margin-top: unset;
+	/* bottom: 10em; */
+	/* bottom: 10em; */
+	margin-left: 1em;
+	/* height: 50vh; */
+	/* border: solid; */
+}
 
 #codeAntonio {
 	margin-top: 1em;
@@ -846,6 +864,11 @@ svg {
 	}
 	.github {
 		display: none;
+		/* position: relative;
+		margin-top: 30em;
+		top: unset;
+		right: unset;
+		z-index: 14; */
 	}
 	.hamburger {
 		display: inherit;

@@ -413,7 +413,9 @@ export default function Index() {
 			typeof document.getElementById(id) !== 'undefined' &&
 			document.getElementById(id) !== null
 		) {
-			document.getElementById(id).className = 'focusedTab'
+			if (window.innerWidth >= 627) {
+				document.getElementById(id).className = 'focusedTab'
+			}
 		}
 	}
 
@@ -421,7 +423,12 @@ export default function Index() {
 		console.log(e)
 		let id
 		if (e.target.id === '') {
-			if (typeof e.target.ownerSVGElement !== 'undefined' && e.target.ownerSVGElement !== null) {
+			if (e.target.className === 'sideNavText') {
+				id = e.target.parentElement.id
+			} else if (
+				typeof e.target.ownerSVGElement !== 'undefined' &&
+				e.target.ownerSVGElement !== null
+			) {
 				id = e.target.ownerSVGElement.parentNode.attributes.id.value
 			} else if (typeof e.target.offsetParent !== 'undefined' && e.target.offsetParent !== null) {
 				id = e.target.offsetParent.id
@@ -443,6 +450,7 @@ export default function Index() {
 				id = e.target.id
 			}
 		}
+		console.log(id)
 		focusTab(id)
 		let regex = /Tab/
 		let tab = id.replace(regex, '')
@@ -1030,7 +1038,7 @@ export default function Index() {
 				<div className="header"></div>
 				<div className="headerSpaceFill"></div>
 				<GithubSVG />
-				<HamburgerSVG />
+				<HamburgerSVG focus={tabClick} selected={selectedTab[0]} />
 			</header>
 
 			<nav className="nav inline">
