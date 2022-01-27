@@ -1,8 +1,22 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import SectionsTitle from '../components/SectionsTitle'
 import SectionContent from './SectionContent'
 
-export default function Home() {
+export default function Home({ y, distanceFromTopFunc }) {
+	useEffect(() => {
+		window.addEventListener('scroll', distanceFromTopFunc)
+		return () => {
+			window.removeEventListener('scroll', distanceFromTopFunc)
+		}
+	}, [])
+
+	useEffect(() => {
+		window.scroll({
+			top: y,
+			left: 0,
+			behavior: 'instant',
+		})
+	}, [])
 	return (
 		<div className="inline tabContentPosition">
 			<SectionsTitle content="welcome to code antonio" size="true" id="welcome"></SectionsTitle>

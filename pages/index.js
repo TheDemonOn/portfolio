@@ -38,6 +38,27 @@ export default function Index() {
 	const [portfolioClass, setPortfolioClass] = useState(inactiveTab)
 	const [portfolioSubClass, setPortfolioSubClass] = useState(inactiveTab)
 
+	const [homeY, setHomeY] = useState(0)
+	const homeYFunc = () => {
+		setHomeY(window.scrollY)
+	}
+	const [wordGeneratorY, setWordGeneratorY] = useState(0)
+	const wordGeneratorYFunc = () => {
+		setWordGeneratorY(window.scrollY)
+	}
+	const [autojackY, setAutojackY] = useState(0)
+	const autojackYFunc = () => {
+		setAutojackY(window.scrollY)
+	}
+	const [randomTestY, setRandomTestY] = useState(0)
+	const randomTestYFunc = () => {
+		setRandomTestY(window.scrollY)
+	}
+	const [portfolioY, setPortfolioY] = useState(0)
+	const portfolioYFunc = () => {
+		setPortfolioY(window.scrollY)
+	}
+
 	// Use Header Tabs to determine the position of the actual tabs
 	// Example: ["homeTab", "autojackTab"]
 	// Therefore homeTab will be position 0, autojackTab will be position 1,
@@ -563,7 +584,7 @@ export default function Index() {
 				setHomeClass(activeTab)
 				setHomeSubClass(activeSubClass)
 				setNavHomeSection(homeSection)
-				setDisplayedTab(<Home />)
+				setDisplayedTab(<Home y={homeY} distanceFromTopFunc={homeYFunc} />)
 				headerLogic('homeTab')
 				setTitle(
 					<Head>
@@ -576,7 +597,9 @@ export default function Index() {
 				setWordGeneratorClass(activeTab)
 				setWordGeneratorSubClass(activeSubClass)
 				setNavWordGeneratorSection(wordGeneratorSection)
-				setDisplayedTab(<WordGenerator />)
+				setDisplayedTab(
+					<WordGenerator y={wordGeneratorY} distanceFromTopFunc={wordGeneratorYFunc} />
+				)
 				headerLogic('wordGeneratorTab')
 				setTitle(
 					<Head>
@@ -589,7 +612,7 @@ export default function Index() {
 				setAutojackClass(activeTab)
 				setAutojackSubClass(activeSubClass)
 				setNavAutojackSection(autojackSection)
-				setDisplayedTab(<Autojack />)
+				setDisplayedTab(<Autojack y={autojackY} distanceFromTopFunc={autojackYFunc} />)
 				headerLogic('autojackTab')
 				setTitle(
 					<Head>
@@ -602,7 +625,7 @@ export default function Index() {
 				setRandomTestClass(activeTab)
 				setRandomTestSubClass(activeSubClass)
 				setNavRandomSection(randomSection)
-				setDisplayedTab(<RandomTest />)
+				setDisplayedTab(<RandomTest y={randomTestY} distanceFromTopFunc={randomTestYFunc} />)
 				headerLogic('randomTestTab')
 				setTitle(
 					<Head>
@@ -615,7 +638,7 @@ export default function Index() {
 				setPortfolioClass(activeTab)
 				setPortfolioSubClass(activeSubClass)
 				setNavPortfolioSection(portfolioSection)
-				setDisplayedTab(<Portfolio />)
+				setDisplayedTab(<Portfolio y={portfolioY} distanceFromTopFunc={portfolioYFunc} />)
 				headerLogic('portfolioTab')
 				setTitle(
 					<Head>
@@ -1165,7 +1188,6 @@ export default function Index() {
 					{displayedTab}
 					{title}
 				</div>
-				{/* <WordGenerator></WordGenerator> */}
 			</body>
 		</>
 	)

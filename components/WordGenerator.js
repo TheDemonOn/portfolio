@@ -1,10 +1,25 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import SectionsTitle from './SectionsTitle'
 import SectionContent from './SectionContent'
 import Picture from './Picture'
 import Image from 'next/image'
 
-export default function WordGenerator() {
+export default function WordGenerator({ y, distanceFromTopFunc }) {
+	useEffect(() => {
+		window.addEventListener('scroll', distanceFromTopFunc)
+		return () => {
+			window.removeEventListener('scroll', distanceFromTopFunc)
+		}
+	}, [])
+
+	useEffect(() => {
+		window.scroll({
+			top: y,
+			left: 0,
+			behavior: 'instant',
+		})
+	}, [])
+
 	return (
 		<div className="inline tabContentPosition">
 			<SectionsTitle content="rhyming word generator" size="true" id="overview" />

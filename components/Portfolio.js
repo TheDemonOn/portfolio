@@ -1,8 +1,22 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import SectionsTitle from './SectionsTitle'
 import SectionContent from './SectionContent'
 
-export default function Portfolio() {
+export default function Portfolio({ y, distanceFromTopFunc }) {
+	useEffect(() => {
+		window.addEventListener('scroll', distanceFromTopFunc)
+		return () => {
+			window.removeEventListener('scroll', distanceFromTopFunc)
+		}
+	}, [])
+
+	useEffect(() => {
+		window.scroll({
+			top: y,
+			left: 0,
+			behavior: 'instant',
+		})
+	}, [])
 	return (
 		<div className="inline tabContentPosition">
 			<SectionsTitle content="this site: codeantonio" size="true" id="overview" />
