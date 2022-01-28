@@ -5,7 +5,6 @@ import Icons from './Icons'
 export default function HamburgerSVG({ focus, selected }) {
 	useEffect(() => {
 		const checkWidth = () => {
-			console.log(window.innerWidth)
 			if (window.innerWidth >= 627) {
 				setMobileNavMenu(<></>)
 			}
@@ -39,7 +38,7 @@ export default function HamburgerSVG({ focus, selected }) {
 		}
 	}, [selected])
 
-	const [mobileNavMenu, setMobileNavMenu] = useState()
+	const [mobileNavMenu, setMobileNavMenu] = useState(<></>)
 
 	const menuClose = () => {
 		let mobileSideNav = document.getElementsByClassName('mobileSideNav')[0]

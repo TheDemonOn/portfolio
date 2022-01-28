@@ -82,9 +82,6 @@ ul {
 
 img {
 	/* max-width: 50vw; */
-	width: 57%;
-	margin-top: 2em;
-	margin-bottom: -1em;
 }
 
 #activeNoHover {
@@ -348,12 +345,12 @@ svg {
 	margin-left: 20em;
 }
 
-.contentDiv {
-	/* border-left: solid;
-	border-color: #504f6e; */
-	/* border-width: 3.5px; */
-	/* padding-left: 1em; */
-	/* margin-top: 2em; */
+/* .contentDiv {
+	margin-bottom: -0.3em;
+} */
+
+.closer {
+	margin-top: -0.5em;
 }
 
 .titleSpace {
@@ -474,6 +471,12 @@ svg {
 	font-weight: lighter;
 	color: #fff;
 	margin-left: 0.5em;
+}
+
+.boxImage {
+	width: 32em;
+	margin-top: 2em;
+	margin-bottom: -1em;
 }
 
 /* ID's */
@@ -690,14 +693,6 @@ svg {
 	.inline {
 		margin-top: -0.5em;
 	}
-	/* .titleSpace {
-		margin-top: 5em;
-		margin-bottom: 10em;
-	} */
-	/* .biggerTitle {
-		font: normal normal 600 45px Source Code Pro;
-	} */
-
 	.grabbedFocusedTab {
 		width: 8.55em;
 		z-index: 5;
@@ -783,6 +778,14 @@ svg {
 	} */
 }
 
+@media (max-width: 793px) {
+	.boxImage {
+		width: 25em;
+		margin-top: 2em;
+		margin-bottom: -1em;
+	}
+}
+
 @media (max-width: 777px) {
 	.tabCollection {
 		z-index: 6;
@@ -813,6 +816,14 @@ svg {
 		display: none;
 		margin-top: 0.9em;
 		margin-left: 2em;
+	}
+}
+
+@media (max-width: 700px) {
+	.boxImage {
+		width: 22em;
+		margin-top: 2em;
+		margin-bottom: -1em;
 	}
 }
 
@@ -886,6 +897,12 @@ svg {
 	.tabIcon {
 		position: inherit;
 		margin-left: 1.5em;
+	}
+
+	.boxImage {
+		width: 103%;
+		margin-top: 2em;
+		margin-bottom: -1em;
 	}
 }
 

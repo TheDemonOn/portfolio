@@ -68,11 +68,11 @@ export default function Portfolio({ y, distanceFromTopFunc }) {
 			<SectionsTitle content="step 3" id="step3" />
 			<div className="contentSide">
 				<SectionContent content="Tabs" size="true" />
-				<div className="contentSide">
+				{/* <div className="contentSide">
 					<SectionContent content="Initially the plan was simply to have an array with the tab Components display in the JSX, but there were issues with state not properly being updated when the tabs were displayed in that way." />
-				</div>
+				</div> */}
 				<div className="contentSide">
-					<SectionContent content="The method that eventually ended up being used was to have each tab exist inside the displaying JSX." />
+					<SectionContent content="The method for creating the system was to have each tab exist inside the displaying JSX." />
 				</div>
 				<div className="contentSide">
 					<SectionContent content="State was used to control whether it was displaying, the text and Icon to use, and its position in the tab order." />
