@@ -81,7 +81,10 @@ ul {
 }
 
 img {
-	max-width: 50vw;
+	/* max-width: 50vw; */
+	width: 57%;
+	margin-top: 2em;
+	margin-bottom: -1em;
 }
 
 #activeNoHover {
