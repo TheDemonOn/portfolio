@@ -44,7 +44,7 @@ export default function Home({ y, distanceFromTopFunc }) {
 			</div>
 			<Picture
 				src="The_Boyz-1613.jpg"
-				sizes="(max-width: 360px) 360px, (max-width: 635px) 635px, (max-width: 841px) 841px, (max-width: 1041px) 1041px, (max-width: 1208px) 1208px, (max-width: 1371px) 1371px, (max-width: 1497px) 1497px, (max-width: 1613px) 1613px"
+				sizes="(max-width: 360px) 360px, (max-width: 635px) 635px, (max-width: 841px) 841px, (max-width: 1041px) 1041px, (max-width: 1208px) 1208px, (max-width: 1371px) 1371px, (max-width: 1497px) 1497px, 1613px"
 				srcset="The_Boyz-360.jpg 360w, The_Boyz-635.jpg 635w, The_Boyz-841.jpg 841w, The_Boyz-1041.jpg 1041w, The_Boyz-1208.jpg 1208w, The_Boyz-1371.jpg 1371w,  The_Boyz-1497.jpg 1497w,  The_Boyz-1613.jpg 1613w"
 				alt="A picture of myself and our cat!"
 				className="boxImage"

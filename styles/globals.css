@@ -479,6 +479,12 @@ svg {
 	margin-bottom: -1em;
 }
 
+.largerImage {
+	width: 55vw;
+	/* margin-top: 2em;
+	margin-bottom: -1em; */
+}
+
 /* ID's */
 
 #codeAntonio {
@@ -903,6 +909,9 @@ svg {
 		width: 103%;
 		margin-top: 2em;
 		margin-bottom: -1em;
+	}
+	.largerImage {
+		width: 100%;
 	}
 }
 
