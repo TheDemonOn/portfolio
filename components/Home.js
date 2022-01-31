@@ -60,7 +60,7 @@ export default function Home({ y, distanceFromTopFunc }) {
 				<SectionContent content="I have experience taking web designs and turning them into reality." />
 			</div>
 			<div className="contentSide">
-				<SectionContent content="I love video games and DnD!" />
+				<SectionContent content="I love cooking and DnD!" />
 			</div>
 			<SectionsTitle content="projects" id="projects" />
 

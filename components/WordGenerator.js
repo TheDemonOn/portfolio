@@ -50,17 +50,19 @@ export default function WordGenerator({ y, distanceFromTopFunc }) {
 				<SectionContent content="I knew I would need a list of all the smallest units of sounds: graphemes, to mix and match." />
 			</div>
 			<SectionsTitle content="step 2" id="step2" />
-			{/* <div className="contentSide"> */}
 			<SectionContent content="Word Generation" size="true" />
 			<div className="contentSide">
 				<SectionContent content="I made a list of graphemes into groups that rhymed with each other, so if I needed to pick a random grapheme that rhymes, I just had to choose another from that rhyming group." />
 			</div>
+			<Picture
+				src="rhymeKey.jpg"
+				alt="An image of the code described."
+				className="inBetweenImage"
+			/>
 			<div className="contentSide">
 				<SectionContent content="So the generated words would be random graphemes spliced together, with the last grapheme's rhyming group kept track of to rhyme with the last word in the next line." />
 			</div>
-			{/* </div> */}
 			<SectionsTitle content="step 3" id="step3" />
-			{/* <div className="contentSide"> */}
 			<SectionContent content="User Interface" size="true" />
 			<div className="contentSide">
 				<SectionContent content="Next was working on the actual displaying of the lines." />
@@ -71,13 +73,33 @@ export default function WordGenerator({ y, distanceFromTopFunc }) {
 			<div className="contentSide">
 				<SectionContent content="After refactoring, more UI features were added such as a way to delete lines, modify lines, undo delete, and add a section to enter youtube links and have them play in the page." />
 			</div>
-			{/* </div> */}
+			<Picture
+				srcset="earlyRhymeSite360.jpg 360w, earlyRhymeSite1162.jpg 1162w, earlyRhymeSite1777.jpg 1777w, earlyRhymeSite1920.jpg 1920w"
+				sizes="(max-width: 360px) 360px, (max-width: 1162px) 1162px, (max-width: 1777px) 1777px, 1920px"
+				src="earlyRhymeSite1920.jpg"
+				alt="An early image of the site, before its redesign."
+				className="largerImage"
+			/>
 			<SectionsTitle content="step 4" id="step4" />
-			{/* <div className="contentSide"> */}
 			<SectionContent content="Design & Responsitivity" size="true" />
 			<div className="contentSide">
 				<SectionContent content="With most features implemented and complete, the only thing remaining was a proper design for the site, as well as responsitivity." />
 			</div>
+			<Picture
+				srcset="rhymeDesign360.jpg 360w, rhymeDesign836.jpg 836w, rhymeDesign1179.jpg 1179w, rhymeDesign1536.jpg 1536w"
+				sizes="(max-width: 360px) 360px, (max-width: 836px) 836px, (max-width: 1179px) 1179px, 1536px"
+				src="rhymeDesign1536.jpg"
+				alt="An image of the site after the redesign."
+				className="largerImage"
+			/>
+			{/* <Picture
+					// srcset="rwg_notes360.jpg 360w, rwg_notes969.jpg 969w, rwg_notes1397.jpg 1397w, rwg_notes1760.jpg 1760w"
+					// sizes="(max-width: 360px) 360px, (max-width: 969px) 969px, (max-width: 1397px) 1397px, 1760px"
+					src="screenshotM.jpg"
+					alt="Another sketch with more detail."
+					className="mobileImage"
+				/> */}
+			{/* </div> */}
 			{/* <div className="contentSide">
 				<SectionContent content="And with that my first project was finally taken to completion." />
 			</div> */}
@@ -108,7 +130,7 @@ export default function WordGenerator({ y, distanceFromTopFunc }) {
 			</div>
 			{/* Abtou 1250 is touching the edge */}
 			{/* About 350 for tghe content on the left */}
-			<SectionsTitle content="final screenshots" id="screenshots" />
+			<SectionsTitle content="screenshots" id="screenshots" />
 			{/* <SectionContent content="[Pictures]" /> */}
 			{/* <Picture
 				srcset="/rwg_sketch50.jpg 848w, /rwg_sketch80.jpg 1357w, /rwg_sketch100.jpg 1696w,"

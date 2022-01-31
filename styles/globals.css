@@ -82,6 +82,7 @@ ul {
 
 img {
 	/* max-width: 50vw; */
+	align-self: center;
 }
 
 #activeNoHover {
@@ -163,6 +164,10 @@ svg {
 	/* display: inline; */
 	/* display: block; */
 	display: inline-block;
+}
+
+.realInline {
+	display: inline;
 }
 
 .header {
@@ -479,10 +484,33 @@ svg {
 	margin-bottom: -1em;
 }
 
+.inBetweenImage {
+	width: 32em;
+}
+
 .largerImage {
 	width: 55vw;
 	/* margin-top: 2em;
 	margin-bottom: -1em; */
+}
+
+.mobileImage {
+	height: 40vw;
+	margin-left: 1em;
+}
+.sideImage {
+	height: 40vw;
+}
+
+.doubleImage {
+	/* width: 10em; */
+	/* border: solid; */
+}
+
+.flex {
+	display: flex;
+	/* align-items: space-between; */
+	/* align-self: center; */
 }
 
 /* ID's */
@@ -790,6 +818,9 @@ svg {
 		margin-top: 2em;
 		margin-bottom: -1em;
 	}
+	.inBetweenImage {
+		width: 23em;
+	}
 }
 
 @media (max-width: 777px) {
@@ -906,12 +937,29 @@ svg {
 	}
 
 	.boxImage {
-		width: 103%;
+		width: 92vw;
 		margin-top: 2em;
 		margin-bottom: -1em;
 	}
 	.largerImage {
+		width: 92vw;
+	}
+
+	.flex {
+		flex-direction: column;
+	}
+
+	.mobileImage {
 		width: 100%;
+		height: unset;
+		margin-left: unset;
+	}
+	.sideImage {
+		width: 100%;
+		height: unset;
+	}
+	.inBetweenImage {
+		width: 92vw;
 	}
 }
 
