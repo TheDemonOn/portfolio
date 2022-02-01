@@ -672,7 +672,7 @@ export default function Index() {
 			tab = e.target.lastChild.lastChild.className
 		}
 
-		console.log(typeof tab)
+		// console.log(typeof tab)
 
 		if (typeof tab !== 'string') {
 			// clicked on the Icon
@@ -722,26 +722,50 @@ export default function Index() {
 					break
 			}
 		} else {
+			// Clicked on the text or box
 			switch (tab) {
 				case 'home':
-					setNavHomeSection(homeSection)
-					switchTabCheck(tab)
+					if (typeof navHomeSection !== 'undefined' && selectedTab[0] === 'home') {
+						setNavHomeSection(emptySection)
+					} else {
+						setNavHomeSection(homeSection)
+						switchTabCheck(tab)
+					}
 					break
 				case 'wordGenerator':
-					setNavWordGeneratorSection(wordGeneratorSection)
-					switchTabCheck(tab)
+					if (
+						typeof navWordGeneratorSection !== 'undefined' &&
+						selectedTab[0] === 'wordGenerator'
+					) {
+						setNavWordGeneratorSection(emptySection)
+					} else {
+						setNavWordGeneratorSection(wordGeneratorSection)
+						switchTabCheck(tab)
+					}
 					break
 				case 'autojack':
-					setNavAutojackSection(autojackSection)
-					switchTabCheck(tab)
+					if (typeof navAutojackSection !== 'undefined' && selectedTab[0] === 'autojack') {
+						setNavAutojackSection(emptySection)
+					} else {
+						setNavAutojackSection(autojackSection)
+						switchTabCheck(tab)
+					}
 					break
 				case 'randomTest':
-					setNavRandomSection(randomSection)
-					switchTabCheck(tab)
+					if (typeof navRandomSection !== 'undefined' && selectedTab[0] === 'randomTest') {
+						setNavRandomSection(emptySection)
+					} else {
+						setNavRandomSection(randomSection)
+						switchTabCheck(tab)
+					}
 					break
 				case 'portfolio':
-					setNavPortfolioSection(portfolioSection)
-					switchTabCheck(tab)
+					if (typeof navPortfolioSection !== 'undefined' && selectedTab[0] === 'portfolio') {
+						setNavPortfolioSection(emptySection)
+					} else {
+						setNavPortfolioSection(portfolioSection)
+						switchTabCheck(tab)
+					}
 					break
 			}
 		}
