@@ -39,8 +39,8 @@ export default function Home({ y, distanceFromTopFunc }) {
 		<div className="inline tabContentPosition">
 			<SectionsTitle content="welcome to code antonio" size="true" id="welcome"></SectionsTitle>
 			<div className="contentSide">
-				<SectionContent content="This is my portfolio. Have a look around." />
-				<SectionContent content="Thanks for being here! I'd love to talk." closer={true} />
+				<SectionContent content="I'm Antonio, welcome to my portfolio!" />
+				<SectionContent content="I am an aspiring front-end developer	." closer={true} />
 			</div>
 			<Picture
 				src="The_Boyz-1613.jpg"
