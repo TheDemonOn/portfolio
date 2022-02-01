@@ -253,7 +253,7 @@ svg {
 .tabContentPosition {
 	max-width: 58em;
 	margin-right: 2em;
-	margin-bottom: 4em;
+	margin-bottom: 6em;
 }
 
 .tabContent {
@@ -1010,7 +1010,6 @@ svg {
 		/* border: solid; */
 		max-width: 83vw;
 		margin-right: 0em;
-		margin-bottom: 4em;
 	}
 	/* h2 {
 		font-family: 'Source Code Pro', monospace;

@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import SectionsTitle from './SectionsTitle'
 import SectionContent from './SectionContent'
+import Picture from './Picture'
 
 export default function Autojack({ y, distanceFromTopFunc }) {
 	useEffect(() => {
@@ -57,14 +58,31 @@ export default function Autojack({ y, distanceFromTopFunc }) {
 			<div className="contentSide">
 				<SectionContent content="Creating the systems to handle dealer interactions, displaying money, and creating table options were fairly straightforward." />
 			</div>
+			<Picture
+				srcset="autojackBadCode583.jpg 583w, autojackBadCode796.jpg 796w, autojackBadCode987.jpg 987w,"
+				sizes="(max-width: 583px) 583px, (max-width: 796px) 796px, 987px"
+				src="autojackBadCode987.jpg"
+				alt="Example of code cringe, I have learned from the mistakes of the past."
+				className="largerImage"
+			/>
+			<div className="contentSide">
+				<SectionContent content="Even if I barely understood how I was managing state at all." />
+			</div>
 			{/* </div> */}
 			{/* step 2 */}
 			<SectionsTitle content="step 2" id="step2" />
 			{/* <div className="contentSide"> */}
 			<SectionContent content="Managing Tech Debt" size="true" />
 			<div className="contentSide">
-				<SectionContent content="At this point the projects had many functions, different table options, many useEffects triggering, and different systems managing things. Almost 2000 lines of code in one Javascript file." />
+				<SectionContent content="At this point the project had many functions, different table options, many useEffects triggering, and different systems managing things. Almost 2000 lines of code in one Javascript file. And this number would only grow over the remaining development." />
 			</div>
+			<Picture
+				srcset="autojackLargeLineCount360.jpg 360w, autojackLargeLineCount527.jpg 527w, autojackLargeLineCount609.jpg 609w,"
+				sizes="(max-width: 360px) 360px, (max-width: 527px) 527px, 609px"
+				src="autojackLargeLineCount609.jpg"
+				alt="An image of the line count in one file being 5537 lines long."
+				className="inBetweenImage"
+			/>
 			<div className="contentSide">
 				<SectionContent content="The lack of organization in the code made devlopment much more challenging." />
 			</div>

@@ -182,12 +182,12 @@ export default function Index() {
 					<a className="wordGenerator">successes</a>
 				</div>
 			</li>
-			<li onMouseDown={switchTabCheck}>
+			{/* <li onMouseDown={switchTabCheck}>
 				<div className={wordGeneratorSubClass}>
 					<Icons iconName="screenshots" sideNavClass={wordGeneratorSubClass} />
 					<a className="wordGenerator">screenshots</a>
 				</div>
-			</li>
+			</li> */}
 		</ul>
 	)
 	const [navWordGeneratorSection, setNavWordGeneratorSection] = useState(emptySection)
@@ -282,12 +282,12 @@ export default function Index() {
 					<a className="randomTest">successes</a>
 				</div>
 			</li>
-			<li onMouseDown={switchTabCheck}>
+			{/* <li onMouseDown={switchTabCheck}>
 				<div className={randomTestSubClass}>
 					<Icons iconName="screenshots" sideNavClass={randomTestSubClass} />
 					<a className="randomTest">screenshots</a>
 				</div>
-			</li>
+			</li> */}
 		</ul>
 	)
 	const [navRandomSection, setNavRandomSection] = useState(emptySection)
@@ -335,12 +335,12 @@ export default function Index() {
 					<a className="portfolio">successes</a>
 				</div>
 			</li>
-			<li onMouseDown={switchTabCheck}>
+			{/* <li onMouseDown={switchTabCheck}>
 				<div className={portfolioSubClass}>
 					<Icons iconName="screenshots" sideNavClass={portfolioSubClass} />
 					<a className="portfolio">screenshots</a>
 				</div>
-			</li>
+			</li> */}
 		</ul>
 	)
 	const [navPortfolioSection, setNavPortfolioSection] = useState(emptySection)

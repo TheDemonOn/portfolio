@@ -41,6 +41,10 @@ export default function WordGenerator({ y, distanceFromTopFunc }) {
 				/>
 			</div>
 
+			{/* <div className="contentSide">
+				<SectionContent content="Below goes contains the site's development and my thoughts building it." />
+			</div> */}
+
 			<SectionsTitle content="step 1" id="step1" />
 			<SectionContent content="Learn how to Rhyme" size="true" />
 			<div className="contentSide">
@@ -71,7 +75,7 @@ export default function WordGenerator({ y, distanceFromTopFunc }) {
 				<SectionContent content="Once the UI was mostly set up to customize and generate lines of rhyming sentences, I began refactoring code to have less functions and start to clean up." />
 			</div>
 			<div className="contentSide">
-				<SectionContent content="After refactoring, more UI features were added such as a way to delete lines, modify lines, undo delete, and add a section to enter youtube links and have them play in the page." />
+				<SectionContent content="After refactoring, more UI features were added such as: a way to delete lines, modify lines, undo delete, and a section for youtube links to play in the page." />
 			</div>
 			<Picture
 				srcset="earlyRhymeSite360.jpg 360w, earlyRhymeSite1162.jpg 1162w, earlyRhymeSite1777.jpg 1777w, earlyRhymeSite1920.jpg 1920w"
@@ -130,7 +134,7 @@ export default function WordGenerator({ y, distanceFromTopFunc }) {
 			</div>
 			{/* Abtou 1250 is touching the edge */}
 			{/* About 350 for tghe content on the left */}
-			<SectionsTitle content="screenshots" id="screenshots" />
+			{/* <SectionsTitle content="screenshots" id="screenshots" /> */}
 			{/* <SectionContent content="[Pictures]" /> */}
 			{/* <Picture
 				srcset="/rwg_sketch50.jpg 848w, /rwg_sketch80.jpg 1357w, /rwg_sketch100.jpg 1696w,"
@@ -139,13 +143,13 @@ export default function WordGenerator({ y, distanceFromTopFunc }) {
 				alt="Initial sketch of site."
 				className="boxImage"
 			/> */}
-			<Picture
+			{/* <Picture
 				srcset="rwg_notes360.jpg 360w, rwg_notes969.jpg 969w, rwg_notes1397.jpg 1397w, rwg_notes1760.jpg 1760w"
 				sizes="(max-width: 360px) 360px, (max-width: 969px) 969px, (max-width: 1397px) 1397px, 1760px"
 				src="rwg_notes1760.jpg"
 				alt="Another sketch with more detail."
 				className="largerImage"
-			/>
+			/> */}
 			{/* <Picture
 				srcset="/rwg_final_prev50.jpg 720w, /rwg_final_prev80.jpg 1152w, /rwg_final_prev100.jpg 1440w,"
 				sizes="(max-width: 500px) 720px, (max-width: 1000px) 1152px, 1440px"

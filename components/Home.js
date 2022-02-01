@@ -40,7 +40,7 @@ export default function Home({ y, distanceFromTopFunc }) {
 			<SectionsTitle content="welcome to code antonio" size="true" id="welcome"></SectionsTitle>
 			<div className="contentSide">
 				<SectionContent content="I'm Antonio, welcome to my portfolio!" />
-				<SectionContent content="I am an aspiring front-end developer	." closer={true} />
+				<SectionContent content="I am an aspiring front-end developer." closer={true} />
 			</div>
 			<Picture
 				src="The_Boyz-1613.jpg"
@@ -59,8 +59,12 @@ export default function Home({ y, distanceFromTopFunc }) {
 			<div className="contentSide">
 				<SectionContent content="I have experience taking web designs and turning them into reality." />
 			</div>
+
 			<div className="contentSide">
-				<SectionContent content="I love cooking and DnD!" />
+				<SectionContent content="I love cooking and playing DnD!" />
+			</div>
+			<div className="contentSide">
+				<SectionContent content="I was born and raised in the Bay Area of California. I currently reside in Indiana to live with my girlfriend." />
 			</div>
 			<SectionsTitle content="projects" id="projects" />
 
