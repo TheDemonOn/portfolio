@@ -2,7 +2,12 @@ import React from 'react'
 
 export default function GithubSVG() {
 	return (
-		<a className="github" href="https://github.com/TheDemonOn/portfolio" target="_blank">
+		<a
+			className="github"
+			aria-label="Link to this site on Git hub"
+			href="https://github.com/TheDemonOn/portfolio"
+			target="_blank"
+		>
 			<svg
 				width="2em"
 				height="2em"

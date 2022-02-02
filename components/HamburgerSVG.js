@@ -54,7 +54,7 @@ export default function HamburgerSVG({ focus, selected }) {
 		// let header = document.getElementsByTagName('header')[0]
 		setMobileNavMenu(
 			<>
-				<nav className="mobileSideNav">
+				<div className="mobileSideNav">
 					<button
 						id="hamburger2"
 						className="hamburgerNew"
@@ -117,6 +117,7 @@ export default function HamburgerSVG({ focus, selected }) {
 						<button
 							className="sideNavSection"
 							id="homeTab"
+							aria-label="home"
 							onClick={(e) => {
 								menuClose()
 								focus(e)
@@ -128,6 +129,7 @@ export default function HamburgerSVG({ focus, selected }) {
 						<button
 							className="sideNavSection"
 							id="wordGeneratorTab"
+							aria-label="word generator"
 							onClick={(e) => {
 								menuClose()
 								focus(e)
@@ -139,6 +141,7 @@ export default function HamburgerSVG({ focus, selected }) {
 						<button
 							className="sideNavSection"
 							id="autojackTab"
+							aria-label="autojack"
 							onClick={(e) => {
 								menuClose()
 								focus(e)
@@ -150,6 +153,7 @@ export default function HamburgerSVG({ focus, selected }) {
 						<button
 							className="sideNavSection"
 							id="randomTestTab"
+							aria-label="random test"
 							onClick={(e) => {
 								menuClose()
 								focus(e)
@@ -161,6 +165,7 @@ export default function HamburgerSVG({ focus, selected }) {
 						<button
 							className="sideNavSection"
 							id="portfolioTab"
+							aria-label="portfolio"
 							onClick={(e) => {
 								menuClose()
 								focus(e)
@@ -170,7 +175,7 @@ export default function HamburgerSVG({ focus, selected }) {
 							<p class="sideNavText">proj3_portfolio</p>
 						</button>
 					</div>
-				</nav>
+				</div>
 				<div class="darkFilter" onMouseDown={menuClose}></div>
 			</>
 		)
@@ -187,14 +192,14 @@ export default function HamburgerSVG({ focus, selected }) {
 			}
 		} else {
 			let hamburger1 = document.getElementById('hamburger1')
-			hamburger1.focus()
+			// hamburger1.focus()
 			hamburger1.setAttribute('aria-hidden', 'false')
 			hamburger1.setAttribute('tabIndex', '0')
 		}
 	}, [mobileNavMenu])
 
 	return (
-		<nav id="responsiveNav">
+		<nav id="responsiveNav" aria-label="mobile">
 			<button
 				id="hamburger1"
 				className="hamburger"

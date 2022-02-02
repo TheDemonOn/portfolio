@@ -7,7 +7,7 @@ export default function DragTab({ content, exist = 0, id }) {
 		potentialId = ''
 	}
 	return (
-		<div id="grabbedTab">
+		<div id="grabbedTab" aria-hidden="true">
 			<div className="grabbedFocusedTab" id={potentialId}>
 				<Icons iconName={id} big={true} active={true} grab={true} />
 				<p className="tabContent">{content}</p>

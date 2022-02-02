@@ -418,13 +418,13 @@ M290,187.5c0-62.3-13.2-96.6-40.7-96.6c-25,0-41.2,34.3-41.2,96.6c0,68.2,10.8,96.6
 	return (
 		<svg
 			version="1.1"
-			// id="grabTabIcon"
 			xmlns="http://www.w3.org/2000/svg"
 			viewBox="0 0 500 500"
 			width={size}
 			height={size}
 			className={classValue}
 			style={positioning}
+			aria-hidden="true"
 		>
 			{path}
 		</svg>

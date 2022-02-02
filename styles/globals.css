@@ -167,6 +167,12 @@ svg {
 	background-color: #61607c80;
 }
 
+.sideNavUL button {
+	font-family: AdobeClean-Regular, sans-serif;
+	font-size: 18.5px;
+	letter-spacing: 0.8px;
+}
+
 .test {
 	/* border: solid; */
 }
@@ -743,6 +749,12 @@ svg {
 		font-family: AdobeClean-Regular, sans-serif;
 		font-size: 16.5px;
 		letter-spacing: 0.8px;
+	}
+	.sideNavUL button {
+		font-family: AdobeClean-Regular, sans-serif;
+		font-size: 16.5px;
+		letter-spacing: 0.8px;
+		margin-left: -0.3em;
 	}
 	.titleList {
 		padding-bottom: 0.35em;

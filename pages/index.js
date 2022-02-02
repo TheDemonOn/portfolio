@@ -68,43 +68,46 @@ export default function Index() {
 	const switchTabCheck = (e) => {
 		// This function gets the information needed to swap tabs, and/or scroll to a new position
 		// The different cases are for the different parts of the clickable elements
-		// console.log(e)
-		let tab
-		let innerText
-		if (typeof e.target !== 'undefined') {
-			if (e.target.className === '') {
-				tab = e.target.firstChild.childNodes[1].className
-				innerText = e.target.firstChild.childNodes[1].innerText
-			} else if (
-				e.target.ownerSVGElement !== null &&
-				typeof e.target.ownerSVGElement !== 'undefined'
-			) {
-				tab = e.target.ownerSVGElement.nextElementSibling.className
-				innerText = e.target.ownerSVGElement.nextElementSibling.innerText
-			} else if (
-				e.target.ownerSVGElement === null &&
-				typeof e.target.nextElementSibling.className !== 'undefined'
-			) {
-				tab = e.target.nextElementSibling.className
-				innerText = e.target.nextElementSibling.innerText
-			} else if (e.target.className !== 'white' && e.target.className !== 'darkGrey') {
-				tab = e.target.className
-				innerText = e.target.innerText
-			} else if (typeof e.target.childNodes[1] !== 'undefined') {
-				tab = e.target.childNodes[1].className
-				innerText = e.target.childNodes[1].innerText
-			} else if (typeof e.target.firstChild !== 'undefined') {
-				tab = e.target.firstChild.className
-				innerText = e.target.firstChild.innerText
-			}
-		} else {
-			tab = e
-		}
+		console.log(e)
 
-		// console.log(tab, innerText)
-		// Switch to tab with a useEffect trigger
-		if (tab || innerText) {
-			setSelectedTab([tab, innerText])
+		if ((e.code && (e.code === 'Enter' || e.code === 'Space')) || typeof e.code === 'undefined') {
+			let tab
+			let innerText
+			if (typeof e.target !== 'undefined') {
+				if (e.target.className === '') {
+					tab = e.target.firstChild.childNodes[1].className
+					innerText = e.target.firstChild.childNodes[1].innerText
+				} else if (
+					e.target.ownerSVGElement !== null &&
+					typeof e.target.ownerSVGElement !== 'undefined'
+				) {
+					tab = e.target.ownerSVGElement.nextElementSibling.className
+					innerText = e.target.ownerSVGElement.nextElementSibling.innerText
+				} else if (
+					e.target.ownerSVGElement === null &&
+					typeof e.target.nextElementSibling.className !== 'undefined'
+				) {
+					tab = e.target.nextElementSibling.className
+					innerText = e.target.nextElementSibling.innerText
+				} else if (e.target.className !== 'white' && e.target.className !== 'darkGrey') {
+					tab = e.target.className
+					innerText = e.target.innerText
+				} else if (typeof e.target.childNodes[1] !== 'undefined') {
+					tab = e.target.childNodes[1].className
+					innerText = e.target.childNodes[1].innerText
+				} else if (typeof e.target.firstChild !== 'undefined') {
+					tab = e.target.firstChild.className
+					innerText = e.target.firstChild.innerText
+				}
+			} else {
+				tab = e
+			}
+
+			// console.log(tab, innerText)
+			// Switch to tab with a useEffect trigger
+			if (tab || innerText) {
+				setSelectedTab([tab, innerText])
+			}
 		}
 	}
 
@@ -112,28 +115,28 @@ export default function Index() {
 	const homeSection = (
 		<ul className="sideNavBorder">
 			<li onMouseDown={switchTabCheck}>
-				<div className={homeSubClass}>
+				<button className={homeSubClass} onKeyDown={switchTabCheck}>
 					<Icons iconName="welcome" sideNavClass={homeSubClass} />
 					<a className="home">welcome</a>
-				</div>
+				</button>
 			</li>
 			<li onMouseDown={switchTabCheck}>
-				<div className={homeSubClass}>
+				<button className={homeSubClass} onKeyDown={switchTabCheck}>
 					<Icons iconName="aboutMe" sideNavClass={homeSubClass} />
 					<a className="home">about me</a>
-				</div>
+				</button>
 			</li>
 			<li onMouseDown={switchTabCheck}>
-				<div className={homeSubClass}>
+				<button className={homeSubClass} onKeyDown={switchTabCheck}>
 					<Icons iconName="projects" sideNavClass={homeSubClass} />
 					<a className="home">projects</a>
-				</div>
+				</button>
 			</li>
 			<li onMouseDown={switchTabCheck}>
-				<div className={homeSubClass}>
+				<button className={homeSubClass} onKeyDown={switchTabCheck}>
 					<Icons iconName="contact" sideNavClass={homeSubClass} />
 					<a className="home">contact</a>
-				</div>
+				</button>
 			</li>
 		</ul>
 	)
@@ -141,99 +144,93 @@ export default function Index() {
 	const wordGeneratorSection = (
 		<ul className="sideNavBorder">
 			<li onMouseDown={switchTabCheck}>
-				<div className={wordGeneratorSubClass}>
+				<button className={wordGeneratorSubClass} onKeyDown={switchTabCheck}>
 					<Icons iconName="overview" sideNavClass={wordGeneratorSubClass} />
 					<a className="wordGenerator">overview</a>
-				</div>
+				</button>
 			</li>
 			<li onMouseDown={switchTabCheck}>
-				<div className={wordGeneratorSubClass}>
+				<button className={wordGeneratorSubClass} onKeyDown={switchTabCheck}>
 					<Icons iconName="step" sideNavClass={wordGeneratorSubClass} />
 					<a className="wordGenerator">step 1</a>
-				</div>
+				</button>
 			</li>
 			<li onMouseDown={switchTabCheck}>
-				<div className={wordGeneratorSubClass}>
+				<button className={wordGeneratorSubClass} onKeyDown={switchTabCheck}>
 					<Icons iconName="step" sideNavClass={wordGeneratorSubClass} />
 					<a className="wordGenerator">step 2</a>
-				</div>
+				</button>
 			</li>
 			<li onMouseDown={switchTabCheck}>
-				<div className={wordGeneratorSubClass}>
+				<button className={wordGeneratorSubClass} onKeyDown={switchTabCheck}>
 					<Icons iconName="step" sideNavClass={wordGeneratorSubClass} />
 					<a className="wordGenerator">step 3</a>
-				</div>
+				</button>
 			</li>
 			<li onMouseDown={switchTabCheck}>
-				<div className={wordGeneratorSubClass}>
+				<button className={wordGeneratorSubClass} onKeyDown={switchTabCheck}>
 					<Icons iconName="step" sideNavClass={wordGeneratorSubClass} />
 					<a className="wordGenerator">step 4</a>
-				</div>
+				</button>
 			</li>
 			<li onMouseDown={switchTabCheck}>
-				<div className={wordGeneratorSubClass}>
+				<button className={wordGeneratorSubClass} onKeyDown={switchTabCheck}>
 					<Icons iconName="challenges" sideNavClass={wordGeneratorSubClass} />
 					<a className="wordGenerator">challenges</a>
-				</div>
+				</button>
 			</li>
 			<li onMouseDown={switchTabCheck}>
-				<div className={wordGeneratorSubClass}>
+				<button className={wordGeneratorSubClass} onKeyDown={switchTabCheck}>
 					<Icons iconName="successes" sideNavClass={wordGeneratorSubClass} />
 					<a className="wordGenerator">successes</a>
-				</div>
+				</button>
 			</li>
-			{/* <li onMouseDown={switchTabCheck}>
-				<div className={wordGeneratorSubClass}>
-					<Icons iconName="screenshots" sideNavClass={wordGeneratorSubClass} />
-					<a className="wordGenerator">screenshots</a>
-				</div>
-			</li> */}
 		</ul>
 	)
 	const [navWordGeneratorSection, setNavWordGeneratorSection] = useState(emptySection)
 	const autojackSection = (
 		<ul className="sideNavBorder">
 			<li onMouseDown={switchTabCheck}>
-				<div className={autojackSubClass}>
+				<button className={autojackSubClass} onKeyDown={switchTabCheck}>
 					<Icons iconName="overview" sideNavClass={autojackSubClass} />
 					<a className="autojack">overview</a>
-				</div>
+				</button>
 			</li>
 			<li onMouseDown={switchTabCheck}>
-				<div className={autojackSubClass}>
+				<button className={autojackSubClass} onKeyDown={switchTabCheck}>
 					<Icons iconName="step" sideNavClass={autojackSubClass} />
 					<a className="autojack">step 1</a>
-				</div>
+				</button>
 			</li>
 			<li onMouseDown={switchTabCheck}>
-				<div className={autojackSubClass}>
+				<button className={autojackSubClass} onKeyDown={switchTabCheck}>
 					<Icons iconName="step" sideNavClass={autojackSubClass} />
 					<a className="autojack">step 2</a>
-				</div>
+				</button>
 			</li>
 			<li onMouseDown={switchTabCheck}>
-				<div className={autojackSubClass}>
+				<button className={autojackSubClass} onKeyDown={switchTabCheck}>
 					<Icons iconName="step" sideNavClass={autojackSubClass} />
 					<a className="autojack">step 3</a>
-				</div>
+				</button>
 			</li>
 			<li onMouseDown={switchTabCheck}>
-				<div className={autojackSubClass}>
+				<button className={autojackSubClass} onKeyDown={switchTabCheck}>
 					<Icons iconName="challenges" sideNavClass={autojackSubClass} />
 					<a className="autojack">challenges</a>
-				</div>
+				</button>
 			</li>
 			<li onMouseDown={switchTabCheck}>
-				<div className={autojackSubClass}>
+				<button className={autojackSubClass} onKeyDown={switchTabCheck}>
 					<Icons iconName="successes" sideNavClass={autojackSubClass} />
 					<a className="autojack">successes</a>
-				</div>
+				</button>
 			</li>
 			<li onMouseDown={switchTabCheck}>
-				<div className={autojackSubClass}>
+				<button className={autojackSubClass} onKeyDown={switchTabCheck}>
 					<Icons iconName="screenshots" sideNavClass={autojackSubClass} />
 					<a className="autojack">screenshots</a>
-				</div>
+				</button>
 			</li>
 		</ul>
 	)
@@ -241,52 +238,52 @@ export default function Index() {
 	const randomSection = (
 		<ul className="sideNavBorder">
 			<li onMouseDown={switchTabCheck}>
-				<div className={randomTestSubClass}>
+				<button className={randomTestSubClass} onKeyDown={switchTabCheck}>
 					<Icons iconName="overview" sideNavClass={randomTestSubClass} />
 					<a className="randomTest">overview</a>
-				</div>
+				</button>
 			</li>
 			<li onMouseDown={switchTabCheck}>
-				<div className={randomTestSubClass}>
+				<button className={randomTestSubClass} onKeyDown={switchTabCheck}>
 					<Icons iconName="step" sideNavClass={randomTestSubClass} />
 					<a className="randomTest">step 1</a>
-				</div>
+				</button>
 			</li>
 			<li onMouseDown={switchTabCheck}>
-				<div className={randomTestSubClass}>
+				<button className={randomTestSubClass} onKeyDown={switchTabCheck}>
 					<Icons iconName="step" sideNavClass={randomTestSubClass} />
 					<a className="randomTest">step 2</a>
-				</div>
+				</button>
 			</li>
 			<li onMouseDown={switchTabCheck}>
-				<div className={randomTestSubClass}>
+				<button className={randomTestSubClass} onKeyDown={switchTabCheck}>
 					<Icons iconName="step" sideNavClass={randomTestSubClass} />
 					<a className="randomTest">step 3</a>
-				</div>
+				</button>
 			</li>
 			<li onMouseDown={switchTabCheck}>
-				<div className={randomTestSubClass}>
+				<button className={randomTestSubClass} onKeyDown={switchTabCheck}>
 					<Icons iconName="step" sideNavClass={randomTestSubClass} />
 					<a className="randomTest">step 4</a>
-				</div>
+				</button>
 			</li>
 			<li onMouseDown={switchTabCheck}>
-				<div className={randomTestSubClass}>
+				<button className={randomTestSubClass} onKeyDown={switchTabCheck}>
 					<Icons iconName="challenges" sideNavClass={randomTestSubClass} />
 					<a className="randomTest">challenges</a>
-				</div>
+				</button>
 			</li>
 			<li onMouseDown={switchTabCheck}>
-				<div className={randomTestSubClass}>
+				<button className={randomTestSubClass} onKeyDown={switchTabCheck}>
 					<Icons iconName="successes" sideNavClass={randomTestSubClass} />
 					<a className="randomTest">successes</a>
-				</div>
+				</button>
 			</li>
 			{/* <li onMouseDown={switchTabCheck}>
-				<div className={randomTestSubClass}>
+				<button className={randomTestSubClass}>
 					<Icons iconName="screenshots" sideNavClass={randomTestSubClass} />
 					<a className="randomTest">screenshots</a>
-				</div>
+				</button>
 			</li> */}
 		</ul>
 	)
@@ -294,53 +291,47 @@ export default function Index() {
 	const portfolioSection = (
 		<ul className="sideNavBorder">
 			<li onMouseDown={switchTabCheck}>
-				<div className={portfolioSubClass}>
+				<button className={portfolioSubClass} onKeyDown={switchTabCheck}>
 					<Icons iconName="overview" sideNavClass={portfolioSubClass} />
 					<a className="portfolio">overview</a>
-				</div>
+				</button>
 			</li>
 			<li onMouseDown={switchTabCheck}>
-				<div className={portfolioSubClass}>
+				<button className={portfolioSubClass} onKeyDown={switchTabCheck}>
 					<Icons iconName="step" sideNavClass={portfolioSubClass} />
 					<a className="portfolio">step 1</a>
-				</div>
+				</button>
 			</li>
 			<li onMouseDown={switchTabCheck}>
-				<div className={portfolioSubClass}>
+				<button className={portfolioSubClass} onKeyDown={switchTabCheck}>
 					<Icons iconName="step" sideNavClass={portfolioSubClass} />
 					<a className="portfolio">step 2</a>
-				</div>
+				</button>
 			</li>
 			<li onMouseDown={switchTabCheck}>
-				<div className={portfolioSubClass}>
+				<button className={portfolioSubClass} onKeyDown={switchTabCheck}>
 					<Icons iconName="step" sideNavClass={portfolioSubClass} />
 					<a className="portfolio">step 3</a>
-				</div>
+				</button>
 			</li>
 			<li onMouseDown={switchTabCheck}>
-				<div className={portfolioSubClass}>
+				<button className={portfolioSubClass} onKeyDown={switchTabCheck}>
 					<Icons iconName="step" sideNavClass={portfolioSubClass} />
 					<a className="portfolio">step 4</a>
-				</div>
+				</button>
 			</li>
 			<li onMouseDown={switchTabCheck}>
-				<div className={portfolioSubClass}>
+				<button className={portfolioSubClass} onKeyDown={switchTabCheck}>
 					<Icons iconName="challenges" sideNavClass={portfolioSubClass} />
 					<a className="portfolio">challenges</a>
-				</div>
+				</button>
 			</li>
 			<li onMouseDown={switchTabCheck}>
-				<div className={portfolioSubClass}>
+				<button className={portfolioSubClass} onKeyDown={switchTabCheck}>
 					<Icons iconName="successes" sideNavClass={portfolioSubClass} />
 					<a className="portfolio">successes</a>
-				</div>
+				</button>
 			</li>
-			{/* <li onMouseDown={switchTabCheck}>
-				<div className={portfolioSubClass}>
-					<Icons iconName="screenshots" sideNavClass={portfolioSubClass} />
-					<a className="portfolio">screenshots</a>
-				</div>
-			</li> */}
 		</ul>
 	)
 	const [navPortfolioSection, setNavPortfolioSection] = useState(emptySection)
@@ -663,110 +654,112 @@ export default function Index() {
 	}, [selectedTab])
 
 	const navToggle = (e) => {
-		console.log(e)
-		// This function sets the target section's content to be the opposite of what it currently is
-		let tab = e.target.className
-		if (tab === 'yellow' || tab === 'darkGrey') {
-			tab = e.target.lastChild.className
-		} else if (tab === 'titleList') {
-			tab = e.target.lastChild.lastChild.className
-		}
+		if ((e.code && (e.code === 'Enter' || e.code === 'Space')) || typeof e.code === 'undefined') {
+			// this check ensures that if triggered with keyboard, only enter will execute
+			// This function sets the target section's content to be the opposite of what it currently is
+			let tab = e.target.className
+			if (tab === 'yellow' || tab === 'darkGrey') {
+				tab = e.target.lastChild.className
+			} else if (tab === 'titleList') {
+				tab = e.target.lastChild.lastChild.className
+			}
 
-		// console.log(typeof tab)
+			// console.log(typeof tab)
 
-		if (typeof tab !== 'string') {
-			// clicked on the Icon
-			let sectionName
+			if (typeof tab !== 'string') {
+				// clicked on the Icon
+				let sectionName
 
-			if (e.target.parentElement.nextElementSibling !== null) {
-				sectionName = e.target.parentElement.nextElementSibling.className
+				if (e.target.parentElement.nextElementSibling !== null) {
+					sectionName = e.target.parentElement.nextElementSibling.className
+				} else {
+					sectionName = e.target.nextElementSibling.className
+				}
+
+				switch (sectionName) {
+					case 'home':
+						if (typeof navHomeSection !== 'undefined') {
+							setNavHomeSection(emptySection)
+						} else {
+							setNavHomeSection(homeSection)
+						}
+						break
+					case 'wordGenerator':
+						if (typeof navWordGeneratorSection !== 'undefined') {
+							setNavWordGeneratorSection(emptySection)
+						} else {
+							setNavWordGeneratorSection(wordGeneratorSection)
+						}
+						break
+					case 'autojack':
+						if (typeof navAutojackSection !== 'undefined') {
+							setNavAutojackSection(emptySection)
+						} else {
+							setNavAutojackSection(autojackSection)
+						}
+						break
+					case 'randomTest':
+						if (typeof navRandomSection !== 'undefined') {
+							setNavRandomSection(emptySection)
+						} else {
+							setNavRandomSection(randomSection)
+						}
+						break
+					case 'portfolio':
+						if (typeof navPortfolioSection !== 'undefined') {
+							setNavPortfolioSection(emptySection)
+						} else {
+							setNavPortfolioSection(portfolioSection)
+						}
+						break
+				}
 			} else {
-				sectionName = e.target.nextElementSibling.className
-			}
-
-			switch (sectionName) {
-				case 'home':
-					if (typeof navHomeSection !== 'undefined') {
-						setNavHomeSection(emptySection)
-					} else {
-						setNavHomeSection(homeSection)
-					}
-					break
-				case 'wordGenerator':
-					if (typeof navWordGeneratorSection !== 'undefined') {
-						setNavWordGeneratorSection(emptySection)
-					} else {
-						setNavWordGeneratorSection(wordGeneratorSection)
-					}
-					break
-				case 'autojack':
-					if (typeof navAutojackSection !== 'undefined') {
-						setNavAutojackSection(emptySection)
-					} else {
-						setNavAutojackSection(autojackSection)
-					}
-					break
-				case 'randomTest':
-					if (typeof navRandomSection !== 'undefined') {
-						setNavRandomSection(emptySection)
-					} else {
-						setNavRandomSection(randomSection)
-					}
-					break
-				case 'portfolio':
-					if (typeof navPortfolioSection !== 'undefined') {
-						setNavPortfolioSection(emptySection)
-					} else {
-						setNavPortfolioSection(portfolioSection)
-					}
-					break
-			}
-		} else {
-			// Clicked on the text or box
-			switch (tab) {
-				case 'home':
-					if (typeof navHomeSection !== 'undefined' && selectedTab[0] === 'home') {
-						setNavHomeSection(emptySection)
-					} else {
-						setNavHomeSection(homeSection)
-						switchTabCheck(tab)
-					}
-					break
-				case 'wordGenerator':
-					if (
-						typeof navWordGeneratorSection !== 'undefined' &&
-						selectedTab[0] === 'wordGenerator'
-					) {
-						setNavWordGeneratorSection(emptySection)
-					} else {
-						setNavWordGeneratorSection(wordGeneratorSection)
-						switchTabCheck(tab)
-					}
-					break
-				case 'autojack':
-					if (typeof navAutojackSection !== 'undefined' && selectedTab[0] === 'autojack') {
-						setNavAutojackSection(emptySection)
-					} else {
-						setNavAutojackSection(autojackSection)
-						switchTabCheck(tab)
-					}
-					break
-				case 'randomTest':
-					if (typeof navRandomSection !== 'undefined' && selectedTab[0] === 'randomTest') {
-						setNavRandomSection(emptySection)
-					} else {
-						setNavRandomSection(randomSection)
-						switchTabCheck(tab)
-					}
-					break
-				case 'portfolio':
-					if (typeof navPortfolioSection !== 'undefined' && selectedTab[0] === 'portfolio') {
-						setNavPortfolioSection(emptySection)
-					} else {
-						setNavPortfolioSection(portfolioSection)
-						switchTabCheck(tab)
-					}
-					break
+				// Clicked on the text or box
+				switch (tab) {
+					case 'home':
+						if (typeof navHomeSection !== 'undefined' && selectedTab[0] === 'home') {
+							setNavHomeSection(emptySection)
+						} else {
+							setNavHomeSection(homeSection)
+							switchTabCheck(tab)
+						}
+						break
+					case 'wordGenerator':
+						if (
+							typeof navWordGeneratorSection !== 'undefined' &&
+							selectedTab[0] === 'wordGenerator'
+						) {
+							setNavWordGeneratorSection(emptySection)
+						} else {
+							setNavWordGeneratorSection(wordGeneratorSection)
+							switchTabCheck(tab)
+						}
+						break
+					case 'autojack':
+						if (typeof navAutojackSection !== 'undefined' && selectedTab[0] === 'autojack') {
+							setNavAutojackSection(emptySection)
+						} else {
+							setNavAutojackSection(autojackSection)
+							switchTabCheck(tab)
+						}
+						break
+					case 'randomTest':
+						if (typeof navRandomSection !== 'undefined' && selectedTab[0] === 'randomTest') {
+							setNavRandomSection(emptySection)
+						} else {
+							setNavRandomSection(randomSection)
+							switchTabCheck(tab)
+						}
+						break
+					case 'portfolio':
+						if (typeof navPortfolioSection !== 'undefined' && selectedTab[0] === 'portfolio') {
+							setNavPortfolioSection(emptySection)
+						} else {
+							setNavPortfolioSection(portfolioSection)
+							switchTabCheck(tab)
+						}
+						break
+				}
 			}
 		}
 	}
@@ -1050,6 +1043,51 @@ export default function Index() {
 		window.onresize = updateDimensions
 	}, [])
 
+	const [homeExpanded, sethomeExpanded] = useState('true')
+	useEffect(() => {
+		if (navHomeSection) {
+			sethomeExpanded('true')
+		} else {
+			sethomeExpanded('false')
+		}
+	}, [navHomeSection])
+
+	const [wordGeneratorExpanded, setWordGeneratorExpanded] = useState('false')
+	useEffect(() => {
+		if (navWordGeneratorSection) {
+			setWordGeneratorExpanded('true')
+		} else {
+			setWordGeneratorExpanded('false')
+		}
+	}, [navWordGeneratorSection])
+
+	const [autojackExpanded, setAutojackExpanded] = useState('false')
+	useEffect(() => {
+		if (navAutojackSection) {
+			setAutojackExpanded('true')
+		} else {
+			setAutojackExpanded('false')
+		}
+	}, [navAutojackSection])
+
+	const [randomTestExpanded, setRandomTestExpanded] = useState('false')
+	useEffect(() => {
+		if (navRandomSection) {
+			setRandomTestExpanded('true')
+		} else {
+			setRandomTestExpanded('false')
+		}
+	}, [navRandomSection])
+
+	const [portfolioExpanded, setPortfolioExpanded] = useState('false')
+	useEffect(() => {
+		if (navPortfolioSection) {
+			setPortfolioExpanded('true')
+		} else {
+			setPortfolioExpanded('false')
+		}
+	}, [navPortfolioSection])
+
 	return (
 		<>
 			<Head>
@@ -1081,18 +1119,30 @@ export default function Index() {
 				<GithubSVG />
 			</header>
 
-			<nav className="nav inline">
+			<nav className="nav inline" aria-label="primary">
 				<div className="sideNav navText">
 					<ul className="sideNavUL">
 						<li className="titleList" onMouseDown={navToggle}>
-							<div className={homeClass} id="sectionHome">
+							<button
+								className={homeClass}
+								id="sectionHome"
+								onKeyDown={navToggle}
+								aria-label="home tab select and home menu"
+								aria-expanded={homeExpanded}
+							>
 								<Icons iconName="drop" sideNavHead={navHomeSection} color={homeClass} />
 								<a className="home">home</a>
-							</div>
+							</button>
 						</li>
 						{navHomeSection}
 						<li className="titleList" onMouseDown={navToggle}>
-							<div className={wordGeneratorClass} id="sectionWordGenerator">
+							<button
+								className={wordGeneratorClass}
+								id="sectionWordGenerator"
+								onKeyDown={navToggle}
+								aria-label="word generator tab select and menu"
+								aria-expanded={wordGeneratorExpanded}
+							>
 								<Icons
 									iconName="drop"
 									sideNavHead={navWordGeneratorSection}
@@ -1101,41 +1151,59 @@ export default function Index() {
 								<a className="wordGenerator" id="section">
 									proj0_word_generator
 								</a>
-							</div>
+							</button>
 						</li>
 						{navWordGeneratorSection}
 						<li className="titleList" onMouseDown={navToggle}>
-							<div className={autojackClass} id="sectionAutojack">
+							<button
+								className={autojackClass}
+								id="sectionAutojack"
+								onKeyDown={navToggle}
+								aria-label="autojack tab select and menu"
+								aria-expanded={autojackExpanded}
+							>
 								<Icons iconName="drop" sideNavHead={navAutojackSection} color={autojackClass} />
 								<a className="autojack" id="section">
 									proj1_autojack
 								</a>
-							</div>
+							</button>
 						</li>
 						{navAutojackSection}
 						<li className="titleList" onMouseDown={navToggle}>
-							<div className={randomTestClass} id="sectionRandomTest">
+							<button
+								className={randomTestClass}
+								id="sectionRandomTest"
+								onKeyDown={navToggle}
+								aria-label="random test tab select and menu"
+								aria-expanded={randomTestExpanded}
+							>
 								<Icons iconName="drop" sideNavHead={navRandomSection} color={randomTestClass} />
 								<a className="randomTest" id="section">
 									proj2_random_test
 								</a>
-							</div>
+							</button>
 						</li>
 						{navRandomSection}
 						<li className="titleList" onMouseDown={navToggle}>
-							<div className={portfolioClass} id="sectionPortfolio">
+							<button
+								className={portfolioClass}
+								id="sectionPortfolio"
+								onKeyDown={navToggle}
+								aria-label="portfolio tab select and menu"
+								aria-expanded={portfolioExpanded}
+							>
 								<Icons iconName="drop" sideNavHead={navPortfolioSection} color={portfolioClass} />
 								<a className="portfolio" id="section">
 									proj3_portfolio
 								</a>
-							</div>
+							</button>
 						</li>
 						{navPortfolioSection}
 					</ul>
 				</div>
 			</nav>
 			<DragTab content={dragTabContent} exist={grabTabExistence} id={selectedTab[0] + 'Tab'} />
-			<div className="tabCollection">
+			<div className="tabCollection" aria-hidden="true">
 				<Tab
 					content="home.tab"
 					id="homeTab"
