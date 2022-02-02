@@ -1053,11 +1053,11 @@ export default function Index() {
 	return (
 		<>
 			<Head>
-				<meta name="description" content="Portfolio site" />
+				<meta name="description" content="Antonio's Portfolio Site" />
 				<meta name="author" content="Antonio Zamora, zamora88875@gmail.com" />
 				<meta name="designer" content="Jess Simons, jess.simons.design@gmail.com" />
-				<meta name="keywords" content="portfolio, front end development" />
-				<meta name="theme-color" content="#4285f4" />
+				<meta name="keywords" content="portfolio, front end development, Antonio" />
+				<meta name="theme-color" content="#262538" />
 				<meta name="language" content="English" />
 				<meta name="revised" content="November 11th, 2021" />
 				<meta name="HandheldFriendly" content="true" />
@@ -1077,8 +1077,8 @@ export default function Index() {
 				</div>
 				<div className="header"></div>
 				<div className="headerSpaceFill"></div>
-				<GithubSVG />
 				<HamburgerSVG focus={tabClick} selected={selectedTab[0]} />
+				<GithubSVG />
 			</header>
 
 			<nav className="nav inline">

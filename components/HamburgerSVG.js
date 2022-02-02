@@ -38,7 +38,7 @@ export default function HamburgerSVG({ focus, selected }) {
 		}
 	}, [selected])
 
-	const [mobileNavMenu, setMobileNavMenu] = useState(<></>)
+	const [mobileNavMenu, setMobileNavMenu] = useState()
 
 	const menuClose = () => {
 		let mobileSideNav = document.getElementsByClassName('mobileSideNav')[0]
@@ -46,7 +46,7 @@ export default function HamburgerSVG({ focus, selected }) {
 		mobileSideNav.className = mobileSideNav.className + ' exitNav'
 		darkFilter.className = darkFilter.className + ' exitDark'
 		setTimeout(() => {
-			setMobileNavMenu(<></>)
+			setMobileNavMenu()
 		}, 200)
 	}
 
@@ -54,58 +54,67 @@ export default function HamburgerSVG({ focus, selected }) {
 		// let header = document.getElementsByTagName('header')[0]
 		setMobileNavMenu(
 			<>
-				<div class="mobileSideNav">
-					{' '}
-					<svg
+				<nav className="mobileSideNav">
+					<button
+						id="hamburger2"
 						className="hamburgerNew"
-						width="1.2em"
-						height="1.2em"
-						version="1.1"
-						id="Layer_1"
-						xmlns="http://www.w3.org/2000/svg"
-						xmlnsXlink="http://www.w3.org/1999/xlink"
-						x="0"
-						y="0"
-						viewBox="0 0 19.315 17"
-						onMouseDown={menuClose}
+						name="nav"
+						aria-expanded="true"
+						aria-label="Menu"
+						onClick={menuClose}
 					>
-						<g
-							id="Hamburger_Menu_Icon"
-							data-name="Hamburger Menu Icon"
-							transform="translate(-363.191 -27.5)"
+						<svg
+							width="1.2em"
+							height="1.2em"
+							version="1.1"
+							id="Layer_1"
+							xmlns="http://www.w3.org/2000/svg"
+							xmlnsXlink="http://www.w3.org/1999/xlink"
+							x="0"
+							y="0"
+							viewBox="0 0 19.315 17"
+							aria-hidden="true"
+							onMouseDown={menuClose}
 						>
-							<path
-								id="Path_23"
-								data-name="Path 23"
-								d="M2323.506,1337.632h-19.315"
-								transform="translate(-1941 -1309.132)"
-								fill="none"
-								stroke="#fff"
-								stroke-width="2"
-							/>
-							<path
-								id="Path_24"
-								data-name="Path 24"
-								d="M2323.506,1337.632h-19.315"
-								transform="translate(-1941 -1301.632)"
-								fill="none"
-								stroke="#fff"
-								stroke-width="2"
-							/>
-							<path
-								id="Path_25"
-								data-name="Path 25"
-								d="M2323.506,1337.632h-19.315"
-								transform="translate(-1941 -1294.132)"
-								fill="none"
-								stroke="#fff"
-								stroke-width="2"
-							/>
-						</g>
-					</svg>
+							<g
+								id="Hamburger_Menu_Icon"
+								data-name="Hamburger Menu Icon"
+								transform="translate(-363.191 -27.5)"
+							>
+								<path
+									id="Path_23"
+									data-name="Path 23"
+									d="M2323.506,1337.632h-19.315"
+									transform="translate(-1941 -1309.132)"
+									fill="none"
+									stroke="#fff"
+									stroke-width="2"
+								/>
+								<path
+									id="Path_24"
+									data-name="Path 24"
+									d="M2323.506,1337.632h-19.315"
+									transform="translate(-1941 -1301.632)"
+									fill="none"
+									stroke="#fff"
+									stroke-width="2"
+								/>
+								<path
+									id="Path_25"
+									data-name="Path 25"
+									d="M2323.506,1337.632h-19.315"
+									transform="translate(-1941 -1294.132)"
+									fill="none"
+									stroke="#fff"
+									stroke-width="2"
+								/>
+							</g>
+						</svg>
+					</button>
 					<h3 id="codeAntonioNew">CODE ANTONIO</h3>
 					<div className="sideNavContent">
-						<div
+						{/* Container for the sideNav */}
+						<button
 							className="sideNavSection"
 							id="homeTab"
 							onClick={(e) => {
@@ -115,8 +124,8 @@ export default function HamburgerSVG({ focus, selected }) {
 						>
 							<Icons iconName="homeTab" big={true} active={active[0]} />
 							<p class="sideNavText">home</p>
-						</div>
-						<div
+						</button>
+						<button
 							className="sideNavSection"
 							id="wordGeneratorTab"
 							onClick={(e) => {
@@ -126,8 +135,8 @@ export default function HamburgerSVG({ focus, selected }) {
 						>
 							<Icons iconName="wordGeneratorTab" id="wordGenerator" big={true} active={active[1]} />
 							<p class="sideNavText">proj0_word_generator</p>
-						</div>
-						<div
+						</button>
+						<button
 							className="sideNavSection"
 							id="autojackTab"
 							onClick={(e) => {
@@ -137,8 +146,8 @@ export default function HamburgerSVG({ focus, selected }) {
 						>
 							<Icons iconName="autojackTab" id="autojack" big={true} active={active[2]} />
 							<p class="sideNavText">proj1_autojack</p>
-						</div>
-						<div
+						</button>
+						<button
 							className="sideNavSection"
 							id="randomTestTab"
 							onClick={(e) => {
@@ -148,8 +157,8 @@ export default function HamburgerSVG({ focus, selected }) {
 						>
 							<Icons iconName="randomTestTab" id="randomTest" big={true} active={active[3]} />
 							<p class="sideNavText">proj2_random_test</p>
-						</div>
-						<div
+						</button>
+						<button
 							className="sideNavSection"
 							id="portfolioTab"
 							onClick={(e) => {
@@ -159,64 +168,90 @@ export default function HamburgerSVG({ focus, selected }) {
 						>
 							<Icons iconName="portfolioTab" id="portfolio" big={true} active={active[4]} />
 							<p class="sideNavText">proj3_portfolio</p>
-						</div>
+						</button>
 					</div>
-				</div>
+				</nav>
 				<div class="darkFilter" onMouseDown={menuClose}></div>
 			</>
 		)
 	}
 
+	useEffect(() => {
+		if (mobileNavMenu) {
+			let hamburger2 = document.getElementById('hamburger2')
+			if (hamburger2 !== null) {
+				hamburger2.focus()
+				let hamburger1 = document.getElementById('hamburger1')
+				hamburger1.setAttribute('aria-hidden', 'true')
+				hamburger1.setAttribute('tabIndex', '-1')
+			}
+		} else {
+			let hamburger1 = document.getElementById('hamburger1')
+			hamburger1.focus()
+			hamburger1.setAttribute('aria-hidden', 'false')
+			hamburger1.setAttribute('tabIndex', '0')
+		}
+	}, [mobileNavMenu])
+
 	return (
-		<>
-			{mobileNavMenu}
-			<svg
+		<nav id="responsiveNav">
+			<button
+				id="hamburger1"
 				className="hamburger"
-				width="1.2em"
-				height="1.2em"
-				version="1.1"
-				id="Layer_1"
-				xmlns="http://www.w3.org/2000/svg"
-				xmlnsXlink="http://www.w3.org/1999/xlink"
-				x="0"
-				y="0"
-				viewBox="0 0 19.315 17"
-				onMouseDown={menuOpen}
+				name="nav"
+				aria-expanded="false"
+				aria-label="Menu"
+				onClick={menuOpen}
 			>
-				<g
-					id="Hamburger_Menu_Icon"
-					data-name="Hamburger Menu Icon"
-					transform="translate(-363.191 -27.5)"
+				<svg
+					width="1.2em"
+					height="1.2em"
+					version="1.1"
+					id="Layer_1"
+					xmlns="http://www.w3.org/2000/svg"
+					xmlnsXlink="http://www.w3.org/1999/xlink"
+					x="0"
+					y="0"
+					viewBox="0 0 19.315 17"
+					aria-hidden="true"
+					onMouseDown={menuOpen}
 				>
-					<path
-						id="Path_23"
-						data-name="Path 23"
-						d="M2323.506,1337.632h-19.315"
-						transform="translate(-1941 -1309.132)"
-						fill="none"
-						stroke="#fff"
-						stroke-width="2"
-					/>
-					<path
-						id="Path_24"
-						data-name="Path 24"
-						d="M2323.506,1337.632h-19.315"
-						transform="translate(-1941 -1301.632)"
-						fill="none"
-						stroke="#fff"
-						stroke-width="2"
-					/>
-					<path
-						id="Path_25"
-						data-name="Path 25"
-						d="M2323.506,1337.632h-19.315"
-						transform="translate(-1941 -1294.132)"
-						fill="none"
-						stroke="#fff"
-						stroke-width="2"
-					/>
-				</g>
-			</svg>
-		</>
+					<g
+						id="Hamburger_Menu_Icon"
+						data-name="Hamburger Menu Icon"
+						transform="translate(-363.191 -27.5)"
+					>
+						<path
+							id="Path_23"
+							data-name="Path 23"
+							d="M2323.506,1337.632h-19.315"
+							transform="translate(-1941 -1309.132)"
+							fill="none"
+							stroke="#fff"
+							stroke-width="2"
+						/>
+						<path
+							id="Path_24"
+							data-name="Path 24"
+							d="M2323.506,1337.632h-19.315"
+							transform="translate(-1941 -1301.632)"
+							fill="none"
+							stroke="#fff"
+							stroke-width="2"
+						/>
+						<path
+							id="Path_25"
+							data-name="Path 25"
+							d="M2323.506,1337.632h-19.315"
+							transform="translate(-1941 -1294.132)"
+							fill="none"
+							stroke="#fff"
+							stroke-width="2"
+						/>
+					</g>
+				</svg>
+			</button>
+			{mobileNavMenu}
+		</nav>
 	)
 }

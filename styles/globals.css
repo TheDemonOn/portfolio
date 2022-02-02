@@ -41,10 +41,6 @@ a {
 	box-sizing: border-box;
 }
 
-:root {
-	--bg-color: brown;
-}
-
 h1 {
 	font-family: 'Source Code Pro', monospace;
 	font-weight: 600;
@@ -71,9 +67,22 @@ a {
 
 button {
 	/* border: #fff; */
-	z-index: 3;
+
+	/* z-index: 3;
 	width: 1.5em;
-	height: 1.5em;
+	height: 1.5em; */
+
+	/* all: unset;
+	cursor: pointer; */
+	background-color: transparent;
+	border: none;
+}
+button:focus {
+	/* outline: red auto 5px; */
+	/* background: lightgrey; */
+}
+button:focus-visible {
+	outline: 3.5px dashed darkorange;
 }
 
 ul {
@@ -134,9 +143,13 @@ li {
 }
 
 svg {
-	position: fixed;
+	/* position: fixed; */
 	/* border: solid; */
 	z-index: 10;
+}
+
+.sideNavUL svg {
+	position: fixed;
 }
 
 .sideNavBorder {
@@ -233,6 +246,10 @@ svg {
 	height: 200vh;
 	top: 2.2em;
 	color: #fff;
+}
+
+#responsiveNav {
+	display: none;
 }
 
 .navText {
@@ -383,6 +400,9 @@ svg {
 	top: 0.7em;
 	right: 1em;
 }
+.github:focus-visible {
+	outline: 3.5px dashed darkorange;
+}
 
 .hamburger {
 	display: none;
@@ -390,15 +410,16 @@ svg {
 	top: 1.1em;
 	left: 1.5em;
 	cursor: pointer;
+	z-index: 1;
 }
 
 .hamburgerNew {
 	display: none;
-	position: static;
+	position: absolute;
 	margin-top: 1.1em;
 	margin-left: 1.5em;
-	z-index: 13;
-	cursor: pointer;
+	/* z-index: 13;
+	cursor: pointer; */
 }
 
 .drop {
@@ -437,6 +458,12 @@ svg {
 	cursor: pointer;
 }
 
+.aLink {
+	font-family: 'Source Code Pro', monospace;
+	font-size: 20px;
+	line-height: 1.5;
+}
+
 .tabCollection {
 	z-index: 0;
 }
@@ -453,7 +480,8 @@ svg {
 	align-items: center;
 	cursor: pointer;
 	height: 4em;
-	margin-left: -1.5em;
+	margin-left: -1.7em;
+	width: 260px;
 }
 
 .sideNavSection:active {
@@ -524,7 +552,7 @@ svg {
 #codeAntonioNew {
 	position: static;
 	color: #fff;
-	margin-top: -1.2em;
+	margin-top: 0.86em;
 	margin-left: 3.5em;
 }
 
@@ -887,6 +915,9 @@ svg {
 	}
 	.nav {
 		display: none;
+	}
+	#responsiveNav {
+		display: inherit;
 	}
 	.bodyPosition {
 		margin-left: 1em;

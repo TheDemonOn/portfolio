@@ -2,9 +2,8 @@ import React from 'react'
 
 export default function GithubSVG() {
 	return (
-		<a href="https://github.com/TheDemonOn/portfolio" target="_blank">
+		<a className="github" href="https://github.com/TheDemonOn/portfolio" target="_blank">
 			<svg
-				className="github"
 				width="2em"
 				height="2em"
 				version="1.1"
@@ -14,6 +13,7 @@ export default function GithubSVG() {
 				x="0"
 				y="0"
 				viewBox="0 0 500 487"
+				aria-hidden="true"
 			>
 				<path
 					fill="#fff"
