@@ -1110,6 +1110,10 @@ export default function Index() {
 			</Head>
 
 			<header>
+				<a href="#main-content" id="navSkip">
+					Skip Navigation
+				</a>
+
 				<div className="headerAntonio">
 					<h3 id="codeAntonio">CODE ANTONIO</h3>
 				</div>
@@ -1276,7 +1280,7 @@ export default function Index() {
 				/>
 			</div>
 			<body>
-				<div className="bodyPosition">
+				<div className="bodyPosition" id="main-content">
 					{displayedTab}
 					{title}
 				</div>
