@@ -96,11 +96,11 @@ export default function ActiveNoHover({
 						y2="15"
 						gradientUnits="userSpaceOnUse"
 					>
-						<stop offset="0" stopOpacity="0" stop-color="#262538"></stop>
-						<stop offset="0.20" stopOpacity="0.97" stop-color="#262538"></stop>
-						<stop offset="0.32" stop-color="#262538"></stop>
-						<stop offset="0.41" stop-color="#262538"></stop>
-						<stop offset="1" stop-color="#262538"></stop>
+						<stop offset="0" stopOpacity="0" stopColor="#262538"></stop>
+						<stop offset="0.20" stopOpacity="0.97" stopColor="#262538"></stop>
+						<stop offset="0.32" stopColor="#262538"></stop>
+						<stop offset="0.41" stopColor="#262538"></stop>
+						<stop offset="1" stopColor="#262538"></stop>
 					</linearGradient>
 				</defs>
 				<rect

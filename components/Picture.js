@@ -7,7 +7,7 @@ export default function Picture({ src, alt, width, height, srcset, className }) 
 			alt={alt}
 			width={width}
 			height={height}
-			srcset={srcset}
+			srcSet={srcset}
 			className={className}
 		></img>
 	)

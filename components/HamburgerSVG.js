@@ -88,7 +88,7 @@ export default function HamburgerSVG({ focus, selected }) {
 									transform="translate(-1941 -1309.132)"
 									fill="none"
 									stroke="#fff"
-									stroke-width="2"
+									strokeWidth="2"
 								/>
 								<path
 									id="Path_24"
@@ -97,7 +97,7 @@ export default function HamburgerSVG({ focus, selected }) {
 									transform="translate(-1941 -1301.632)"
 									fill="none"
 									stroke="#fff"
-									stroke-width="2"
+									strokeWidth="2"
 								/>
 								<path
 									id="Path_25"
@@ -106,7 +106,7 @@ export default function HamburgerSVG({ focus, selected }) {
 									transform="translate(-1941 -1294.132)"
 									fill="none"
 									stroke="#fff"
-									stroke-width="2"
+									strokeWidth="2"
 								/>
 							</g>
 						</svg>
@@ -233,7 +233,7 @@ export default function HamburgerSVG({ focus, selected }) {
 							transform="translate(-1941 -1309.132)"
 							fill="none"
 							stroke="#fff"
-							stroke-width="2"
+							strokeWidth="2"
 						/>
 						<path
 							id="Path_24"
@@ -242,7 +242,7 @@ export default function HamburgerSVG({ focus, selected }) {
 							transform="translate(-1941 -1301.632)"
 							fill="none"
 							stroke="#fff"
-							stroke-width="2"
+							strokeWidth="2"
 						/>
 						<path
 							id="Path_25"
@@ -251,7 +251,7 @@ export default function HamburgerSVG({ focus, selected }) {
 							transform="translate(-1941 -1294.132)"
 							fill="none"
 							stroke="#fff"
-							stroke-width="2"
+							strokeWidth="2"
 						/>
 					</g>
 				</svg>

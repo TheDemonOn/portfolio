@@ -28,13 +28,16 @@ export default function Portfolio({ y, distanceFromTopFunc }) {
 					/>
 				</div>
 				<div className="contentSide">
-					<SectionContent content="I used this site to experiment with creating an experince similar in feel to using an IDE." />
-				</div>
-				<div className="contentSide">
 					<SectionContent content="The site has a proper tab system, built to be similar to the Visual Studio Code tab system." />
 				</div>
 				<div className="contentSide">
+					<SectionContent content="Accessibility has been implemented for a better user experience." />
+				</div>
+				<div className="contentSide">
 					<SectionContent content="This site is a single-page application (SPA)." />
+				</div>
+				<div className="contentSide">
+					<SectionContent content="I used this site to experiment with creating an experince similar in feel to using an IDE." />
 				</div>
 			</section>
 			<SectionsTitle content="step 1" id="step1" />
@@ -78,9 +81,18 @@ export default function Portfolio({ y, distanceFromTopFunc }) {
 			</section>
 			<SectionsTitle content="step 4" id="step4" />
 			<section>
-				<SectionContent content="Inputting Information" size="true" />
+				<SectionContent content="Accessibility" size="true" />
 				<div className="contentSide">
-					<SectionContent content="The last step was to simply add the content, and find the design sketches for the projects, and to examine the commit history of the projects to remember the steps of development more clearly." />
+					<SectionContent content="I used this project to develop my accessibility skills which were severely lacking prior to my full introduction to screen readers." />
+				</div>
+				<div className="contentSide">
+					<SectionContent content="In particular I was not at all familiar with using ARIA to help the screen reader experience." />
+				</div>
+				<div className="contentSide">
+					<SectionContent content="In particular I was not at all familiar with using ARIA to help the screen reader experience." />
+				</div>
+				<div className="contentSide">
+					<SectionContent content="To the best of my ability I have made the experience of using this site with a screen reader as easy as possible." />
 				</div>
 			</section>
 			<SectionsTitle content="challenges" id="challenges" />
@@ -93,6 +105,9 @@ export default function Portfolio({ y, distanceFromTopFunc }) {
 			<section>
 				<div className="contentSide">
 					<SectionContent content="My success was having made my first portfolio site ever, flaws and all. I plan to completely redo the entire site because of all the new ideas I had while working on this one!" />
+				</div>
+				<div className="contentSide">
+					<SectionContent content="Accessibility is another area I have improved very significantly, with new things like ARIA labels and hidden skip navigation buttons!" />
 				</div>
 			</section>
 		</main>
