@@ -5,14 +5,11 @@ import Icons from './Icons'
 export default function Tab({
 	content,
 	id,
-	headerTabs,
 	focus,
 	destroy,
 	position,
-	selectedTab,
 	grabTabExistence,
 	activeClass,
-	dimensions,
 	offset,
 	spacing,
 }) {

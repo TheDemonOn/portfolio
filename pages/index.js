@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef, useLayoutEffect, useCallback } from 'react'
 import Head from 'next/head'
-import Image from 'next/image'
 import Home from '../components/Home'
 import WordGenerator from '../components/WordGenerator'
 import Autojack from '../components/Autojack'
@@ -68,7 +67,6 @@ export default function Index() {
 	const switchTabCheck = (e) => {
 		// This function gets the information needed to swap tabs, and/or scroll to a new position
 		// The different cases are for the different parts of the clickable elements
-		console.log(e)
 
 		if ((e.code && (e.code === 'Enter' || e.code === 'Space')) || typeof e.code === 'undefined') {
 			let tab
@@ -102,8 +100,6 @@ export default function Index() {
 			} else {
 				tab = e
 			}
-
-			// console.log(tab, innerText)
 			// Switch to tab with a useEffect trigger
 			if (tab || innerText) {
 				setSelectedTab([tab, innerText])
@@ -368,11 +364,9 @@ export default function Index() {
 			let spaceRegex = / /gm
 			let initialText = selectedTab[1]
 			let id = initialText.replace(spaceRegex, '')
-			console.log(id)
 			// This essentially concatenates the incoming string
 			if (document.getElementById(id) !== null) {
 				let element = document.getElementById(id)
-				console.log(element)
 				element.scrollIntoView({ behavior: 'smooth', block: 'center' })
 			}
 		}
@@ -392,7 +386,6 @@ export default function Index() {
 	}
 
 	const inactiveTabfunc = (active) => {
-		// console.log('This triggers', active)
 		if (active !== 'home') {
 			setHomeClass(inactiveTab)
 			setHomeSubClass(inactiveTab)
@@ -432,7 +425,6 @@ export default function Index() {
 	}
 
 	const tabClick = (e) => {
-		console.log(e)
 		let id
 		if (e.target.id === '') {
 			if (e.target.className === 'sideNavText') {
@@ -462,7 +454,6 @@ export default function Index() {
 				id = e.target.id
 			}
 		}
-		console.log(id)
 		focusTab(id)
 		let regex = /Tab/
 		let tab = id.replace(regex, '')
@@ -510,11 +501,7 @@ export default function Index() {
 	const [numberPosition, setNumberPosition] = useState([0, -1, -1, -1, -1])
 
 	useEffect(() => {
-		// console.log('Setting tab positions based on headerTabs.')
-		// console.log(headerTabs)
-		// console.log(numberPosition)
 		for (let i = 0; i < headerTabs.length; i++) {
-			// console.log(i, headerTabs[i])
 			switch (headerTabs[i]) {
 				case 'homeTab':
 					numberPosition[0] = i
@@ -664,8 +651,6 @@ export default function Index() {
 				tab = e.target.lastChild.lastChild.className
 			}
 
-			// console.log(typeof tab)
-
 			if (typeof tab !== 'string') {
 				// clicked on the Icon
 				let sectionName
@@ -796,8 +781,8 @@ export default function Index() {
 			leftString = e.target.style.left
 			element = e.target
 		} else {
-			leftString = e.explicitOriginalTarget.parentNode.parentNode.style.left
-			element = e.explicitOriginalTarget.parentNode.parentNode
+			leftString = e.target.parentNode.parentNode.style.left
+			element = e.target.parentNode.parentNode
 		}
 		setTabToBeMoved(element)
 		let regex = /px/
@@ -822,20 +807,15 @@ export default function Index() {
 		if (existenceRef.current === 1) {
 			// If the grabTab exists right now
 			let id
-			if (
-				typeof e.explicitOriginalTarget.ownerSVGElement !== 'undefined' &&
-				e.explicitOriginalTarget.ownerSVGElement !== null
-			) {
-				id = e.explicitOriginalTarget.ownerSVGElement.parentNode.id
-			} else if (
-				typeof e.explicitOriginalTarget.id !== 'undefined' &&
-				e.explicitOriginalTarget.id !== ''
-			) {
-				id = e.explicitOriginalTarget.id
-			} else if (e.explicitOriginalTarget.parentNode.id) {
-				id = e.explicitOriginalTarget.parentNode.id
+			console.log(e, e.target, e.target.ownerSVGElement)
+			if (typeof e.target.ownerSVGElement !== 'undefined' && e.target.ownerSVGElement !== null) {
+				id = e.target.ownerSVGElement.parentNode.id
+			} else if (typeof e.target.id !== 'undefined' && e.target.id !== '') {
+				id = e.target.id
+			} else if (e.target.parentNode.id) {
+				id = e.target.parentNode.id
 			} else {
-				id = e.explicitOriginalTarget.parentNode.parentNode.id
+				id = e.target.parentNode.parentNode.id
 			}
 			// do the swapping
 			let movingIndex = headerTabs.indexOf(tabToBeMoved.id)
@@ -849,7 +829,6 @@ export default function Index() {
 	}
 
 	useEffect(() => {
-		// console.log(existenceRef.current, grabTabExistence)
 		if (grabTabExistence === 1) {
 			// we are grabbing a tab
 			headerTabs.map((tabName) => {
@@ -1106,7 +1085,8 @@ export default function Index() {
 					href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@600&display=swap"
 					rel="stylesheet"
 				/>
-				{/* <link rel="icon" href="/favicon.ico" /> */}
+				<link rel="icon" href="/favicon.ico" sizes="any" />
+				<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 			</Head>
 
 			<header>
