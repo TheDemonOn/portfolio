@@ -19,7 +19,7 @@ export default function Portfolio({ y, distanceFromTopFunc }) {
 	}, [])
 	return (
 		<main className="inline tabContentPosition">
-			<SectionsTitle content="this site: codeantonio" size="true" id="overview" />
+			<SectionsTitle content="this site: code antonio" size="true" id="overview" />
 			<section>
 				<div className="contentSide">
 					<SectionContent

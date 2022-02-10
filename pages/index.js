@@ -554,7 +554,7 @@ export default function Index() {
 				headerLogic('homeTab')
 				setTitle(
 					<Head>
-						<title>Home</title>
+						<title>home | code antonio</title>
 					</Head>
 				)
 				inactiveTabfunc(selectedTab[0])
@@ -569,7 +569,7 @@ export default function Index() {
 				headerLogic('wordGeneratorTab')
 				setTitle(
 					<Head>
-						<title>Rhyming Word Generator</title>
+						<title>rhyming word generator | code antonio</title>
 					</Head>
 				)
 				inactiveTabfunc(selectedTab[0])
