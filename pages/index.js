@@ -554,7 +554,7 @@ export default function Index() {
 				headerLogic('homeTab')
 				setTitle(
 					<Head>
-						<title>home | code antonio</title>
+						<title>Home | Code Antonio</title>
 					</Head>
 				)
 				inactiveTabfunc(selectedTab[0])
@@ -569,7 +569,7 @@ export default function Index() {
 				headerLogic('wordGeneratorTab')
 				setTitle(
 					<Head>
-						<title>rhyming word generator | code antonio</title>
+						<title>Rhyming Word Generator | Code Antonio</title>
 					</Head>
 				)
 				inactiveTabfunc(selectedTab[0])
@@ -582,7 +582,7 @@ export default function Index() {
 				headerLogic('autojackTab')
 				setTitle(
 					<Head>
-						<title>Autojack</title>
+						<title>Autojack | Code Antonio</title>
 					</Head>
 				)
 				inactiveTabfunc(selectedTab[0])
@@ -595,7 +595,7 @@ export default function Index() {
 				headerLogic('randomTestTab')
 				setTitle(
 					<Head>
-						<title>Random Test</title>
+						<title>Random Test | Code Antonio</title>
 					</Head>
 				)
 				inactiveTabfunc(selectedTab[0])
@@ -608,7 +608,7 @@ export default function Index() {
 				headerLogic('portfolioTab')
 				setTitle(
 					<Head>
-						<title>This Site!</title>
+						<title>This Site! | Code Antonio</title>
 					</Head>
 				)
 				inactiveTabfunc(selectedTab[0])
@@ -619,7 +619,7 @@ export default function Index() {
 					setDisplayedTab(<EasterEgg />)
 					setTitle(
 						<Head>
-							<title>Easter Egg!</title>
+							<title>Easter Egg! | Code Antonio</title>
 						</Head>
 					)
 				}
