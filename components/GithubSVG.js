@@ -6,7 +6,6 @@ export default function GithubSVG() {
 			className="github"
 			aria-label="Link to this site on Git hub"
 			href="https://github.com/TheDemonOn/portfolio"
-			target="_blank"
 		>
 			<svg
 				width="2em"

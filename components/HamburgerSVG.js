@@ -124,7 +124,7 @@ export default function HamburgerSVG({ focus, selected }) {
 							}}
 						>
 							<Icons iconName="homeTab" big={true} active={active[0]} />
-							<p class="sideNavText">home</p>
+							<p className="sideNavText">home</p>
 						</button>
 						<button
 							className="sideNavSection"
@@ -136,7 +136,7 @@ export default function HamburgerSVG({ focus, selected }) {
 							}}
 						>
 							<Icons iconName="wordGeneratorTab" id="wordGenerator" big={true} active={active[1]} />
-							<p class="sideNavText">proj0_word_generator</p>
+							<p className="sideNavText">proj0_word_generator</p>
 						</button>
 						<button
 							className="sideNavSection"
@@ -148,7 +148,7 @@ export default function HamburgerSVG({ focus, selected }) {
 							}}
 						>
 							<Icons iconName="autojackTab" id="autojack" big={true} active={active[2]} />
-							<p class="sideNavText">proj1_autojack</p>
+							<p className="sideNavText">proj1_autojack</p>
 						</button>
 						<button
 							className="sideNavSection"
@@ -160,7 +160,7 @@ export default function HamburgerSVG({ focus, selected }) {
 							}}
 						>
 							<Icons iconName="randomTestTab" id="randomTest" big={true} active={active[3]} />
-							<p class="sideNavText">proj2_random_test</p>
+							<p className="sideNavText">proj2_random_test</p>
 						</button>
 						<button
 							className="sideNavSection"
@@ -172,11 +172,11 @@ export default function HamburgerSVG({ focus, selected }) {
 							}}
 						>
 							<Icons iconName="portfolioTab" id="portfolio" big={true} active={active[4]} />
-							<p class="sideNavText">proj3_portfolio</p>
+							<p className="sideNavText">proj3_portfolio</p>
 						</button>
 					</div>
 				</div>
-				<div class="darkFilter" onMouseDown={menuClose}></div>
+				<div className="darkFilter" onMouseDown={menuClose}></div>
 			</>
 		)
 	}

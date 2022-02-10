@@ -34,7 +34,6 @@ export default function SectionContent({ content, size, decoration, color, link,
 						` ${close}`
 					}
 					href={link}
-					target="_blank"
 				>
 					{content}
 				</a>
