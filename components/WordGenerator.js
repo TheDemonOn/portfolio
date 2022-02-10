@@ -38,7 +38,7 @@ export default function WordGenerator({ y, distanceFromTopFunc }) {
 						content="View the generator"
 						decoration="underline"
 						color="yellow"
-						link="https://www.codeantonio.com/"
+						link="https://wordgenerator.netlify.app/"
 					/>
 				</div>
 			</section>

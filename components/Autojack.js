@@ -36,7 +36,7 @@ export default function Autojack({ y, distanceFromTopFunc }) {
 						content="View Autojack"
 						decoration="underline"
 						color="yellow"
-						link="https://www.codeantonio.com/"
+						link="https://autojack.netlify.app/"
 					/>
 				</div>
 			</section>
