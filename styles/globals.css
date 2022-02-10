@@ -148,6 +148,10 @@ svg {
 	z-index: 10;
 }
 
+svg path {
+	cursor: pointer;
+}
+
 .sideNavUL svg {
 	position: fixed;
 }
@@ -161,6 +165,10 @@ svg {
 	padding-top: 0.2em;
 	padding-bottom: 0.3em;
 	display: block;
+}
+
+.sideNavBorder li button {
+	cursor: pointer;
 }
 
 .sideNavBorder li:hover {
@@ -431,6 +439,7 @@ svg {
 .drop {
 	left: 2.05em;
 	margin-top: 0.35em;
+	cursor: pointer;
 }
 
 .tabIcon {
@@ -518,6 +527,11 @@ svg {
 	margin-bottom: -1em;
 }
 
+.cardImage {
+	width: 10em;
+	margin: 0.1em;
+}
+
 .inBetweenImage {
 	width: 32em;
 }
@@ -543,8 +557,10 @@ svg {
 
 .flex {
 	display: flex;
-	/* align-items: space-between; */
-	/* align-self: center; */
+}
+
+.cardFlex {
+	display: flex;
 }
 
 /* ID's */
@@ -863,10 +879,13 @@ svg {
 	}
 }
 
-@media (max-width: 1055px) {
+@media (max-width: 910px) {
 	/* .biggerTitle {
 		font: normal normal 600 50px Source Code Pro;
 	} */
+	.cardImage {
+		width: 50%;
+	}
 }
 
 @media (max-width: 793px) {
@@ -1020,6 +1039,10 @@ svg {
 	}
 	.inBetweenImage {
 		width: 92vw;
+	}
+	.cardImage {
+		width: 22.5vw;
+		margin: 0.1em;
 	}
 }
 

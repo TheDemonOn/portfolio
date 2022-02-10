@@ -222,12 +222,6 @@ export default function Index() {
 					<a className="autojack">successes</a>
 				</button>
 			</li>
-			<li onMouseDown={switchTabCheck}>
-				<button className={autojackSubClass} onKeyDown={switchTabCheck}>
-					<Icons iconName="screenshots" sideNavClass={autojackSubClass} />
-					<a className="autojack">screenshots</a>
-				</button>
-			</li>
 		</ul>
 	)
 	const [navAutojackSection, setNavAutojackSection] = useState(emptySection)
@@ -275,12 +269,6 @@ export default function Index() {
 					<a className="randomTest">successes</a>
 				</button>
 			</li>
-			{/* <li onMouseDown={switchTabCheck}>
-				<button className={randomTestSubClass}>
-					<Icons iconName="screenshots" sideNavClass={randomTestSubClass} />
-					<a className="randomTest">screenshots</a>
-				</button>
-			</li> */}
 		</ul>
 	)
 	const [navRandomSection, setNavRandomSection] = useState(emptySection)

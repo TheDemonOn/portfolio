@@ -89,9 +89,6 @@ export default function Portfolio({ y, distanceFromTopFunc }) {
 					<SectionContent content="In particular I was not at all familiar with using ARIA to help the screen reader experience." />
 				</div>
 				<div className="contentSide">
-					<SectionContent content="In particular I was not at all familiar with using ARIA to help the screen reader experience." />
-				</div>
-				<div className="contentSide">
 					<SectionContent content="To the best of my ability I have made the experience of using this site with a screen reader as easy as possible." />
 				</div>
 			</section>

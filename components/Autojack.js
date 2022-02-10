@@ -93,6 +93,14 @@ export default function Autojack({ y, distanceFromTopFunc }) {
 				<div className="contentSide">
 					<SectionContent content="With the assistance of a graphic designer, a proper design was established with custom cards, as well as a variety of themes." />
 				</div>
+				<div className="cardFlex">
+					<Picture src="t1ace_club.png" alt="Ace of Clubs." className="cardImage" />
+					<Picture src="t2ace_diamond.png" alt="Ace of Diamonds." className="cardImage" />
+					{/* </div>
+				<div className="flex"> */}
+					<Picture src="t3ace_heart.png" alt="Ace of Hearts." className="cardImage" />
+					<Picture src="T4ace_spade.png" alt="Ace of Spades." className="cardImage" />
+				</div>
 				<SectionContent content="Animation" size="true" />
 				<div className="contentSide">
 					<SectionContent content="Animation was added using the React library Framer Motion." />
@@ -111,10 +119,7 @@ export default function Autojack({ y, distanceFromTopFunc }) {
 					<SectionContent content="A big challenge I faced with Autojack was simply becoming more familiar with React! In the future If I am ever going to learn or use a new tool or technology, I will do something small so that the complexity can be reduced." />
 				</div>
 				<div className="contentSide">
-					<SectionContent content="With Autojack I certainly bit off more than I could chew, having very large plans without cutting less useful features." />
-				</div>
-				<div className="contentSide">
-					<SectionContent content="This definitely helped build my understanding of figuring out what is essential for the project, and getting those sorted before expanding features." />
+					<SectionContent content="Autojack definitely helped build my understanding of figuring out what is essential for the project, and getting those sorted before expanding features." />
 				</div>
 				<div className="contentSide">
 					<SectionContent content="Similar to the previous project, one of the largest issues was not correctly managing a very large and sprawling codebase." />
@@ -126,7 +131,6 @@ export default function Autojack({ y, distanceFromTopFunc }) {
 					<SectionContent content="The largest thing I took away from Autojack and the Random Rhyming Word Generator was to manage and compartmentalize code for easier interaction with as a developer." />
 				</div>
 			</section>
-			<SectionsTitle content="screenshots" id="screenshots" />
 		</main>
 	)
 }
