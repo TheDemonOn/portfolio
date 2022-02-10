@@ -19,7 +19,7 @@ export default function Index() {
 	// these elements into components.
 
 	const [selectedTab, setSelectedTab] = useState(['home', 0])
-	const [displayedTab, setDisplayedTab] = useState(0)
+	const [displayedTab, setDisplayedTab] = useState()
 	const [title, setTitle] = useState()
 
 	const [activeTab, setActiveTab] = useState('yellow')
