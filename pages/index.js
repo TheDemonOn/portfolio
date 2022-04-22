@@ -1247,12 +1247,12 @@ export default function Index() {
 					spacing={spacing}
 				/>
 			</div>
-			<body>
+			<main>
 				<div className="bodyPosition" id="main-content">
 					{displayedTab}
 					{title}
 				</div>
-			</body>
+			</main>
 		</>
 	)
 }

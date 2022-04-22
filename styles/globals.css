@@ -24,6 +24,7 @@ body {
 	font-family: sans-serif;
 	background: #262538;
 	scroll-behavior: auto;
+	user-select: none;
 }
 
 a {
@@ -197,6 +198,7 @@ svg path {
 	background: #323146;
 	height: 3.5em;
 	width: 100vw;
+	z-index: 1;
 }
 
 .highlightedHeader {
@@ -555,6 +557,22 @@ svg path {
 
 .cardFlex {
 	display: flex;
+}
+
+.easterText {
+	position: relative;
+
+	top: 1.5rem;
+	color: #d5d5d9;
+}
+
+.cats {
+	position: relative;
+	border: solid;
+	margin-top: 2.5rem;
+	width: 50vw;
+	min-width: 20rem;
+	z-index: 0;
 }
 
 /* ID's */
