@@ -9,7 +9,7 @@ export default function EasterEgg() {
 			<h1 className="easterText">Wow what an explorer!</h1>
 			<div className="cats">
 				{' '}
-				<Image src={cats} layout="responsive" />{' '}
+				<Image src={cats} loading="eager" layout="responsive" />{' '}
 			</div>
 		</>
 	)
