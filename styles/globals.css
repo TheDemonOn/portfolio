@@ -409,6 +409,7 @@ svg path {
 	position: fixed;
 	top: 0.7em;
 	right: 1em;
+	z-index: 2;
 }
 .github:focus-visible {
 	outline: 3.5px dashed darkorange;
